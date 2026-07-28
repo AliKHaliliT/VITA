@@ -1,8 +1,14 @@
 # VITA
 
+<div align="center">
+
 ![License](https://img.shields.io/github/license/AliKHaliliT/VITA) ![Last Commit](https://img.shields.io/github/last-commit/AliKHaliliT/VITA) ![Open Issues](https://img.shields.io/github/issues/AliKHaliliT/VITA)
 
-**A personal operating system**: portfolio, digital garden, and life records in one static site. *Vita* is Latin for "life", the same root as *curriculum vitae*, and this is a CV on steroids: career, writing, reading, travel, and everything in between, published from Markdown.
+![VITA](util_resources/readme/logo.svg)
+
+</div>
+
+**A personal operating system**: portfolio, digital garden, and life records in one static site. *Vita* is Latin for "life", the same root as *curriculum vitae*. Think of it as a CV on steroids that covers career, writing, reading, travel, and everything in between, published from Markdown.
 
 Built with React + Vite, deployed to GitHub Pages. No server, no database. The repository's documentation and engineering conventions follow [My-Styles](https://github.com/AliKHaliliT/My-Styles).
 
@@ -15,7 +21,7 @@ VITA is the public face of a three-repo ecosystem. The other two are companion a
 - **The admin panel** manages every ledger on the site and produces the seed files (`profile.md`, `site.json`, `palette.json`, content Markdown) this repo publishes, along with the `portfolio.json` snapshot that feeds the builder.
 - **The resume builder** imports that `portfolio.json` and composes print-ready resumes and CVs (PDF, LaTeX, Word).
 
-The bridge between all three is files, not imports: this repo carries its half of the snapshot contract in `src/types/portfolio.ts` (format `vita-portfolio`, versioned).
+All three talk through files rather than imports. This repo carries its half of the snapshot contract in `src/types/portfolio.ts` (format `vita-portfolio`, versioned).
 
 ---
 
@@ -74,7 +80,7 @@ npm install
 npm run dev
 ```
 
-Make it yours: edit `src/content/settings/profile.md` (who you are), `src/content/settings/site.json` (site name, title, metas), and `src/content/settings/palette.json` (colors). All content lives in `src/content/`, and the shipped seed is a self-documenting demo set in a small fantasy world: the record of Wren Emberquill, an artificer of Cinderfen, where every entry's body states which field, variant, or edge case it shows (with and without links, broken images, open type values, story links, and so on). Nothing in it can be mistaken for a real person or credential. Browse the running site once before replacing the files.
+Make it yours: edit `src/content/settings/profile.md` (who you are), `src/content/settings/site.json` (site name, title, metas), and `src/content/settings/palette.json` (colors). All content lives in `src/content/`. The shipped seed is a self-documenting demo set in a small fantasy world, the record of Wren Emberquill, an artificer of Cinderfen. Every entry's body states which field, variant, or edge case it shows, from missing links to broken images to open type values, and nothing in it can be mistaken for a real person or credential. Browse the running site once before replacing the files.
 
 See [`docs/SETUP.md`](docs/SETUP.md) for full setup, deployment, and troubleshooting.
 
@@ -103,4 +109,4 @@ See [`docs/CONTENT-MODEL.md`](docs/CONTENT-MODEL.md) for frontmatter schemas for
 
 ## License
 
-[MIT](LICENCE): use it, fork it, make it your own.
+This work is under an [MIT](https://choosealicense.com/licenses/mit/) License.

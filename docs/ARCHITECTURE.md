@@ -98,9 +98,9 @@ filters the in-memory `ContentContext` arrays directly.
 
 VITA is one of **three repositories**: this public site, the admin panel, and the resume
 builder (decision [0004](decisions/0004-three-repo-ecosystem.md)). This repo ships zero
-editing machinery; the companions carry their own copies of whatever they share with the site
-(content types, helpers, the portfolio contract), so nothing here imports from them or vice
-versa. Their bridges are files:
+editing machinery. The companions carry their own copies of whatever they share with the
+site, so nothing here imports from them or vice versa. They talk to each other through
+files:
 
 - **Seed files in** (admin to site): the admin panel produces exactly what lives under
   `src/content/` (content Markdown, `profile.md`, `site.json`, `palette.json`); publishing an

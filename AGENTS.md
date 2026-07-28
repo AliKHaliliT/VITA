@@ -32,6 +32,11 @@ These are non-negotiable. Depth lives in the indexed documents; this is the chec
 - **Prose carries no em dashes.** Not in docs, comments, or UI copy. Use a colon for an
   explanatory clause, a semicolon to join two clauses, or parentheses for an aside. This
   applies to every character you write, source and Markdown alike.
+- **All prose must read as if a person wrote it.** The language-model tells (colon-led
+  definitions, balanced semicolon antitheses, triadic lists, not-X-but-Y reversals) are fine
+  one at a time and forbidden stacked: at most one such flourish per paragraph, plain
+  declarative sentences for the rest. Applies to docs, comments, UI copy, and commit
+  messages alike.
 - **Motion runs behind `LazyMotion` strict** (`domAnimation` features): always import and
   use `m.` from framer-motion, never `motion.` (a `motion.` component throws at runtime).
   The host loads no layout or drag features. See [docs/THEMING.md](docs/THEMING.md).

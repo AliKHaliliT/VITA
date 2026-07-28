@@ -89,10 +89,10 @@ The companion admin panel (its own repo in the VITA ecosystem) generates these s
 
 **Port already in use:**
 The dev server insists on port 3000 (`strictPort`) and exits if it is taken, instead of
-silently moving to 3001. That is deliberate: the browser scopes localStorage per origin,
-so a different port is a "new site" where the saved theme, palette override, and any
-runtime edits do not exist. Find and stop the old server (usually a forgotten terminal),
-or run on an explicit different port if you accept the fresh storage:
+silently moving to 3001. That is deliberate. The browser scopes localStorage per origin,
+so a different port is a "new site" where your saved theme and runtime edits do not exist.
+Find and stop the old server (usually a forgotten terminal), or run on an explicit
+different port if you accept the fresh storage:
 
 ```powershell
 npm run dev -- --port 3001

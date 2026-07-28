@@ -1,6 +1,6 @@
 # Content Model
 
-All types are defined once, in `src/types/content.ts` (the companion admin panel and resume builder keep their own copies; this file is the site's authority). There is no runtime schema validation: the loaders trust the frontmatter; `contentLoader.test.ts` pins the parsing/sorting behavior.
+All types are defined once, in `src/types/content.ts` (the companion admin panel and resume builder keep their own copies; this file is the site's authority). There is no runtime schema validation. The loaders trust the frontmatter, and `contentLoader.test.ts` pins the parsing and sorting behavior.
 
 ---
 

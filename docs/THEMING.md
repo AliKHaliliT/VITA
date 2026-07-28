@@ -1,14 +1,14 @@
 # Theming
 
 The design language is **"the dossier"**: a beautifully typeset technical file about one
-person. Two voices are strictly separated: the human voice (Fraunces for display, titles,
-essays, and italic asides) and the instrument voice (IBM Plex Mono for every date, count,
-status, chip, and button label), with Switzer sitting quietly between them for body copy.
-Warm chart-paper light mode, warm charcoal dark mode. The rule of forms: **data is square**
-(3px chips, hairline cards, dashed rules), **actions are round** (full pills). The signature
-elements are the **pixel band** (`ui/PixelBand`) and the **ground track**, a dashed line
-whose square field-green node marks the page's position in the site map (`GroundTrack`, with
-positions from `src/lib/nav.ts`).
+person. It separates two voices. Fraunces is the human voice for display, titles, essays,
+and italic asides, IBM Plex Mono is the instrument voice for every date, count, status,
+chip, and button label, and Switzer sits quietly between them for body copy. Light mode is
+warm chart paper and dark mode is warm charcoal. The rule of forms says **data is square**
+(3px chips, hairline cards, dashed rules) and **actions are round** (full pills). The
+signature elements are the **pixel band** (`ui/PixelBand`) and the **ground track**, a
+dashed line whose square field-green node marks the page's position in the site map
+(`GroundTrack`, with positions from `src/lib/nav.ts`).
 
 Light and dark mode switch via the `.dark` class on `<html>`, toggled by `useTheme` (a button
 in the TopBar) and persisted in `localStorage`.
