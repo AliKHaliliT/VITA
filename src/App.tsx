@@ -91,7 +91,10 @@ export default function App() {
     <LazyMotion features={domAnimation} strict>
     <MotionConfig reducedMotion="user">
       <ContentProvider>
-        <Router>
+        {/* Vite's base only rewrites asset URLs; the router must be told the
+            same base or a project-pages deploy (/VITA/) renders NotFound for
+            every route, including home. BASE_URL is "/" in dev. */}
+        <Router basename={import.meta.env.BASE_URL}>
           <ScrollToTop />
           <TitleSync />
           <div className="min-h-screen bg-[var(--color-background)] font-sans text-[var(--color-text-primary)]">
