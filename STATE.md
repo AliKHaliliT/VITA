@@ -5,19 +5,17 @@ Current project status. Read this before starting work. Format and rules: see
 
 ## Now
 
-- Preparing the first commit of the fresh history: the ecosystem split into three repos,
-  the seed became the self-documenting demo record, and the owner's real content moved to
-  the untracked `my-content/` store (2026-07-24).
+- The template is live at alikhalilit.github.io/VITA/ and the owner's real record moved to
+  its own deployment repo (AliKHaliliT/AliKHaliliT), so this repo is purely the template
+  again: demo seed in, personal store gone (2026-07-28).
 
 ## Next
 
-- Link the two companion repos (admin panel, resume builder) from the README once they are
-  public and their final names are settled (2026-07-24).
-- Publish: flip the repo public, enable Settings, Pages, Source, GitHub Actions, and push
-  `main` (2026-07-24).
-- Decide the personal-deployment story: the shipped seed is the demo record, and deploying
-  the real one means swapping `my-content/` over `src/content/` in a private branch, fork,
-  or build step (2026-07-24).
+- Link the two companion repos (TABULARIUM, EPITOMA) from the README once they are public
+  (2026-07-28).
+- Flip the repo public and add the badges' targets time to accumulate (2026-07-28).
+- Propagate the portfolio-contract change (optional palette in the snapshot) from the
+  companions once it lands there (2026-07-28).
 
 ## Deferred
 

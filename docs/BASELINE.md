@@ -66,10 +66,6 @@ its trigger disappears. A conditional file whose trigger is gone is clutter, not
 - Operating-system junk: `.DS_Store`, `Thumbs.db`, `Desktop.ini`.
 - Browser-automation scratch: `.playwright-mcp/` (also watcher-ignored in `vite.config.ts`,
   because downloads there once crashed hot reload).
-- The owner's real content store: `my-content/`, a root folder mirroring `src/content/`.
-  The tracked seed is the self-documenting demo record; deploying a real record means
-  swapping the store's files over the seed and rebuilding. It exists only on the owner's
-  machine, so it is backed up outside git.
 
 ## Temporary development files
 

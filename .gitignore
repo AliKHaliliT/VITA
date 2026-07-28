@@ -42,9 +42,6 @@ pnpm-debug.log*
 .mcp.json
 .playwright-mcp/
 
-# The owner's real content store (the template ships the demo seed in
-# src/content/; deploying a real record means swapping these files in)
-my-content/
-
 # Regenerable icon exports (npm run icon)
 pixel-mark-*.png
+
