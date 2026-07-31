@@ -6,6 +6,8 @@
 
 ![VITA](util_resources/readme/logo.svg)
 
+**[Live demo](https://alikhalilit.github.io/VITA/)**
+
 </div>
 
 **A personal operating system**: portfolio, digital garden, and life records in one static site. *Vita* is Latin for "life", the same root as *curriculum vitae*. Think of it as a CV on steroids that covers career, writing, reading, travel, and everything in between, published from Markdown.
@@ -16,25 +18,39 @@ Built with React + Vite, deployed to GitHub Pages. No server, no database. The r
 
 ## The ecosystem
 
-VITA is the public face of a three-repo ecosystem. The other two are companion apps, kept separate so the published site ships zero editing machinery:
+VITA is the public face of a three-repo family. The other two are companion apps, kept separate so the published site ships zero editing machinery:
 
-- **The admin panel** manages every ledger on the site and produces the seed files (`profile.md`, `site.json`, `palette.json`, content Markdown) this repo publishes, along with the `portfolio.json` snapshot that feeds the builder.
-- **The resume builder** imports that `portfolio.json` and composes print-ready resumes and CVs (PDF, LaTeX, Word).
+| App | Role | Demo |
+| --- | --- | --- |
+| **VITA** (this repo) | The site: renders the record | [alikhalilit.github.io/VITA](https://alikhalilit.github.io/VITA/) |
+| [**TABULARIUM**](https://github.com/AliKHaliliT/TABULARIUM) | The admin panel: edits every ledger and publishes the seed files | [alikhalilit.github.io/TABULARIUM](https://alikhalilit.github.io/TABULARIUM/) |
+| [**EPITOMA**](https://github.com/AliKHaliliT/EPITOMA) | The resume builder: condenses the record into resumes and CVs | [alikhalilit.github.io/EPITOMA](https://alikhalilit.github.io/EPITOMA/) |
 
 All three talk through files rather than imports. This repo carries its half of the snapshot contract in `src/types/portfolio.ts` (format `vita-portfolio`, versioned).
 
 ---
 
-## Tech stack
+## Make it your portfolio
 
-| Layer     | Choice                      |
-| --------- | --------------------------- |
-| Framework | React 19 + TypeScript       |
-| Build     | Vite 7                      |
-| Styling   | Tailwind CSS v4             |
-| Routing   | React Router DOM v7         |
-| Animation | Framer Motion (LazyMotion)  |
-| Content   | Markdown + YAML frontmatter |
+1. **Use this template.** Click "Use this template" on GitHub and create your repository (any name works; the deploy adapts to it).
+2. **Turn on Pages.** In your new repo: Settings → Pages → Source: **GitHub Actions**. The included [deploy workflow](.github/workflows/deploy.yml) builds and publishes on every push to `main`.
+3. **Push.** Your site goes live at `https://<username>.github.io/<repo>/`.
+4. **Make it yours.** Replace the demo record (see below). Identity lives in three seed files: `src/content/settings/profile.md` (who you are), `site.json` (site name, title, metas), and `palette.json` (colors).
+
+The shipped seed is a self-documenting demo set in a small fantasy world, the record of Wren Emberquill, an artificer of Cinderfen. Every entry's body states which field, variant, or edge case it shows, and nothing in it can be mistaken for a real person or credential. Browse the running site once before replacing the files.
+
+See [`docs/SETUP.md`](docs/SETUP.md) for full setup, deployment, and troubleshooting.
+
+---
+
+## Adding content
+
+Two ways, same files either way:
+
+- **By hand.** Create a `.md` file in `src/content/<type>/` with the correct frontmatter and commit it. [`docs/CONTENT-MODEL.md`](docs/CONTENT-MODEL.md) documents every type's schema. Content is bundled eagerly, so restart `npm run dev` after adding files locally.
+- **With the admin panel.** [TABULARIUM](https://github.com/AliKHaliliT/TABULARIUM) gives every ledger a real editor (rich text, live identity and palette previews, all nineteen content types) and produces exactly these files. Download them as a zip laid out in this repo's structure, or connect the panel straight to your repository with a fine-grained token and push edits as commits, conflicts handled per file. The [hosted panel](https://alikhalilit.github.io/TABULARIUM/) works out of the box; everything stays in your browser until you publish.
+
+When you want the record as documents instead of a site, [EPITOMA](https://github.com/AliKHaliliT/EPITOMA) turns it into print-ready resumes and CVs: point it at your public site repository and it pulls the content itself, no token needed.
 
 ---
 
@@ -73,16 +89,14 @@ All three talk through files rather than imports. This repo carries its half of 
 
 ---
 
-## Getting started
+## Run locally
 
 ```powershell
 npm install
 npm run dev
 ```
 
-Make it yours: edit `src/content/settings/profile.md` (who you are), `src/content/settings/site.json` (site name, title, metas), and `src/content/settings/palette.json` (colors). All content lives in `src/content/`. The shipped seed is a self-documenting demo set in a small fantasy world, the record of Wren Emberquill, an artificer of Cinderfen. Every entry's body states which field, variant, or edge case it shows, from missing links to broken images to open type values, and nothing in it can be mistaken for a real person or credential. Browse the running site once before replacing the files.
-
-See [`docs/SETUP.md`](docs/SETUP.md) for full setup, deployment, and troubleshooting.
+The site opens on port 3000 (TABULARIUM uses 3100 and EPITOMA 3200, so all three run side by side).
 
 ---
 
@@ -96,14 +110,6 @@ See [`docs/SETUP.md`](docs/SETUP.md) for full setup, deployment, and troubleshoo
 | [`docs/ROADMAP.md`](docs/ROADMAP.md)             | Feature landscape and standing technical debt               |
 
 For contributors and coding agents, see [`AGENTS.md`](AGENTS.md): the vendor-neutral entry point and the full documentation index.
-
----
-
-## Adding content
-
-Create a `.md` file in `src/content/<type>/` with the correct frontmatter, then restart `npm run dev` (content is bundled eagerly, so hot reload alone is not enough). The companion admin panel generates these files for you.
-
-See [`docs/CONTENT-MODEL.md`](docs/CONTENT-MODEL.md) for frontmatter schemas for every type.
 
 ---
 
