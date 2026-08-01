@@ -30,6 +30,18 @@ The three apps talk through files rather than imports. This repo carries its hal
 
 ---
 
+## How the system works
+
+The record itself is nothing more than files. Every entry on the site is a Markdown file with YAML frontmatter, and the site identity, palette, and page copy are small JSON and Markdown seeds beside them. The repository is the database, the git history is the audit log, and a `git clone` is a complete backup.
+
+VITA turns those files into a static site at build time. Content is bundled during the build rather than fetched at runtime, so the published site is plain HTML, CSS, and JavaScript that any static host can serve. There is no server to run, no database to maintain, and nothing to sign up for beyond the GitHub repository itself.
+
+The CMS is a separate and entirely optional layer. TABULARIUM runs in the browser, stages every edit in localStorage, and sends nothing anywhere while you work. Publishing means producing the same files you could have written by hand. The panel can hand them over as single downloads, package the whole record as a zip in this repo's layout, or commit them to this repository directly, using a fine-grained token that stays in your browser. Because the panel writes ordinary files, hand edits and panel edits coexist, and if the panel vanished tomorrow the record would still be perfectly readable Markdown.
+
+The loop closes on its own. When the panel pushes, or when you commit by hand, the Pages workflow rebuilds and the site is live a minute or two later. EPITOMA sits at the read-only end of the chain, pulls the same record straight from the public repository, and turns it into documents without a token, a server, or an export step in between.
+
+---
+
 ## Make it your portfolio
 
 1. **Use this template.** Click "Use this template" on GitHub and create your repository. Any name works, because the deploy adapts to it.
