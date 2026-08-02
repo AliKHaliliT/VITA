@@ -5,6 +5,8 @@ Current project status. Read this before starting work. Format and rules: see
 
 ## Now
 
+- The whole ecosystem is public: this repo, both companions, and the owner's deployment
+  all flipped visibility, so every badge and cross-repo link resolves (2026-08-01).
 - The docs baseline synced with the 2026-08-01 My-Styles changes, adopting the sharpened
   human-prose rule and the public-audience rule with the untracked LOCAL.md ledger
   (2026-08-01).
@@ -15,7 +17,7 @@ Current project status. Read this before starting work. Format and rules: see
 
 ## Next
 
-- Flip the repo public and add the badges' targets time to accumulate (2026-07-28).
+- Nothing queued.
 
 ## Deferred
 
