@@ -55,6 +55,37 @@ See [`docs/SETUP.md`](docs/SETUP.md) for full setup, deployment, and troubleshoo
 
 ---
 
+## Keeping your copy current
+
+The template keeps evolving after you copy it, and [`CHANGELOG.md`](CHANGELOG.md) records
+what each release changed. How you pull those changes in depends on how you created your
+repository.
+
+If you clicked "Use this template", your repository shares no git history with this one,
+so GitHub offers no sync button and git does the job instead. Connect the template once as
+a second remote, then merge whenever the changelog gives you a reason to.
+
+```powershell
+git remote add template https://github.com/AliKHaliliT/VITA.git
+git fetch template
+git merge template/main --allow-unrelated-histories
+```
+
+The `--allow-unrelated-histories` flag is only needed the first time, since that merge
+stitches the two histories together; from then on a plain `git fetch template` followed by
+`git merge template/main` is enough. Your record lives entirely under `src/content/`,
+which releases never touch, so conflicts are rare and confined to files you deliberately
+customized. Push the merge and the site redeploys itself.
+
+Forking is the alternative for people who want one-click updates. A fork keeps its link to
+this repository, so GitHub's "Sync fork" button does the merging for you. That convenience
+has a price. A fork of a public repository cannot be made private, it wears a
+"forked from" banner, and its history starts with every commit of this template rather
+than cleanly with your own record. Both paths deploy identically, so choose by whether
+easy updates or a clean private-capable start matters more to you.
+
+---
+
 ## Adding content
 
 There are two ways to add content, and both produce the same files.
