@@ -148,6 +148,9 @@ identity as the site. The full token reference lives in
 
 ## Features
 
+The sections are the visible half; the other half is the system underneath them, and it
+is listed here too because most of the engineering lives there.
+
 ### Career
 
 - Projects portfolio
@@ -170,14 +173,29 @@ identity as the site. The full token reference lives in
 - Travel log from countries down to cities
 - Interests ledger with story links into the garden
 
+### The record's machinery
+
+- Nineteen content types, each mapping one-to-one to a folder, a TypeScript interface, and a route
+- Open type fields that never gate what a record can hold; a degree can be "Journeyman" and a publication a "charter", and the site renders any label you invent
+- Story links that cross-reference the record, so an interest, a book, or a city can point at the garden note or blog post that tells its story
+- Off-site writing as first-class entries; a post whose home is Medium or dev.to lists, searches, and links out like everything else
+- Free-form profile links with an icon registry, so any platform joins the hero and footer without a schema change
+
 ### The system
 
 - A "dossier" design language built from serif display type, mono data chips, and dashed hairlines
 - Dark and light mode with a full-page crossfade
-- Command-palette search (Ctrl K / ⌘K) across the whole record
-- Runtime color palettes, site identity, and page copy, all seeded from files
+- Command-palette search (Ctrl K / ⌘K) across the whole record, deep-linking straight to entries
+- Every ledger row links out to its item's own destination, never just to a section page
+- Runtime color palettes, site identity, and page copy, all seeded from files; renaming or rebranding the site is a JSON edit
+- An instrument-grade motion system behind a lazy-loaded engine, honoring the visitor's reduced-motion preference throughout
+- A generative ambient canvas drifting behind the masthead, palette-aware and paused when offscreen
+- A featured project without an image gets designed schematic art drawn from the palette, not a broken-image glyph
+- Self-hosted fonts and zero third-party requests; the published site phones nobody
+- Social and SEO metas baked at build from the identity seed, per-page titles, and deep links that survive hard refreshes on GitHub Pages
 - Obfuscated email chips instead of scrapeable mailto links
 - Empty sections hide themselves, so nothing advertises a page with no content
+- CI ships with the template; every push type-checks, lints, tests, and builds before it deploys
 
 ---
 
