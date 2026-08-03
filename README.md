@@ -46,7 +46,10 @@ The loop closes on its own. When the panel pushes, or when you commit by hand, t
 
 1. **Use this template.** Click "Use this template" on GitHub and create your repository. Any name works, because the deploy adapts to it.
 2. **Turn on Pages.** In your new repo, open Settings, then Pages, and set the source to **GitHub Actions**. The included [deploy workflow](.github/workflows/deploy.yml) builds and publishes on every push to `main`.
-3. **Push.** Your site goes live at `https://<username>.github.io/<repo>/`.
+3. **Push.** Your site goes live at `https://<username>.github.io/<repo>/`. The workflow
+   derives the URL base from the repository name, so any name works. The one exception is
+   a user page (a repo named `<username>.github.io`) or a custom domain, where you edit
+   one line in the workflow and set `VITE_BASE_PATH` to `/`.
 4. **Make it yours.** Replace the demo record as described below. Who you are lives in `src/content/settings/profile.md`, the site name and metas live in `site.json`, and the colors live in `palette.json`.
 
 The shipped seed is a self-documenting demo set in a small fantasy world. It is the record of Wren Emberquill, an artificer of Cinderfen, and every entry's body states which field, variant, or edge case it demonstrates, so nothing in it can be mistaken for a real person or credential. Browse the running site once before replacing the files.
@@ -90,7 +93,22 @@ easy updates or a clean private-capable start matters more to you.
 
 There are two ways to add content, and both produce the same files.
 
-The manual way is to create a `.md` file in `src/content/<type>/` with the correct frontmatter and commit it. Every type's schema is documented in [`docs/CONTENT-MODEL.md`](docs/CONTENT-MODEL.md). Content is bundled eagerly, so restart `npm run dev` after adding files locally.
+The manual way is to create a `.md` file in `src/content/<type>/` with the correct frontmatter and commit it. An entry is nothing more than this:
+
+```markdown
+---
+title: My New Project
+role: Designer & Developer
+year: "2026"
+link: https://github.com/you/my-new-project
+tags:
+  - React
+---
+
+A line or two about what it is and why it exists.
+```
+
+Every type's schema is documented in [`docs/CONTENT-MODEL.md`](docs/CONTENT-MODEL.md). Content is bundled eagerly, so restart `npm run dev` after adding files locally.
 
 The comfortable way is the admin panel. [TABULARIUM](https://github.com/AliKHaliliT/TABULARIUM) gives every ledger a real editor with rich text, live identity and palette previews, and all nineteen content types, and it produces exactly the files this repo publishes. You can download them one by one, download the whole record as a zip laid out in this repo's structure, or connect the panel straight to your repository with a fine-grained token and push edits as commits, resolving any conflicts file by file. The [hosted panel](https://alikhalilit.github.io/TABULARIUM/) works out of the box, and everything you edit stays in your browser until you publish it.
 
@@ -135,12 +153,16 @@ When you want the record as documents instead of a site, [EPITOMA](https://githu
 
 ## Run locally
 
+You need Node.js 20 or newer (the deploy workflow builds on 22) and git; nothing else.
+
 ```powershell
 npm install
 npm run dev
 ```
 
-The site opens on port 3000. TABULARIUM uses 3100 and EPITOMA uses 3200, so all three run side by side.
+The site opens on port 3000. TABULARIUM uses 3100 and EPITOMA uses 3200, so all three run
+side by side. `npm test` runs the characterization suites that pin content parsing and
+the export contract, and `npm run build` type-checks and produces the static `dist/`.
 
 ---
 
