@@ -76,9 +76,16 @@ git merge template/main --allow-unrelated-histories
 
 The `--allow-unrelated-histories` flag is only needed the first time, since that merge
 stitches the two histories together; from then on a plain `git fetch template` followed by
-`git merge template/main` is enough. Your record lives entirely under `src/content/`,
-which releases never touch, so conflicts are rare and confined to files you deliberately
-customized. Push the merge and the site redeploys itself.
+`git merge template/main` is enough. Your record lives under `src/content/`, and releases
+leave it alone with one honest exception. A release that introduces a new section ships
+that section's demo seed, because a capability needs something to show. Those seeds arrive
+as files that do not exist on your side, so the merge stays conflict-free; they simply
+render as demo entries until you replace them with your own or delete them, exactly like
+the original seed. The one conflict you may meet is git's modify/delete complaint when a
+release touches a demo file you removed while clearing out the original record, and
+confirming the deletion with `git rm` settles it. Beyond that, conflicts are rare and
+confined to code you deliberately customized. Push the merge and the site redeploys
+itself.
 
 Forking is the alternative for people who want one-click updates. A fork keeps its link to
 this repository, so GitHub's "Sync fork" button does the merging for you. That convenience
