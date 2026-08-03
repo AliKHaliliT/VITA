@@ -9,8 +9,10 @@
 //      site by pushing this one file (next build wears it).
 //   2. index.css @theme literals: pre-CSS-variable fallback only; kept
 //      loosely in sync with the seed but never load-bearing.
-//   3. localStorage ("os_palette"): a per-browser override, edited live in
-//      Admin → Appearance and applied at boot before first render.
+//   3. localStorage ("os_palette"): a per-browser override applied at boot
+//      before first render. The editor that once wrote it moved out with the
+//      admin (now TABULARIUM, a separate origin), so today it is a hook for
+//      local experiments rather than a user-facing layer.
 
 import { safeSetItem } from "@/lib/storage";
 import { generatePaletteCss, type Palette, type PaletteMode } from "@/lib/paletteCss";

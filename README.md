@@ -123,6 +123,29 @@ When you want the record as documents instead of a site, [EPITOMA](https://githu
 
 ---
 
+## Changing the colors
+
+The site's entire look hangs on one file. Every color VITA renders comes from design
+tokens seeded by `src/content/settings/palette.json`, as a matched light and dark pair,
+and the build bakes them into the page itself so visitors see your palette before any
+JavaScript runs. Nothing in the source hardcodes a color, which means replacing that one
+file and pushing recolors everything, from the buttons and hairlines to the ambient
+canvas drifting behind the masthead.
+
+You do not have to write the JSON by hand. The [admin panel](https://github.com/AliKHaliliT/TABULARIUM)'s
+Appearance tab ships five ready palettes (Rangefinder, the deployed default, plus
+Meridian, Blueprint, Observatory, and Ledger), gives every token its own picker annotated
+with where that color actually shows up, previews light and dark live as you work, and
+keeps a shelf for custom palettes you design and save. "Download palette.json" exports
+exactly the seed this repo expects, ready to commit.
+
+One smaller convenience rounds it out. The palette rides inside the portfolio export, so
+resumes built in [EPITOMA](https://github.com/AliKHaliliT/EPITOMA) can adopt the same
+identity as the site. The full token reference lives in
+[`docs/THEMING.md`](docs/THEMING.md).
+
+---
+
 ## Features
 
 ### Career
