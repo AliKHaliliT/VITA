@@ -113,19 +113,26 @@ export const DraftingPlot = ({ title, year }: { title: string; year?: string }) 
         />
       ))}
 
-      {/* the plotting head wandering the sheet */}
-      <m.g
-        stroke={SIGNAL}
-        strokeWidth="1.2"
-        initial={false}
-        animate={{ x: [70, 330, 330, 70], y: [70, 70, 200, 70] }}
-        transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
-      >
-        <line x1="-9" y1="0" x2="9" y2="0" />
-        <line x1="0" y1="-9" x2="0" y2="9" />
-        <circle r="4" opacity="0.6" />
-      </m.g>
     </svg>
+
+    {/* The plotting head wandering the sheet. It lives in HTML, not the SVG:
+        transform animations on an SVG group fall between the two drivers this
+        stack ships (WAAPI covers HTML transforms, the JS loop covers SVG
+        attributes), so the head animates left/top on a positioned element. */}
+    <m.div
+      className="absolute"
+      initial={{ left: "14%", top: "24%" }}
+      animate={{ left: ["14%", "76%", "76%", "14%"], top: ["24%", "24%", "72%", "24%"] }}
+      transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
+    >
+      <svg width="26" height="26" viewBox="-13 -13 26 26" className="-translate-x-1/2 -translate-y-1/2" fill="none">
+        <g stroke={SIGNAL} strokeWidth="1.2">
+          <line x1="-9" y1="0" x2="9" y2="0" />
+          <line x1="0" y1="-9" x2="0" y2="9" />
+          <circle r="4" opacity="0.6" />
+        </g>
+      </svg>
+    </m.div>
 
     {/* plot chip and readout, HTML so the tokens style them like real chips */}
     <span className="absolute left-[7%] top-[13%] flex items-center gap-1.5 rounded-ctl border border-[var(--color-border-strong)] bg-[var(--color-background)] px-2 py-1 font-mono text-[10px] uppercase tracking-[0.08em]">
@@ -157,7 +164,7 @@ export const SpecimenPlate = ({ title, year }: { title: string; year?: string })
         <m.rect
           key={i}
           x={cell.x} y={cell.y} width="14" height="14" fill={cell.fill}
-          initial={false}
+          initial={{ opacity: 0.85 }}
           animate={{ opacity: [0.85, 0.35, 0.85] }}
           transition={{ duration: 3.6, delay: i * 0.6, repeat: Infinity, ease: "easeInOut" }}
         />
