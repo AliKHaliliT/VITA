@@ -8,14 +8,14 @@ warm chart paper and dark mode is warm charcoal. The rule of forms says **data i
 (3px chips, hairline cards, dashed rules) and **actions are round** (full pills). The
 signature elements are the **pixel band** (`ui/PixelBand`) and the **ground track**, a
 dashed line whose square field-green node marks the page's position in the site map
-(`GroundTrack`, with positions from `src/lib/nav.ts`).
+(`GroundTrack`, with positions from `src/shared/config/nav.ts`).
 
 Light and dark mode switch via the `.dark` class on `<html>`, toggled by `useTheme` (a button
 in the TopBar) and persisted in `localStorage`.
 
 ## Color tokens
 
-CSS custom properties live in `src/index.css` (the `@theme` block; dark values under
+CSS custom properties live in `src/app/styles/tokens.css` (the `@theme` block; dark values under
 `:root.dark`). The literals are the **Rangefinder** preset, the shipped default. Text and
 ground pairs meet WCAG AA in both themes.
 
@@ -54,8 +54,8 @@ the seed, localStorage overrides). This is the file-seed model from decision
    as an `os-palette-override` style tag appended after the seed block, so it wins at equal
    specificity. Per-browser only.
 
-`src/lib/paletteCss.ts` is the dependency-free palette-to-CSS generator shared by the app and
-the Vite plugin; `src/lib/palette.ts` holds the preset catalog (Rangefinder, Meridian,
+`src/entities/site/paletteCss.ts` is the dependency-free palette-to-CSS generator shared by the app and
+the Vite plugin; `src/entities/site/palette.ts` holds the preset catalog (Rangefinder, Meridian,
 Blueprint, Observatory, Ledger), the per-token guide, `SEED_PALETTE`, and persistence. The
 companion admin panel carries the editor (presets, per-token pickers, Download palette.json in
 the exact seed-file format). Because everything reads the CSS variables, no component knows
@@ -116,11 +116,11 @@ the signature elements behave like a powered-on instrument.
 - **Reduced motion.** `MotionConfig reducedMotion="user"` covers Framer; the global CSS
   guard neutralizes keyframes and transitions; AmbientField checks the media query itself.
 
-## Shared atoms (`src/components/ui/`)
+## Shared atoms (`src/shared/ui/`)
 
 `Badge` (the annotation chip: square, mono, optional field-green glow dot), `PillLink` and
 `PillButton` (round actions), `PixelBand` (mosaic divider), `SectionBlock` (numbered dossier
 chapter scaffold), `PageHeader` (mono eyebrow plus Fraunces title plus track), `GroundTrack`,
 `FilterBar` (pills, ink-solid active), `TagList` (mono `#tags`), `EmptyState`, `Modal`, and
-`Markdown` (a code-split renderer). The nav map lives in `src/lib/nav.ts`, shared by TopBar,
+`Markdown` (a code-split renderer). The nav map lives in `src/shared/config/nav.ts`, shared by TopBar,
 Footer, and GroundTrack.

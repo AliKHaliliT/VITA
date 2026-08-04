@@ -15,7 +15,7 @@ tagged, at which point its contents move under a version heading.
   `src/content/settings/palette.json` with a per-browser localStorage override.
 - File-seeded site identity: name, title, social metadata, and optional owner-voice fields
   (hero monogram, footer sign-off, colophon), seeded through `src/content/settings/site.json`.
-- The `portfolio.json` export contract (`src/types/portfolio.ts`, format `vita-portfolio`,
+- The `portfolio.json` export contract (`src/features/portfolio-export/contract.ts`, format `vita-portfolio`,
   versioned): a snapshot of the whole record that feeds the companion resume builder and
   doubles as a backup format.
 - Open-ended profile links: a free-form "Label: URL" list in the profile for any platform
@@ -92,6 +92,14 @@ tagged, at which point its contents move under a version heading.
 
 ### Changed
 
+- Restructured the source tree into one-way sliced layers
+  (`app -> pages -> features -> entities -> shared`), each slice entered through its own
+  public door, with the composition root split into a bootstrap, a provider stack, a route
+  table, and the page chrome. Suites moved to a `tests/` tree mirroring `src/`.
+- Content is now checked as it enters the record. A bundled markdown file whose frontmatter
+  cannot produce a valid item fails with the path named, and a localStorage override written
+  by the companion admin panel that breaks the contract falls back to the committed seed
+  with the key to clear named, instead of reaching a page as if the site had produced it.
 - Renamed the project to VITA and relicensed under MIT for public template use.
 - Split the ecosystem into three repos: this public site, the admin panel, and the resume
   builder; the site ships zero editing machinery and bridges to the companions by files
