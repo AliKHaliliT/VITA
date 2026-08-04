@@ -136,6 +136,7 @@ function CourseCard({ item }: { item: Course }) {
   );
 }
 
+/** The education history, newest first. */
 export const EducationPage = () => {
   const { education, courses } = useContent();
 

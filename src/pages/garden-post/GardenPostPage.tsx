@@ -6,6 +6,7 @@ import { useContent } from "@/entities/record";
 import { Badge, TagList, EmptyState, Markdown } from "@/shared/ui";
 import { useSiteIdentity } from "@/entities/site";
 
+/** One garden note. */
 export const GardenPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const { posts } = useContent();

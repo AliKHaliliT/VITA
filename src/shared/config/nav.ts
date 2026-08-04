@@ -20,11 +20,13 @@ import {
   Smile,
 } from "lucide-react";
 
+/** One destination in the site map: its glyph, its label, and its path. */
 export type NavItem = {
   icon: React.ComponentType<{ size?: number; className?: string }>;
   label: string;
   path: string;
 };
+/** A labelled run of destinations, which is also a tick on the ground track. */
 export type NavGroup = { label?: string; separator?: boolean; items: NavItem[] };
 
 /**

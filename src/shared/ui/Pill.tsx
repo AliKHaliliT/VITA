@@ -38,6 +38,7 @@ export const PillLink = ({
   </Link>
 );
 
+/** A pill-shaped button, the round counterpart to a square data chip. */
 export const PillButton = ({
   variant = "solid",
   className,

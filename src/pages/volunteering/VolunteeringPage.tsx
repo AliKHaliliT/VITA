@@ -6,6 +6,7 @@ import { useContent } from "@/entities/record";
 import { cn, formatMonthYearRange } from "@/shared/lib";
 import { usePageDescription } from "@/entities/site";
 
+/** The volunteering history, newest first. */
 export const VolunteeringPage = () => {
   const { volunteering } = useContent();
 

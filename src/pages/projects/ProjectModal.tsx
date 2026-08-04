@@ -8,6 +8,7 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
+/** One project in detail, with its long-form description. */
 export const ProjectModal = ({
   project,
   isOpen,

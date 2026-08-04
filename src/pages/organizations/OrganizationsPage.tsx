@@ -12,6 +12,7 @@ const dateRange = (start?: string, end?: string) => {
   }`;
 };
 
+/** The memberships and affiliations. */
 export const OrganizationsPage = () => {
   const { organizations } = useContent();
 

@@ -12,6 +12,13 @@ import { useContent, Country, Trip, CityCard } from "@/entities/record";
 import { PageHeader, EmptyState, TagList } from "@/shared/ui";
 import { usePageDescription } from "@/entities/site";
 
+/**
+ * The travel map: countries with their cities nested underneath.
+ *
+ * Countries and cities are separate collections joined here on an exact country
+ * name match, so a city whose country has no entry renders under an orphan group
+ * rather than disappearing.
+ */
 export const TravelPage = () => {
   const { trips, countries } = useContent();
   const [expandedCountry, setExpandedCountry] = useState<string | null>(null);

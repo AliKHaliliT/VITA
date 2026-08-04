@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { cn } from "@/shared/lib";
 
+/** One selectable filter: the value stored and the label shown. */
 export type FilterOption = { value: string; label: string };
 
 /** Pills shown before the row collapses behind a "+N more" toggle. */

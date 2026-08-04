@@ -7,6 +7,7 @@ import { usePageDescription } from "@/entities/site";
 
 const TYPE_ORDER = ["technical", "professional", "academic", "language", "other"] as const;
 
+/** The certificate ledger, filterable by kind. */
 export const CertificatesPage = () => {
   const { certificates } = useContent();
   const [filter, setFilter] = useState<string>("all");

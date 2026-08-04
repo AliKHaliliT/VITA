@@ -7,6 +7,7 @@ import { usePageDescription } from "@/entities/site";
 
 const CATEGORY_ORDER = ["hobby", "sport", "creative", "technical", "social", "other"];
 
+/** The interests, grouped by category. */
 export const InterestsPage = () => {
   const { interests } = useContent();
 

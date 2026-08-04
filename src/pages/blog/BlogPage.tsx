@@ -7,6 +7,7 @@ import { formatShortDate, hostLabel } from "@/shared/lib";
 import { PageHeader, FilterBar, EmptyState, Badge, TagList } from "@/shared/ui";
 import { usePageDescription } from "@/entities/site";
 
+/** The article index, filterable by series and tag. */
 export const BlogPage = () => {
   const { blog } = useContent();
   const [tagFilter, setTagFilter] = useState("All");

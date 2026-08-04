@@ -13,6 +13,7 @@ const isOwner = (author: string, name?: string) => {
   return !!a && !!n && (a === n || n.startsWith(`${a} `) || a.startsWith(`${n} `));
 };
 
+/** The publication list, grouped by kind and citable. */
 export const PublicationsPage = () => {
   const { publications, settings } = useContent();
   const [typeFilter, setTypeFilter] = useState("All");

@@ -13,6 +13,7 @@ import { usePageDescription } from "@/entities/site";
 const summary = (p: Project) =>
   p.desc || firstLine(p.body || p.fullDesc, 200);
 
+/** The project index, led by the featured work and filterable by tag. */
 export const ProjectsPage = () => {
   const { projects } = useContent();
   const [selectedFilter, setSelectedFilter] = useState("All");

@@ -34,7 +34,27 @@ function warnIfSeedChanged(type: ContentType) {
   }
 }
 
+/**
+ * The record's store: bundled markdown, optionally shadowed by this browser.
+ *
+ * The override is written by the companion admin panel rather than by this site,
+ * which is why every read of it is checked rather than trusted.
+ *
+ * @example
+ * ```ts
+ * const books = ContentService.getAll("books")
+ * ```
+ */
 export const ContentService = {
+  /**
+   * Reads one collection, preferring this browser's override.
+   *
+   * @param type - The collection to read.
+   *
+   * @returns The stored items when an override exists and satisfies the
+   *   contract, otherwise the committed seed. A broken override is reported with
+   *   the key to clear and never reaches a page.
+   */
   getAll: (type: ContentType): AnyContentItem[] => {
     try {
       const key = `${STORAGE_PREFIX}${type}`;
@@ -49,6 +69,12 @@ export const ContentService = {
     return loadInitialData(type);
   },
 
+  /**
+   * Reads the owner profile, preferring this browser's override.
+   *
+   * @returns The stored profile when it satisfies the contract, otherwise the
+   *   committed seed.
+   */
   getSettings: (): UserSettings => {
     try {
       const stored = localStorage.getItem(SETTINGS_KEY);
@@ -61,15 +87,37 @@ export const ContentService = {
     return loadSettings();
   },
 
+  /**
+   * Writes one collection, recording the seed fingerprint alongside it.
+   *
+   * @param type - The collection being written.
+   * @param data - Every item of that collection.
+   *
+   * @returns Nothing.
+   */
   save: (type: ContentType, data: AnyContentItem[]) => {
     safeSetItem(`${STORAGE_PREFIX}${type}`, JSON.stringify(data));
     safeSetItem(`${SEED_PREFIX}${type}`, seedFingerprint(type));
   },
 
+  /**
+   * Writes the owner profile for this browser.
+   *
+   * @param data - The profile to store.
+   *
+   * @returns Nothing.
+   */
   saveSettings: (data: UserSettings) => {
     safeSetItem(SETTINGS_KEY, JSON.stringify(data));
   },
 
+  /**
+   * Hands one item to the browser as the markdown file this site is seeded from.
+   *
+   * @param source - The item to serialize.
+   *
+   * @returns Nothing.
+   */
   downloadMarkdown: (source: AnyContentItem) => {
     const item = source as unknown as Record<string, unknown>;
     let fileContent = "---\n";

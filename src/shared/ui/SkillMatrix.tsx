@@ -4,6 +4,7 @@
 
 import { SkillGroup, skillIcon } from "@/shared/lib";
 
+/** The skills grid: one instrument cell per category, each listing its items. */
 export const SkillMatrix = ({
   skills,
   maxItems,

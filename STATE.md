@@ -9,6 +9,8 @@ Current project status. Read this before starting work. Format and rules: see
   copy of the Helm template's, the changelog is gone with its trigger unmet, the index
   took the style's shape, and improvements now travel upstream through the report path
   in AGENTS.md (2026-08-04). Decision 0012 carries the reasoning.
+- Every export carries the TSDoc convention now, at 170 of 170, with the weight per export
+  following what the convention prescribes rather than applied uniformly (2026-08-04).
 
 - The source tree moved to one-way sliced layers after the client template in the style
   family, and both record doors are now checked at the boundary (2026-08-04). The
@@ -34,8 +36,6 @@ Current project status. Read this before starting work. Format and rules: see
 
 ## Deferred
 
-- Bring every export up to the doc-comment convention. The files touched by the layer
-  move carry it; the rest still carry their original informal comments (2026-08-04).
 - Add a merge or choose UI for seed-versus-localStorage shadowing; a redeploy that changes
   shadowed markdown currently only logs a console warning naming the key to clear (2026-07-18).
 - Split `docs/ARCHITECTURE.md` again by fission if it drifts back over the size budget (2026-07-18).

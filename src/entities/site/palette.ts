@@ -21,12 +21,14 @@ import seedJson from "@/content/settings/palette.json";
 export { generatePaletteCss };
 export type { Palette, PaletteMode };
 
+/** A named palette the owner can adopt wholesale. */
 export interface PalettePreset extends Palette {
   id: string;
   name: string;
   story: string;
 }
 
+/** The preset catalog; the first entry is what ships as the default. */
 export const PALETTE_PRESETS: PalettePreset[] = [
   {
     id: "rangefinder",
@@ -115,6 +117,7 @@ export const PALETTE_PRESETS: PalettePreset[] = [
   },
 ];
 
+/** The preset with this id, or undefined when the id names none. */
 export const getPreset = (id: string): PalettePreset | undefined =>
   PALETTE_PRESETS.find((p) => p.id === id);
 
@@ -139,6 +142,7 @@ export const TOKEN_GUIDE: { key: keyof PaletteMode; label: string; where: string
 const STORAGE_KEY = "os_palette";
 const STYLE_TAG_ID = "os-palette-override";
 
+/** A palette as stored, remembering which preset it started from. */
 export interface StoredPalette extends Palette {
   /** Preset id this started from, or "custom" once edited. */
   basedOn: string;
@@ -153,6 +157,12 @@ export const SEED_PALETTE: StoredPalette = seedJson as StoredPalette;
 export const toSeedFileJson = (p: StoredPalette): string =>
   JSON.stringify({ basedOn: p.basedOn, light: p.light, dark: p.dark }, null, 2) + "\n";
 
+/**
+ * Reads this browser's palette override.
+ *
+ * @returns The stored palette, or null when none is saved or the stored value
+ *   is not a palette.
+ */
 export function loadStoredPalette(): StoredPalette | null {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -165,6 +175,13 @@ export function loadStoredPalette(): StoredPalette | null {
   }
 }
 
+/**
+ * Writes a palette override for this browser.
+ *
+ * @param p - The palette to store.
+ *
+ * @returns True when the write landed, false when storage refused it.
+ */
 export function saveStoredPalette(p: StoredPalette): boolean {
   return safeSetItem(STORAGE_KEY, JSON.stringify(p));
 }

@@ -28,6 +28,7 @@ function groupByMonth(updates: Update[]) {
   return groups;
 }
 
+/** The update log: notes, links, and milestones on one timeline. */
 export const UpdatesPage = () => {
   const { updates } = useContent();
 

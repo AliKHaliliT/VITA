@@ -65,6 +65,14 @@ function scoreOf(
   return 0;
 }
 
+/**
+ * The command palette: a substring search over every collection at once.
+ *
+ * Opens on Ctrl+K, Cmd+K, or a dispatched `open-search` event, and filters the
+ * in-memory record directly rather than any index. Results are scored so a title
+ * hit outranks a structured-fact hit, which outranks tags, which outrank a hit
+ * buried in a body, and each collection is capped so one cannot crowd out the rest.
+ */
 export const SearchModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");

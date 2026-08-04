@@ -6,6 +6,7 @@ import { useContent, Book as BookItem } from "@/entities/record";
 import { PageHeader, FilterBar, EmptyState, Badge } from "@/shared/ui";
 import { usePageDescription } from "@/entities/site";
 
+/** The library: every book, filterable by reading status. */
 export const LibraryPage = () => {
   const { books } = useContent();
   const [filter, setFilter] = useState("All Books");

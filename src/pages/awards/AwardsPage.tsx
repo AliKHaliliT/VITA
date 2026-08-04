@@ -4,6 +4,7 @@ import { useContent, Award, AWARD_TYPE_LABEL, typeLabel } from "@/entities/recor
 import { PageHeader, EmptyState, Badge, TagList } from "@/shared/ui";
 import { usePageDescription } from "@/entities/site";
 
+/** The awards ledger, grouped by kind. */
 export const AwardsPage = () => {
   const { awards } = useContent();
 

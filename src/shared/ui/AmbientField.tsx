@@ -61,6 +61,13 @@ const readPalette = () => {
 
 const rgba = (c: [number, number, number], a: number) => `rgba(${c[0]},${c[1]},${c[2]},${a})`;
 
+/**
+ * The drifting constellation behind the page, drawn on a canvas.
+ *
+ * It reads the palette from computed styles and watches the theme attribute, so
+ * a theme flip repaints it; it also stands down entirely when the visitor asks
+ * for less motion, and pauses while offscreen.
+ */
 export const AmbientField = ({
   variant,
   className,

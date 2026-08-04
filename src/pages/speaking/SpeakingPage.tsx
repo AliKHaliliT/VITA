@@ -5,6 +5,7 @@ import { useContent, SPEAKING_TYPE_LABEL, typeLabel } from "@/entities/record";
 import { PageHeader, FilterBar, EmptyState, Badge, TagList, StoryLink } from "@/shared/ui";
 import { usePageDescription } from "@/entities/site";
 
+/** The speaking history, filterable by kind. */
 export const SpeakingPage = () => {
   const { speaking } = useContent();
   const [typeFilter, setTypeFilter] = useState("All");

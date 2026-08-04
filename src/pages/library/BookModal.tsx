@@ -8,6 +8,7 @@ interface BookModalProps {
   onClose: () => void;
 }
 
+/** One book in detail, including the notes kept on it. */
 export const BookModal = ({ book, isOpen, onClose }: BookModalProps) => {
   if (!book) return null;
 

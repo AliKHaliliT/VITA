@@ -7,6 +7,7 @@ import { Badge, TagList, EmptyState, Markdown } from "@/shared/ui";
 import { formatFullDate, hostLabel } from "@/shared/lib";
 import { useSiteIdentity } from "@/entities/site";
 
+/** One article, or a link out when it lives canonically elsewhere. */
 export const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const { blog } = useContent();

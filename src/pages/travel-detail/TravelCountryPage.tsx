@@ -37,6 +37,7 @@ const TravelNotFound = ({ what }: { what: string }) => (
   </div>
 );
 
+/** One country, with every logged city inside it. */
 export const TravelCountryPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const { countries, trips } = useContent();
@@ -109,6 +110,7 @@ export const TravelCountryPage = () => {
   );
 };
 
+/** One city, with its notes and coordinates. */
 export const TravelCityPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const { trips, countries } = useContent();

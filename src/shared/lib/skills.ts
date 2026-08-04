@@ -3,6 +3,7 @@
 
 import { type LucideIcon, Bot, Box, Brain, Cloud, Code2, Cog, Cpu, Database, Eye, Globe, MessageSquare, Ruler, Sparkles, TerminalSquare } from "lucide-react";
 
+/** One parsed category line: the category and the items listed under it. */
 export interface SkillGroup {
   category: string;
   items: string[];
@@ -46,5 +47,15 @@ const SKILL_ICON_RULES: Array<[RegExp, LucideIcon]> = [
   [/platform|tool/i, TerminalSquare],
   [/principle|engineering|architecture/i, Ruler],
 ];
+/**
+ * Picks a glyph for a skill category by keyword.
+ *
+ * Matching on keywords rather than an enum is deliberate, since the owner
+ * invents their own category names and every one of them still needs a face.
+ *
+ * @param category - The category name as the owner wrote it.
+ *
+ * @returns The matching glyph, or a neutral sparkle when nothing matches.
+ */
 export const skillIcon = (category: string): LucideIcon =>
   SKILL_ICON_RULES.find(([re]) => re.test(category))?.[1] ?? Sparkles;

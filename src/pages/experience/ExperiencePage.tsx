@@ -97,6 +97,7 @@ function ExperienceCard({ item }: { item: ExperienceType }) {
   );
 }
 
+/** The work history, newest first, each role expandable. */
 export const ExperiencePage = () => {
   const { experience } = useContent();
 

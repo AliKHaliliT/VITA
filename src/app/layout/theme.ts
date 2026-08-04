@@ -3,6 +3,16 @@ import { useState, useEffect } from "react";
 const applyTheme = (dark: boolean) =>
   document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
 
+/**
+ * The theme, read from storage or the system preference and written to the root.
+ *
+ * The stored choice wins over the system preference, since an explicit pick
+ * should survive a change of operating-system setting. The flip runs inside a
+ * view transition where the browser supports one, which is why the attribute is
+ * set synchronously rather than in an effect.
+ *
+ * @returns Whether the dark theme is active, and the toggle that flips it.
+ */
 export function useTheme() {
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== "undefined") {

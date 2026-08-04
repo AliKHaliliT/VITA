@@ -51,6 +51,7 @@ const trace = (delay: number) => ({
   },
 });
 
+/** Generated schematic art for a featured project with no image of its own. */
 export const DraftingPlot = ({ title, year }: { title: string; year?: string }) => (
   <>
     <svg
@@ -149,6 +150,7 @@ export const DraftingPlot = ({ title, year }: { title: string; year?: string }) 
   </>
 );
 
+/** The second generated plate, so two featured items never look alike. */
 export const SpecimenPlate = ({ title, year }: { title: string; year?: string }) => (
   <div aria-hidden className="absolute inset-0 overflow-hidden bg-[color-mix(in_srgb,var(--field)_8%,var(--surface))]">
     {/* registration corners */}

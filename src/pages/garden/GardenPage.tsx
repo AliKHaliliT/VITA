@@ -6,6 +6,7 @@ import { useContent } from "@/entities/record";
 import { PageHeader, FilterBar, EmptyState, Badge, TagList } from "@/shared/ui";
 import { usePageDescription } from "@/entities/site";
 
+/** The garden index: atomic notes, filterable by growth stage and tag. */
 export const GardenPage = () => {
   const { posts } = useContent();
 

@@ -4,6 +4,7 @@ import { useContent } from "@/entities/record";
 import { PageHeader, EmptyState, ObfuscatedEmail } from "@/shared/ui";
 import { usePageDescription } from "@/entities/site";
 
+/** The references, with contact details obfuscated against scraping. */
 export const ReferencesPage = () => {
   const { references } = useContent();
 
