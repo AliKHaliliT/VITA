@@ -30,9 +30,6 @@ Current project status. Read this before starting work. Format and rules: see
 
 ## Next
 
-- Restructure the README to the baseline's ten-section schema (Philosophy, Domain,
-  Pillars, Structure, Getting Started stems), keeping the fork-and-own guide sections as
-  organic content (2026-08-04).
 
 ## Deferred
 

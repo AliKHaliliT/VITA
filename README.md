@@ -16,6 +16,22 @@ It is built with React and Vite and deploys to GitHub Pages with no server and n
 
 ---
 
+## The Philosophy: Why Does This Exist?
+
+A personal record decays in a predictable way. It starts on a platform that owns the data, spreads into a CV that immediately disagrees with the site, and ends as three stale copies of the same facts in places nobody can diff. The rot is not laziness, it is structural: when the record has no single home and no format you can read without the tool that wrote it, drift is the only possible outcome.
+
+VITA exists to make the record a set of files you own. Every entry is Markdown with frontmatter, the identity and palette are small seeds beside it, and the published site is a build artifact rather than a source of truth. That inversion is the whole idea. You can read the record in a text editor, diff it in a pull request, back it up with `git clone`, and hand the same files to a CV builder without an export step, because the files were the record all along.
+
+---
+
+## The Domain: Why a Personal Record?
+
+The domain is chosen to be honest rather than convenient. A personal record is broad on purpose, spanning career, writing, reading, travel, and interests, and that breadth is exactly what makes it a real architectural problem instead of a demo.
+
+Sixteen collections share one base shape and differ by a few fields each, so the code has to be generic without becoming shapeless. The same record must render as a public site, be edited by a separate application, and condense into a resume, which forces the boundaries between those three to be explicit. Content arrives from files at build time and from a companion application's writes at runtime, so there are two doors into the same data and neither can be trusted by default. A domain with one entity and one source would have let every one of those decisions stay implicit.
+
+---
+
 ## The ecosystem
 
 VITA is the public face of a three-repo family. The two companion apps are kept in their own repositories so the published site ships none of the editing machinery.
@@ -39,6 +55,35 @@ VITA turns those files into a static site at build time. Content is bundled duri
 The CMS is a separate and entirely optional layer. TABULARIUM runs in the browser, stages every edit in localStorage, and sends nothing anywhere while you work. Publishing means producing the same files you could have written by hand. The panel can hand them over as single downloads, package the whole record as a zip in this repo's layout, or commit them to this repository directly, using a fine-grained token that stays in your browser. Because the panel writes ordinary files, hand edits and panel edits coexist, and if the panel vanished tomorrow the record would still be perfectly readable Markdown.
 
 The loop closes on its own. When the panel pushes, or when you commit by hand, the Pages workflow rebuilds and the site is live a minute or two later. EPITOMA sits at the read-only end of the chain, pulls the same record straight from the public repository, and turns it into documents without a token, a server, or an export step in between.
+
+---
+
+## Core Architectural Pillars
+
+1. **The repository is the database.** Content is Markdown with frontmatter under `src/content/`, bundled at build time. There is no server and no runtime fetch, so the published site is static files and the git history is the audit log.
+2. **Imports point downward, and a linter says so.** The source tree is five sliced layers, `app -> pages -> features -> entities -> shared`, entered only through each slice's own door. The rule is checked by ESLint rather than by review, so an upward import fails the build instead of surviving a diff.
+3. **Content is checked at the door.** Both ways in pass through the record's contract. A committed file whose frontmatter cannot produce a valid item fails with its path named, and a localStorage override written by the companion panel that breaks the contract falls back to the committed seed with the key to clear named.
+4. **Colors are tokens, never values.** Raw variables carry the palette and are re-pointed per theme; components speak only in the utilities mapped from them. No component names a hex or a theme.
+5. **The ecosystem talks in files.** Nothing is imported across a repository boundary. The panel produces the seed files this site reads, this site exports the snapshot the builder reads, and a format and version field keep the halves honest.
+
+---
+
+## Project Structure
+
+```text
+vita/
+├── AGENTS.md              # Agent entry point and the single documentation index
+├── docs/                  # Technical documentation, indexed in AGENTS.md
+└── src/
+    ├── app/               # Composition root: bootstrap, providers, router, chrome, tokens
+    ├── pages/             # One slice per route
+    ├── features/          # search, portfolio-export
+    ├── entities/          # record (the content model and both its doors), site (identity, palette)
+    ├── shared/            # config, lib, ui, testing
+    └── content/           # The record itself, as Markdown and JSON
+```
+
+The annotated map of the whole system, including the layer rule and the boundaries, lives in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
 ---
 
@@ -146,7 +191,7 @@ identity as the site. The full token reference lives in
 
 ---
 
-## Features
+## Key Features
 
 The sections are the visible half; the other half is the system underneath them, and it
 is listed here too because most of the engineering lives there.
@@ -199,7 +244,7 @@ is listed here too because most of the engineering lives there.
 
 ---
 
-## Run locally
+## Getting Started
 
 You need Node.js 20 or newer (the deploy workflow builds on 22) and git; nothing else.
 
