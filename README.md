@@ -60,13 +60,13 @@ See [`docs/SETUP.md`](docs/SETUP.md) for full setup, deployment, and troubleshoo
 
 ## Keeping your copy current
 
-The template keeps evolving after you copy it, and [`CHANGELOG.md`](CHANGELOG.md) records
-what each release changed. How you pull those changes in depends on how you created your
-repository.
+The template keeps evolving after you copy it, and its commit history records what changed
+and why, with commit subjects carrying the impact. How you pull those changes in depends
+on how you created your repository.
 
 If you clicked "Use this template", your repository shares no git history with this one,
 so GitHub offers no sync button and git does the job instead. Connect the template once as
-a second remote, then merge whenever the changelog gives you a reason to.
+a second remote, then merge whenever the template's history gives you a reason to.
 
 ```powershell
 git remote add template https://github.com/AliKHaliliT/VITA.git
@@ -76,13 +76,13 @@ git merge template/main --allow-unrelated-histories
 
 The `--allow-unrelated-histories` flag is only needed the first time, since that merge
 stitches the two histories together; from then on a plain `git fetch template` followed by
-`git merge template/main` is enough. Your record lives under `src/content/`, and releases
-leave it alone with one honest exception. A release that introduces a new section ships
+`git merge template/main` is enough. Your record lives under `src/content/`, and updates
+leave it alone with one honest exception. An update that introduces a new section ships
 that section's demo seed, because a capability needs something to show. Those seeds arrive
 as files that do not exist on your side, so the merge stays conflict-free; they simply
 render as demo entries until you replace them with your own or delete them, exactly like
-the original seed. The one conflict you may meet is git's modify/delete complaint when a
-release touches a demo file you removed while clearing out the original record, and
+the original seed. The one conflict you may meet is git's modify/delete complaint when an
+update touches a demo file you removed while clearing out the original record, and
 confirming the deletion with `git rm` settles it. Beyond that, conflicts are rare and
 confined to code you deliberately customized. Push the merge and the site redeploys
 itself.
@@ -214,16 +214,19 @@ the export contract, and `npm run build` type-checks and produces the static `di
 
 ---
 
-## Documentation
+## Conventions
 
-| Doc                                              | Contents                                                    |
-| ------------------------------------------------ | ----------------------------------------------------------- |
-| [`docs/SETUP.md`](docs/SETUP.md)                 | Installation, scripts, GitHub Pages deploy, troubleshooting |
-| [`docs/CONTENT-MODEL.md`](docs/CONTENT-MODEL.md) | All content types and their frontmatter schemas             |
-| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)   | Data flow, routing, the ecosystem boundary, theming         |
-| [`docs/ROADMAP.md`](docs/ROADMAP.md)             | Feature landscape and standing technical debt               |
+Documentation follows **TSDoc**, carrying the family's docstring discipline into TypeScript. Every exported symbol opens with a one-sentence summary. Where a function warrants full documentation, `@param` (one per parameter) and `@returns` are always present, writing `Nothing.` for a void return, and `@throws` lists every error thrown directly in the function's own body, including the defensive guards; an error that merely propagates from a callee is documented on the callee, and the absence of `@throws` on a fully documented function is itself the assertion that nothing is thrown directly. Complex components and services carry an `@example` block with a minimal, runnable snippet, serving the role the family's `Usage` section serves in Python.
 
-Contributors and coding agents should start at [`AGENTS.md`](AGENTS.md), which is the vendor-neutral entry point and the full documentation index.
+Not everything is documented that heavily, by design. Thin mappers such as the translators keep a one-line summary, page components carry a single sentence stating what they compose, and props are documented as field comments on the props interface rather than in a tag block. The boundary is documented in full where its failure modes live, so the record's schema states what the contract rejects and each of its doors names the file or storage key a bad value came from.
+
+The rest of the TSDoc vocabulary is used where it fits and omitted where it does not: a caveat becomes a `@remarks` block rather than a loose sentence, cross-references use `@see`, defaults use `@defaultValue`, and retirement uses `@deprecated`. Tags you do not see are simply not called for by that code; generated code should add them as it introduces the behavior.
+
+Beyond doc comments, the project's technical documentation is governed by a fixed documentation system: a vendor-neutral [AGENTS.md](AGENTS.md) serves as the agent entry point and the single index of every document, [STATE.md](STATE.md) tracks the living project state, [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) holds the current map of the system, and immutable decision records under [docs/decisions/](docs/decisions/) hold the reasoning behind every settled choice. The full rulebook, including the split between living documents and records and the writing rules for each species, lives in [docs/CONVENTIONS.md](docs/CONVENTIONS.md); that file is normative and must not be modified. The rationale behind adopting it in its current form is recorded in [the style-alignment decision record](docs/decisions/0012-adopt-the-client-styles-documentation-system.md).
+
+Both the rulebook and the conventions above are owned at the style level. A project built from this template never changes them locally, and an improvement discovered while refactoring against the template is not kept as a private advantage; [AGENTS.md](AGENTS.md) describes the upstream report that carries it back to the template, where it is verified and, if it holds, adopted for every project that follows the style.
+
+One further rule applies to every piece of prose in the project, from this README through doc comments to commit messages. Everything must read as if a person wrote it. The clearest machine tell is the clause-colon splice, a sentence shaped as claim, colon, elaboration; no human writes that way outside a slide deck, so in prose a colon may only introduce a list, a quote, or a label. Softer tells, such as a balanced semicolon antithesis or a neat triadic list, are each fine on their own but give the text away when stacked, because a paragraph of polished epigrams reads as machine writing even when every sentence would pass alone. Allow at most one such flourish per paragraph and write the rest as plain declarative sentences.
 
 ---
 
