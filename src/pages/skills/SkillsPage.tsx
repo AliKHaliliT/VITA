@@ -39,19 +39,19 @@ export const SkillsPage = () => {
 
             {languages.length > 0 && (
               <section>
-                <h2 className="mb-3 font-mono text-eyebrow uppercase text-[var(--color-text-secondary)]">
+                <h2 className="mb-3 font-mono text-eyebrow uppercase text-muted">
                   Spoken languages
                 </h2>
-                <div className="border-t border-dashed border-[var(--color-border)]">
+                <div className="border-t border-dashed border-line">
                   {languages.map((l) => (
                     <div
                       key={l.category}
-                      className="flex flex-wrap items-baseline gap-x-5 gap-y-1 border-b border-dashed border-[var(--color-border)] px-1 py-3"
+                      className="flex flex-wrap items-baseline gap-x-5 gap-y-1 border-b border-dashed border-line px-1 py-3"
                     >
-                      <span className="w-28 shrink-0 font-serif text-lg tracking-[-0.01em] text-[var(--color-text-primary)]">
+                      <span className="w-28 shrink-0 font-serif text-lg tracking-[-0.01em] text-ink">
                         {l.category}
                       </span>
-                      <span className="font-mono text-xs tracking-[0.02em] text-[var(--color-text-secondary)]">
+                      <span className="font-mono text-xs tracking-[0.02em] text-muted">
                         {l.items.join(" · ")}
                       </span>
                     </div>
@@ -62,7 +62,7 @@ export const SkillsPage = () => {
 
             {uses && (
               <section>
-                <h2 className="mb-3 font-mono text-eyebrow uppercase text-[var(--color-text-secondary)]">
+                <h2 className="mb-3 font-mono text-eyebrow uppercase text-muted">
                   The setup
                 </h2>
                 <div className="prose dark:prose-invert prose-essay">

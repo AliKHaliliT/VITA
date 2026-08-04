@@ -87,14 +87,14 @@ export const BlogPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.25 }}
-                className={`group relative rounded-card border bg-[var(--color-card)] transition-all duration-200 hover:-translate-y-px hover:border-[var(--color-border-strong)] hover:shadow-lift overflow-hidden flex flex-col md:flex-row ${
+                className={`group relative rounded-card border bg-card transition-all duration-200 hover:-translate-y-px hover:border-line-strong hover:shadow-lift overflow-hidden flex flex-col md:flex-row ${
                   post.externalUrl
-                    ? "border-dashed border-[var(--color-border-strong)]"
-                    : "border-[var(--color-border)]"
+                    ? "border-dashed border-line-strong"
+                    : "border-line"
                 }`}
               >
                 {post.cover && (
-                  <div className="md:w-64 lg:w-80 h-48 md:h-auto flex-shrink-0 overflow-hidden rounded-ctl m-4 mb-0 md:mb-4 md:mr-0 bg-[var(--color-background)]">
+                  <div className="md:w-64 lg:w-80 h-48 md:h-auto flex-shrink-0 overflow-hidden rounded-ctl m-4 mb-0 md:mb-4 md:mr-0 bg-surface">
                     <img
                       src={post.cover}
                       alt={post.title}
@@ -117,7 +117,7 @@ export const BlogPage = () => {
                         )}
                       </span>
                     )}
-                    <h2 className="text-xl font-serif font-semibold text-[var(--color-text-primary)] mb-2 group-hover:text-signal transition-colors duration-150 leading-snug">
+                    <h2 className="text-xl font-serif font-semibold text-ink mb-2 group-hover:text-signal transition-colors duration-150 leading-snug">
                       {/* Stretched link: the whole card is clickable, with real
                           anchor semantics (middle-click, keyboard, crawlers). */}
                       {post.externalUrl ? (
@@ -135,17 +135,17 @@ export const BlogPage = () => {
                         </Link>
                       )}
                     </h2>
-                    <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4 line-clamp-2">
+                    <p className="text-sm text-muted leading-relaxed mb-4 line-clamp-2">
                       {post.excerpt}
                     </p>
                     <TagList tags={post.tags} max={4} className="mt-2" />
                   </div>
-                  <div className="flex items-center justify-between mt-4 pt-4 border-t border-[var(--color-border)]">
-                    <span className="font-mono text-[11px] text-[var(--color-text-secondary)]">
+                  <div className="flex items-center justify-between mt-4 pt-4 border-t border-line">
+                    <span className="font-mono text-[11px] text-muted">
                       {formatShortDate(post.date)}
                       {post.readingTime ? ` · ${post.readingTime} min` : ""}
                     </span>
-                    <span className="flex items-center gap-1 text-xs font-medium text-[var(--color-text-secondary)] group-hover:text-signal transition-colors duration-150">
+                    <span className="flex items-center gap-1 text-xs font-medium text-muted group-hover:text-signal transition-colors duration-150">
                       {host ? (
                         <>
                           Read on {host}{" "}

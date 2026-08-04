@@ -87,7 +87,7 @@ const Hero = () => {
       <AmbientField variant="hero" className="absolute inset-0" />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-2 top-0 select-none font-serif text-[clamp(8rem,22vw,17rem)] font-semibold leading-[0.8] tracking-[-0.04em] text-transparent [-webkit-text-stroke:1px_var(--color-border)]"
+        className="pointer-events-none absolute -right-2 top-0 select-none font-serif text-[clamp(8rem,22vw,17rem)] font-semibold leading-[0.8] tracking-[-0.04em] text-transparent [-webkit-text-stroke:1px_var(--line)]"
       >
         {siteMark(site)}
       </div>
@@ -103,7 +103,7 @@ const Hero = () => {
             <img
               src={settings.avatar}
               alt={settings.name || "Profile"}
-              className="h-9 w-9 rounded-ctl border border-[var(--color-border-strong)] object-cover"
+              className="h-9 w-9 rounded-ctl border border-line-strong object-cover"
             />
           )}
           <Badge>Dossier · {year}</Badge>
@@ -118,7 +118,7 @@ const Hero = () => {
           {settings.availability && <Badge tone="signal">{settings.availability}</Badge>}
         </m.div>
 
-        <h1 className="mt-8 font-serif font-semibold leading-[0.98] tracking-[-0.035em] text-[var(--color-text-primary)]">
+        <h1 className="mt-8 font-serif font-semibold leading-[0.98] tracking-[-0.035em] text-ink">
           {/* pb + negative mb widen the reveal mask so serif descenders
               (g, y) survive the leading-[0.98] line box. */}
           <span className="-mb-[0.15em] block overflow-hidden pb-[0.15em] text-[clamp(3rem,8.5vw,6.5rem)]">
@@ -132,7 +132,7 @@ const Hero = () => {
             </m.span>
           </span>
           {restName.split(" ").length > 1 && (
-            <span className="-mb-[0.15em] block overflow-hidden pb-[0.15em] text-[clamp(2rem,5.8vw,4.5rem)] text-[var(--color-text-secondary)]">
+            <span className="-mb-[0.15em] block overflow-hidden pb-[0.15em] text-[clamp(2rem,5.8vw,4.5rem)] text-muted">
               <m.span
                 className="block"
                 initial={{ y: "115%" }}
@@ -150,7 +150,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.15 }}
-            className="mt-6 max-w-[36ch] font-serif text-[clamp(1.15rem,2.2vw,1.6rem)] italic leading-snug text-[var(--color-text-secondary)]"
+            className="mt-6 max-w-[36ch] font-serif text-[clamp(1.15rem,2.2vw,1.6rem)] italic leading-snug text-muted"
           >
             {settings.bio || settings.body}
           </m.p>
@@ -175,7 +175,7 @@ const Hero = () => {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={s.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-ctl border border-[var(--color-border-strong)] text-[var(--color-text-secondary)] transition-[color,border-color,transform] duration-150 hover:-translate-y-px hover:border-signal hover:text-signal active:scale-95"
+                  className="flex h-9 w-9 items-center justify-center rounded-ctl border border-line-strong text-muted transition-[color,border-color,transform] duration-150 hover:-translate-y-px hover:border-signal hover:text-signal active:scale-95"
                 >
                   <s.icon size={14} />
                 </a>
@@ -183,13 +183,13 @@ const Hero = () => {
               {settings.email && (
                 <ObfuscatedEmail
                   email={settings.email}
-                  className="flex h-9 items-center rounded-ctl border border-[var(--color-border-strong)] px-2.5 font-mono text-[10px] uppercase tracking-[0.1em] text-[var(--color-text-secondary)] transition-[color,border-color,transform] duration-150 hover:-translate-y-px hover:border-signal hover:text-signal active:scale-95"
+                  className="flex h-9 items-center rounded-ctl border border-line-strong px-2.5 font-mono text-[10px] uppercase tracking-[0.1em] text-muted transition-[color,border-color,transform] duration-150 hover:-translate-y-px hover:border-signal hover:text-signal active:scale-95"
                 />
               )}
               {customLinks.map((l) => {
                 const Icon = l.icon ? LINK_ICONS[l.icon] : undefined;
                 const base =
-                  "flex h-9 items-center rounded-ctl border border-[var(--color-border-strong)] text-[var(--color-text-secondary)] transition-[color,border-color,transform] duration-150 hover:-translate-y-px hover:border-signal hover:text-signal active:scale-95";
+                  "flex h-9 items-center rounded-ctl border border-line-strong text-muted transition-[color,border-color,transform] duration-150 hover:-translate-y-px hover:border-signal hover:text-signal active:scale-95";
                 const chip = `${base} px-2.5 font-mono text-[10px] uppercase tracking-[0.1em]`;
                 if (l.url.startsWith("mailto:")) {
                   return (
@@ -219,7 +219,7 @@ const Hero = () => {
                 <a
                   href="#site-footer"
                   title="All links live in the footer"
-                  className="flex h-9 items-center rounded-ctl border border-dashed border-[var(--color-border-strong)] px-2.5 font-mono text-[10px] uppercase tracking-[0.1em] text-[var(--color-text-secondary)] transition-[color,border-color,transform] duration-150 hover:-translate-y-px hover:border-signal hover:text-signal active:scale-95"
+                  className="flex h-9 items-center rounded-ctl border border-dashed border-line-strong px-2.5 font-mono text-[10px] uppercase tracking-[0.1em] text-muted transition-[color,border-color,transform] duration-150 hover:-translate-y-px hover:border-signal hover:text-signal active:scale-95"
                 >
                   +{hiddenLinks}
                 </a>
@@ -240,7 +240,7 @@ const RowOut = ({ link, label }: { link?: string; label: string }) => {
     return (
       <ArrowRight
         size={14}
-        className="text-[var(--color-text-secondary)] transition-transform group-hover:translate-x-1 group-hover:text-signal"
+        className="text-muted transition-transform group-hover:translate-x-1 group-hover:text-signal"
       />
     );
   return (
@@ -250,7 +250,7 @@ const RowOut = ({ link, label }: { link?: string; label: string }) => {
       rel="noreferrer"
       aria-label={`Open ${label} directly`}
       title="Open directly"
-      className="relative z-10 flex h-7 w-7 items-center justify-center self-center justify-self-end rounded-ctl text-[var(--color-text-secondary)] transition-colors hover:bg-field/10 hover:text-signal"
+      className="relative z-10 flex h-7 w-7 items-center justify-center self-center justify-self-end rounded-ctl text-muted transition-colors hover:bg-field/10 hover:text-signal"
     >
       <ArrowUpRight size={14} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
     </a>
@@ -270,14 +270,14 @@ const NowSection = () => {
   return (
     <SectionBlock no="001" label="Telemetry" title="Now" href="/updates" linkText="All updates">
       <Rise>
-        <div className="mb-2 mt-5 border-t border-dashed border-[var(--color-border)]">
+        <div className="mb-2 mt-5 border-t border-dashed border-line">
           {latest.map((u) => (
             <div
               key={u.id}
-              className="group relative grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-dashed border-[var(--color-border)] px-1.5 py-4 transition-colors hover:bg-field/5 sm:grid-cols-[6.5rem_1fr_auto_auto]"
+              className="group relative grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-dashed border-line px-1.5 py-4 transition-colors hover:bg-field/5 sm:grid-cols-[6.5rem_1fr_auto_auto]"
             >
               <Link to="/updates" aria-label="All updates" className="absolute inset-0" />
-              <span className="hidden font-mono text-[11px] tabular-nums tracking-[0.03em] text-[var(--color-text-secondary)] sm:block">
+              <span className="hidden font-mono text-[11px] tabular-nums tracking-[0.03em] text-muted sm:block">
                 {u.date ? formatShortDate(u.date).toUpperCase() : "-"}
               </span>
               <span className="truncate font-serif text-lg tracking-[-0.01em]">
@@ -317,19 +317,19 @@ const ToolkitSection = () => {
         )}
         {languages.length > 0 && (
           <div className="mb-2 flex flex-wrap items-center gap-1.5 px-1">
-            <span className="mr-3 font-mono text-[10.5px] font-medium uppercase tracking-[0.12em] text-[var(--color-text-secondary)]">
+            <span className="mr-3 font-mono text-[10.5px] font-medium uppercase tracking-[0.12em] text-muted">
               {spokenLabel}
             </span>
             {languages.map((l) => (
               <span
                 key={l.category}
-                className="flex items-baseline gap-2 rounded-ctl border border-[var(--color-border)] px-2.5 py-1.5"
+                className="flex items-baseline gap-2 rounded-ctl border border-line px-2.5 py-1.5"
               >
-                <span className="font-serif text-sm font-semibold leading-none text-[var(--color-text-primary)]">
+                <span className="font-serif text-sm font-semibold leading-none text-ink">
                   {l.category}
                 </span>
                 {l.items[0] && (
-                  <span className="font-mono text-[10px] uppercase leading-none tracking-[0.06em] text-[var(--color-text-secondary)]">
+                  <span className="font-mono text-[10px] uppercase leading-none tracking-[0.06em] text-muted">
                     {l.items[0]}
                   </span>
                 )}
@@ -361,13 +361,13 @@ const CareerSection = () => {
         {stack.map((item, i) => (
           <article
             key={item.id}
-            className={`sticky ${stickyTops[i] ?? "top-[132px]"} mb-5 rounded-card border border-[var(--color-border-strong)] bg-[var(--color-card)] p-6 shadow-lift md:p-8`}
+            className={`sticky ${stickyTops[i] ?? "top-[132px]"} mb-5 rounded-card border border-line-strong bg-card p-6 shadow-lift md:p-8`}
           >
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
               <h3 className="font-serif text-[clamp(1.35rem,2.6vw,1.9rem)] font-semibold tracking-[-0.02em]">
                 {item.title}
               </h3>
-              <span className="flex items-center gap-2.5 text-sm font-medium text-[var(--color-text-secondary)]">
+              <span className="flex items-center gap-2.5 text-sm font-medium text-muted">
                 {item.company}
                 {item.link && (
                   <a
@@ -376,7 +376,7 @@ const CareerSection = () => {
                     rel="noreferrer"
                     aria-label={`Open ${item.company} directly`}
                     title="Open directly"
-                    className="flex h-8 w-8 items-center justify-center rounded-ctl border border-[var(--color-border-strong)] text-[var(--color-text-secondary)] transition-[color,border-color,transform] duration-150 hover:-translate-y-px hover:border-signal hover:text-signal"
+                    className="flex h-8 w-8 items-center justify-center rounded-ctl border border-line-strong text-muted transition-[color,border-color,transform] duration-150 hover:-translate-y-px hover:border-signal hover:text-signal"
                   >
                     <ArrowUpRight size={13} />
                   </a>
@@ -384,7 +384,7 @@ const CareerSection = () => {
               </span>
             </div>
             {firstLine(item.body) && (
-              <p className="mt-3 max-w-[64ch] text-[15px] leading-relaxed text-[var(--color-text-secondary)]">
+              <p className="mt-3 max-w-[64ch] text-[15px] leading-relaxed text-muted">
                 {firstLine(item.body)}
               </p>
             )}
@@ -404,22 +404,22 @@ const CareerSection = () => {
 
         {education.length > 0 && (
           <Rise className="mt-10">
-            <p className="mb-1 font-mono text-[10.5px] font-medium uppercase tracking-[0.14em] text-[var(--color-text-secondary)]">
+            <p className="mb-1 font-mono text-[10.5px] font-medium uppercase tracking-[0.14em] text-muted">
               Education
             </p>
-            <div className="border-t border-dashed border-[var(--color-border)]">
+            <div className="border-t border-dashed border-line">
               {degrees.map((e) => (
                 <div
                   key={e.id}
-                  className="group relative grid grid-cols-[1fr_auto] items-baseline gap-4 border-b border-dashed border-[var(--color-border)] px-1 py-3.5 transition-colors hover:bg-field/5 sm:grid-cols-[auto_1fr_auto]"
+                  className="group relative grid grid-cols-[1fr_auto] items-baseline gap-4 border-b border-dashed border-line px-1 py-3.5 transition-colors hover:bg-field/5 sm:grid-cols-[auto_1fr_auto]"
                 >
                   <Link to="/education" aria-label="All education" className="absolute inset-0" />
-                  <span className="hidden font-mono text-[11px] tabular-nums text-[var(--color-text-secondary)] sm:block sm:w-40">
+                  <span className="hidden font-mono text-[11px] tabular-nums text-muted sm:block sm:w-40">
                     {formatMonthYearRange(e.startDate, e.endDate)}
                   </span>
                   <span className="font-serif text-lg tracking-[-0.01em]">
                     {e.title}
-                    <span className="text-[var(--color-text-secondary)]"> · {e.institution}</span>
+                    <span className="text-muted"> · {e.institution}</span>
                   </span>
                   <RowOut link={e.link} label={e.institution} />
                 </div>
@@ -427,7 +427,7 @@ const CareerSection = () => {
               {education.length > degrees.length && (
                 <Link
                   to="/education"
-                  className="group flex items-center gap-2 border-b border-dashed border-[var(--color-border)] px-1 py-3.5 font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--color-text-secondary)] transition-colors hover:bg-field/5 hover:text-signal"
+                  className="group flex items-center gap-2 border-b border-dashed border-line px-1 py-3.5 font-mono text-[11px] uppercase tracking-[0.1em] text-muted transition-colors hover:bg-field/5 hover:text-signal"
                 >
                   +{education.length - degrees.length} more · all education
                   <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
@@ -461,23 +461,23 @@ const CountCell = ({
   border?: boolean;
 }) => (
   <div
-    className={`flex flex-col gap-2.5 bg-[var(--color-card)] p-6 ${
-      border ? "border-b border-dashed border-[var(--color-border)] lg:border-b-0 lg:border-r" : ""
+    className={`flex flex-col gap-2.5 bg-card p-6 ${
+      border ? "border-b border-dashed border-line lg:border-b-0 lg:border-r" : ""
     }`}
   >
     <Badge className="self-start">{label}</Badge>
     <p className="m-0 font-serif text-4xl font-semibold leading-none tracking-[-0.03em]">
       <CountUp value={count} />{" "}
-      <span className="font-serif text-base font-normal italic tracking-normal text-[var(--color-text-secondary)]">
+      <span className="font-serif text-base font-normal italic tracking-normal text-muted">
         {unit}
       </span>
     </p>
     {latest && (
-      <p className="m-0 text-sm leading-snug text-[var(--color-text-secondary)]">{latest}</p>
+      <p className="m-0 text-sm leading-snug text-muted">{latest}</p>
     )}
     <Link
       to={href}
-      className="group mt-auto flex w-fit items-center gap-1.5 border-b border-[var(--color-border-strong)] pb-0.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-[var(--color-text-secondary)] transition-colors hover:border-signal hover:text-signal"
+      className="group mt-auto flex w-fit items-center gap-1.5 border-b border-line-strong pb-0.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-muted transition-colors hover:border-signal hover:text-signal"
     >
       {linkText}
       <ArrowRight size={11} className="transition-transform group-hover:translate-x-0.5" />
@@ -507,7 +507,7 @@ const HonorsSection = () => {
   return (
     <SectionBlock no="005" label="Recognition" title="Honors & output">
       <Rise>
-        <div className={`mb-2 mt-5 grid overflow-hidden rounded-card border border-dashed border-[var(--color-border)] ${CELL_COLS[cells.length]}`}>
+        <div className={`mb-2 mt-5 grid overflow-hidden rounded-card border border-dashed border-line ${CELL_COLS[cells.length]}`}>
           {cells.map((c, i) => (
             <CountCell
               key={c.label}
@@ -532,7 +532,7 @@ const HonorsSection = () => {
     into the projects record when the entry has none. */
 const FeaturedCardShell = ({ link, children }: { link?: string; children: React.ReactNode }) => {
   const cls =
-    "group mb-2 mt-5 grid overflow-hidden rounded-card border border-[var(--color-border-strong)] bg-[var(--color-card)] transition-all duration-200 hover:-translate-y-px hover:shadow-lift md:grid-cols-[1.15fr_0.85fr]";
+    "group mb-2 mt-5 grid overflow-hidden rounded-card border border-line-strong bg-card transition-all duration-200 hover:-translate-y-px hover:shadow-lift md:grid-cols-[1.15fr_0.85fr]";
   return link ? (
     <a href={link} target="_blank" rel="noopener noreferrer" className={cls}>
       {children}
@@ -565,12 +565,12 @@ const WorkSection = () => {
                 {featured.link ? (
                   <ArrowUpRight
                     size={18}
-                    className="text-[var(--color-text-secondary)] transition-colors group-hover:text-signal"
+                    className="text-muted transition-colors group-hover:text-signal"
                   />
                 ) : (
                   <ArrowRight
                     size={18}
-                    className="text-[var(--color-text-secondary)] transition-colors group-hover:text-signal"
+                    className="text-muted transition-colors group-hover:text-signal"
                   />
                 )}
               </div>
@@ -578,7 +578,7 @@ const WorkSection = () => {
                 {featured.title}
               </h3>
               {featuredDesc && (
-                <p className="m-0 max-w-[52ch] text-[15px] leading-relaxed text-[var(--color-text-secondary)]">
+                <p className="m-0 max-w-[52ch] text-[15px] leading-relaxed text-muted">
                   {featuredDesc}
                 </p>
               )}
@@ -590,7 +590,7 @@ const WorkSection = () => {
             </div>
             <div
               aria-hidden={featured.image ? undefined : true}
-              className="relative min-h-56 border-t border-dashed border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-field)_10%,var(--color-card))] [background-image:linear-gradient(color-mix(in_srgb,var(--color-border)_55%,transparent)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_srgb,var(--color-border)_55%,transparent)_1px,transparent_1px)] [background-size:26px_26px] md:border-l md:border-t-0"
+              className="relative min-h-56 border-t border-dashed border-line bg-[color-mix(in_srgb,var(--field)_10%,var(--card))] [background-image:linear-gradient(color-mix(in_srgb,var(--line)_55%,transparent)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_srgb,var(--line)_55%,transparent)_1px,transparent_1px)] [background-size:26px_26px] md:border-l md:border-t-0"
             >
               {featured.image ? (
                 <img src={featured.image} alt={featured.title} className="absolute inset-0 h-full w-full object-cover" />
@@ -603,19 +603,19 @@ const WorkSection = () => {
       )}
       {rest.length > 0 && (
         <Rise>
-          <div className="mb-2 border-t border-dashed border-[var(--color-border)]">
+          <div className="mb-2 border-t border-dashed border-line">
             {rest.map((p) => (
               <div
                 key={p.id}
-                className="group relative grid grid-cols-[1fr_auto] items-baseline gap-4 border-b border-dashed border-[var(--color-border)] px-1 py-3.5 transition-colors hover:bg-field/5 sm:grid-cols-[1fr_auto_auto]"
+                className="group relative grid grid-cols-[1fr_auto] items-baseline gap-4 border-b border-dashed border-line px-1 py-3.5 transition-colors hover:bg-field/5 sm:grid-cols-[1fr_auto_auto]"
               >
                 <Link to="/projects" aria-label="All projects" className="absolute inset-0" />
                 <span className="truncate font-serif text-lg tracking-[-0.01em]">
                   {p.title}
-                  {p.role && <span className="text-[var(--color-text-secondary)]"> · {p.role}</span>}
+                  {p.role && <span className="text-muted"> · {p.role}</span>}
                 </span>
                 {p.year && (
-                  <span className="hidden font-mono text-[11px] tabular-nums text-[var(--color-text-secondary)] sm:block">
+                  <span className="hidden font-mono text-[11px] tabular-nums text-muted sm:block">
                     {p.year}
                   </span>
                 )}
@@ -623,7 +623,7 @@ const WorkSection = () => {
               </div>
             ))}
             {projects.length > rest.length + 1 && (
-              <p className="mb-0 px-1 py-3 font-mono text-[11px] text-[var(--color-text-secondary)]">
+              <p className="mb-0 px-1 py-3 font-mono text-[11px] text-muted">
                 + {projects.length - rest.length - 1} more in the record
               </p>
             )}
@@ -659,13 +659,13 @@ const NotesSection = () => {
   return (
     <SectionBlock no="006" label="Field notes" title="Writing" href="/blog" linkText="All writing">
       <Rise>
-        <div className="mb-2 mt-5 border-t border-dashed border-[var(--color-border)]">
+        <div className="mb-2 mt-5 border-t border-dashed border-line">
           {rows.map((row) => {
             const rowClass =
-              "group grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-dashed border-[var(--color-border)] px-1.5 py-4 transition-colors hover:bg-field/5 sm:grid-cols-[6.5rem_1fr_auto_auto]";
+              "group grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-dashed border-line px-1.5 py-4 transition-colors hover:bg-field/5 sm:grid-cols-[6.5rem_1fr_auto_auto]";
             const inner = (
               <>
-                <span className="hidden font-mono text-[11px] tabular-nums tracking-[0.03em] text-[var(--color-text-secondary)] sm:block">
+                <span className="hidden font-mono text-[11px] tabular-nums tracking-[0.03em] text-muted sm:block">
                   {row.date ? formatShortDate(row.date).toUpperCase() : "-"}
                 </span>
                 <span className="truncate font-serif text-lg tracking-[-0.01em]">{row.title}</span>
@@ -673,12 +673,12 @@ const NotesSection = () => {
                 {row.ext ? (
                   <ArrowUpRight
                     size={14}
-                    className="text-[var(--color-text-secondary)] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-signal"
+                    className="text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-signal"
                   />
                 ) : (
                   <ArrowRight
                     size={14}
-                    className="text-[var(--color-text-secondary)] transition-transform group-hover:translate-x-1 group-hover:text-signal"
+                    className="text-muted transition-transform group-hover:translate-x-1 group-hover:text-signal"
                   />
                 )}
               </>
@@ -747,7 +747,7 @@ const ElsewhereSection = () => {
     <SectionBlock no="007" label="Off the clock" title="Elsewhere">
       <Rise>
         {cells.length > 0 && (
-          <div className={`mb-2 mt-5 grid overflow-hidden rounded-card border border-dashed border-[var(--color-border)] ${CELL_COLS[Math.min(cells.length, 3)]}`}>
+          <div className={`mb-2 mt-5 grid overflow-hidden rounded-card border border-dashed border-line ${CELL_COLS[Math.min(cells.length, 3)]}`}>
             {cells.map((c, i) => (
               <CountCell
                 key={c.label}
@@ -764,16 +764,16 @@ const ElsewhereSection = () => {
         )}
 
         {(shownCountries.length > 0 || interestChips.length > 0) && (
-          <div className="mb-2 border-t border-dashed border-[var(--color-border)]">
+          <div className="mb-2 border-t border-dashed border-line">
             {shownCountries.length > 0 && (
               <Link
                 to="/travel"
-                className="group flex flex-wrap items-baseline gap-x-5 gap-y-1 border-b border-dashed border-[var(--color-border)] px-1 py-3 transition-colors hover:bg-field/5"
+                className="group flex flex-wrap items-baseline gap-x-5 gap-y-1 border-b border-dashed border-line px-1 py-3 transition-colors hover:bg-field/5"
               >
-                <span className="w-28 shrink-0 font-mono text-[10.5px] font-medium uppercase tracking-[0.12em] text-[var(--color-text-secondary)]">
+                <span className="w-28 shrink-0 font-mono text-[10.5px] font-medium uppercase tracking-[0.12em] text-muted">
                   Atlas
                 </span>
-                <span className="font-mono text-xs tracking-[0.02em] text-[var(--color-text-primary)]">
+                <span className="font-mono text-xs tracking-[0.02em] text-ink">
                   {shownCountries
                     .map((c) => c.name)
                     .join(" · ")}
@@ -785,9 +785,9 @@ const ElsewhereSection = () => {
             {interestChips.length > 0 && (
               <Link
                 to="/interests"
-                className="group flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-dashed border-[var(--color-border)] px-1 py-3 transition-colors hover:bg-field/5"
+                className="group flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-dashed border-line px-1 py-3 transition-colors hover:bg-field/5"
               >
-                <span className="w-28 shrink-0 font-mono text-[10.5px] font-medium uppercase tracking-[0.12em] text-[var(--color-text-secondary)]">
+                <span className="w-28 shrink-0 font-mono text-[10.5px] font-medium uppercase tracking-[0.12em] text-muted">
                   Interests
                 </span>
                 <span className="flex flex-wrap gap-1.5">

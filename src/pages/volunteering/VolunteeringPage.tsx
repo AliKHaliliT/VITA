@@ -41,7 +41,7 @@ export const VolunteeringPage = () => {
       ) : (
         <div className="relative">
           {/* Vertical timeline line */}
-          <div className="absolute left-0 top-6 bottom-6 w-px bg-[var(--color-border)]" />
+          <div className="absolute left-0 top-6 bottom-6 w-px bg-line" />
 
           <div className="space-y-5">
             {grouped.map(([org, entries]) => {
@@ -57,34 +57,34 @@ export const VolunteeringPage = () => {
                   {/* Timeline node: signal while any role is ongoing */}
                   <div
                     className={cn(
-                      "absolute left-0 top-[26px] h-[9px] w-[9px] -translate-x-[4px] rounded-full border-2 border-[var(--color-background)]",
-                      ongoing ? "bg-signal" : "bg-[var(--color-border-strong)]"
+                      "absolute left-0 top-[26px] h-[9px] w-[9px] -translate-x-[4px] rounded-full border-2 border-surface",
+                      ongoing ? "bg-signal" : "bg-line-strong"
                     )}
                   />
 
-                  <div className="rounded-card border border-[var(--color-border)] bg-[var(--color-card)] overflow-hidden">
-                    <div className="px-5 py-3.5 border-b border-[var(--color-border)]">
-                      <h2 className="font-serif font-semibold text-[var(--color-text-primary)]">{org}</h2>
+                  <div className="rounded-card border border-line bg-card overflow-hidden">
+                    <div className="px-5 py-3.5 border-b border-line">
+                      <h2 className="font-serif font-semibold text-ink">{org}</h2>
                     </div>
-                    <div className="divide-y divide-[var(--color-border)]">
+                    <div className="divide-y divide-line">
                       {entries.map((item) => (
                         <div key={item.id} className="p-5">
                           <div className="flex items-start justify-between gap-4">
                             <div className="flex-1 min-w-0">
                               {(item.startDate || item.endDate) && (
-                                <p className="font-mono text-[11px] text-[var(--color-text-secondary)] mb-1.5">
+                                <p className="font-mono text-[11px] text-muted mb-1.5">
                                   {formatMonthYearRange(item.startDate, item.endDate)}
                                 </p>
                               )}
                               <div className="flex flex-wrap items-center gap-2 mb-1">
-                                <h3 className="font-semibold text-[var(--color-text-primary)] leading-snug">
+                                <h3 className="font-semibold text-ink leading-snug">
                                   {item.title}
                                 </h3>
                                 {!item.endDate && <Badge tone="signal">Ongoing</Badge>}
                               </div>
-                              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-[var(--color-text-secondary)]">
+                              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
                                 {item.role && (
-                                  <span className="font-medium text-[var(--color-text-primary)]">
+                                  <span className="font-medium text-ink">
                                     {item.role}
                                   </span>
                                 )}
@@ -96,7 +96,7 @@ export const VolunteeringPage = () => {
                                 )}
                               </div>
                               {item.body && (
-                                <p className="mt-2 text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                                <p className="mt-2 text-sm text-muted leading-relaxed">
                                   {item.body}
                                 </p>
                               )}
@@ -112,7 +112,7 @@ export const VolunteeringPage = () => {
                                 href={item.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex-shrink-0 mt-1 text-[var(--color-text-secondary)] hover:text-signal transition-colors duration-150"
+                                className="flex-shrink-0 mt-1 text-muted hover:text-signal transition-colors duration-150"
                                 title="Visit"
                               >
                                 <ExternalLink size={15} />

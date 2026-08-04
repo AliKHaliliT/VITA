@@ -52,10 +52,10 @@ const hexToRgb = (hex: string): [number, number, number] => {
 const readPalette = () => {
   const s = getComputedStyle(document.documentElement);
   return {
-    dust: hexToRgb(s.getPropertyValue("--color-text-secondary")),
-    ember: hexToRgb(s.getPropertyValue("--color-signal")),
-    fleck: hexToRgb(s.getPropertyValue("--color-pulse")),
-    dark: document.documentElement.classList.contains("dark"),
+    dust: hexToRgb(s.getPropertyValue("--muted")),
+    ember: hexToRgb(s.getPropertyValue("--signal")),
+    fleck: hexToRgb(s.getPropertyValue("--pulse")),
+    dark: document.documentElement.dataset.theme === "dark",
   };
 };
 
@@ -208,7 +208,7 @@ export const AmbientField = ({
       palette = readPalette();
       if (reduced) draw(performance.now() / 1000);
     });
-    mo.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
     return () => {
       stop();

@@ -29,7 +29,7 @@ export const GardenPostPage = () => {
         <div className="flex justify-center">
           <Link
             to="/garden"
-            className="flex items-center gap-2 text-sm font-medium text-[var(--color-text-secondary)] hover:text-signal transition-colors duration-150"
+            className="flex items-center gap-2 text-sm font-medium text-muted hover:text-signal transition-colors duration-150"
           >
             <ArrowLeft size={16} />
             Back to garden
@@ -52,7 +52,7 @@ export const GardenPostPage = () => {
       >
         <Link
           to="/garden"
-          className="flex items-center gap-2 text-sm text-[var(--color-text-secondary)] hover:text-signal transition-colors duration-150 mb-8 group w-fit"
+          className="flex items-center gap-2 text-sm text-muted hover:text-signal transition-colors duration-150 mb-8 group w-fit"
         >
           <ArrowLeft
             size={16}
@@ -66,22 +66,22 @@ export const GardenPostPage = () => {
             {post.postType || "Seedling"}
           </Badge>
 
-          <h1 className="text-3xl md:text-[2.5rem] md:leading-[1.15] font-serif font-semibold text-[var(--color-text-primary)] mb-4 leading-tight tracking-[-0.015em]">
+          <h1 className="text-3xl md:text-[2.5rem] md:leading-[1.15] font-serif font-semibold text-ink mb-4 leading-tight tracking-[-0.015em]">
             {post.title}
           </h1>
           {post.desc && (
-            <p className="font-serif italic text-lg text-[var(--color-text-secondary)] mb-4 leading-relaxed">
+            <p className="font-serif italic text-lg text-muted mb-4 leading-relaxed">
               {post.desc}
             </p>
           )}
           {post.date && (
-            <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-[var(--color-text-secondary)]">
+            <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-muted">
               {post.date}
             </p>
           )}
         </header>
 
-        <div className="h-px bg-[var(--color-border)] w-full mb-10" />
+        <div className="h-px bg-line w-full mb-10" />
 
         <div className="prose dark:prose-invert prose-essay mx-auto">
           <Markdown>
@@ -90,7 +90,7 @@ export const GardenPostPage = () => {
         </div>
 
         {Array.isArray(post.tags) && post.tags.length > 0 && (
-          <footer className="mt-12 pt-6 border-t border-[var(--color-border)]">
+          <footer className="mt-12 pt-6 border-t border-line">
             <TagList tags={post.tags} />
           </footer>
         )}

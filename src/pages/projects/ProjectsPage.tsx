@@ -105,9 +105,9 @@ export const ProjectsPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => setSelectedProject(featured)}
-                className="group grid cursor-pointer overflow-hidden rounded-card border border-[var(--color-border)] bg-[var(--color-card)] transition-all duration-200 hover:-translate-y-px hover:border-[var(--color-border-strong)] hover:shadow-lift md:grid-cols-[1.1fr_1fr]"
+                className="group grid cursor-pointer overflow-hidden rounded-card border border-line bg-card transition-all duration-200 hover:-translate-y-px hover:border-line-strong hover:shadow-lift md:grid-cols-[1.1fr_1fr]"
               >
-                <div className="relative min-h-48 bg-[var(--color-background)] md:min-h-full">
+                <div className="relative min-h-48 bg-surface md:min-h-full">
                   {featured.image ? (
                     <SafeImage
                       src={featured.image}
@@ -124,20 +124,20 @@ export const ProjectsPage = () => {
                     <Star size={11} className="fill-current" />
                     Featured
                     {featured.year && (
-                      <span className="text-[var(--color-text-secondary)]">
+                      <span className="text-muted">
                         {" "}
                         · {featured.year}
                       </span>
                     )}
                   </p>
-                  <h2 className="mb-1 font-serif text-2xl font-semibold text-[var(--color-text-primary)] transition-colors duration-150 group-hover:text-signal">
+                  <h2 className="mb-1 font-serif text-2xl font-semibold text-ink transition-colors duration-150 group-hover:text-signal">
                     {featured.title}
                   </h2>
-                  <p className="mb-3 text-sm font-medium text-[var(--color-text-secondary)]">
+                  <p className="mb-3 text-sm font-medium text-muted">
                     {featured.role}
                   </p>
                   {summary(featured) && (
-                    <p className="mb-4 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+                    <p className="mb-4 text-sm leading-relaxed text-muted">
                       {summary(featured)}
                     </p>
                   )}
@@ -150,13 +150,13 @@ export const ProjectsPage = () => {
                 images stay in the entry so the index never waits on a CDN. */}
             {byYear.map(([year, group]) => (
               <section key={year}>
-                <h2 className="mb-1 flex items-baseline gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--color-text-secondary)]">
+                <h2 className="mb-1 flex items-baseline gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
                   {year}
                   <span className="text-[10px] normal-case tracking-normal opacity-70">
                     {group.length} {group.length === 1 ? "entry" : "entries"}
                   </span>
                 </h2>
-                <div className="border-t border-dashed border-[var(--color-border)]">
+                <div className="border-t border-dashed border-line">
                   {group.map((project) => {
                     const host = project.link ? hostLabel(project.link) : null;
                     return (
@@ -172,20 +172,20 @@ export const ProjectsPage = () => {
                         // row resolves the fr columns identically, so titles,
                         // summaries, and chips align down the ledger whether
                         // or not an entry carries a link.
-                        className="group relative grid w-full grid-cols-[1fr_auto] items-center gap-x-4 border-b border-dashed border-[var(--color-border)] px-1.5 py-4 text-left transition-colors hover:bg-field/5 md:grid-cols-[minmax(14rem,1.2fr)_2fr_7rem_auto]"
+                        className="group relative grid w-full grid-cols-[1fr_auto] items-center gap-x-4 border-b border-dashed border-line px-1.5 py-4 text-left transition-colors hover:bg-field/5 md:grid-cols-[minmax(14rem,1.2fr)_2fr_7rem_auto]"
                       >
                         <span className="min-w-0">
                           <button
                             onClick={() => setSelectedProject(project)}
-                            className="block w-full truncate text-left font-serif text-lg tracking-[-0.01em] text-[var(--color-text-primary)] transition-colors duration-150 group-hover:text-signal after:absolute after:inset-0"
+                            className="block w-full truncate text-left font-serif text-lg tracking-[-0.01em] text-ink transition-colors duration-150 group-hover:text-signal after:absolute after:inset-0"
                           >
                             {project.title}
                           </button>
-                          <span className="block truncate text-xs text-[var(--color-text-secondary)]">
+                          <span className="block truncate text-xs text-muted">
                             {project.role}
                           </span>
                         </span>
-                        <span className="hidden min-w-0 truncate text-sm leading-relaxed text-[var(--color-text-secondary)] md:block">
+                        <span className="hidden min-w-0 truncate text-sm leading-relaxed text-muted md:block">
                           {summary(project)}
                         </span>
                         <span className="hidden min-w-0 justify-end md:flex">
@@ -195,7 +195,7 @@ export const ProjectsPage = () => {
                               target="_blank"
                               rel="noreferrer"
                               aria-label={`Visit ${host}`}
-                              className="relative z-10 flex min-w-0 items-center gap-1 font-mono text-[10px] uppercase tracking-[0.08em] text-[var(--color-text-secondary)] transition-colors hover:text-signal"
+                              className="relative z-10 flex min-w-0 items-center gap-1 font-mono text-[10px] uppercase tracking-[0.08em] text-muted transition-colors hover:text-signal"
                             >
                               <ArrowUpRight size={10} className="shrink-0" />
                               <span className="truncate">{host}</span>
@@ -204,7 +204,7 @@ export const ProjectsPage = () => {
                         </span>
                         <ArrowRight
                           size={14}
-                          className="text-[var(--color-text-secondary)] transition-transform group-hover:translate-x-1 group-hover:text-signal"
+                          className="text-muted transition-transform group-hover:translate-x-1 group-hover:text-signal"
                         />
                       </div>
                     );

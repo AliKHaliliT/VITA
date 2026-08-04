@@ -47,8 +47,8 @@ export const FilterBar = ({
           className={cn(
             "rounded-full border px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.08em] whitespace-nowrap transition-[color,background-color,border-color,transform] duration-150 active:scale-[0.96]",
             value === opt.value
-              ? "border-[var(--color-text-primary)] bg-[var(--color-text-primary)] text-[var(--color-background)]"
-              : "border-[var(--color-border-strong)] text-[var(--color-text-secondary)] hover:border-signal hover:text-signal"
+              ? "border-ink bg-ink text-surface"
+              : "border-line-strong text-muted hover:border-signal hover:text-signal"
           )}
         >
           {opt.label}
@@ -58,7 +58,7 @@ export const FilterBar = ({
         <button
           onClick={() => setExpanded((v) => !v)}
           aria-expanded={expanded}
-          className="rounded-full border border-dashed border-[var(--color-border-strong)] px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.08em] whitespace-nowrap text-[var(--color-text-secondary)] transition-[color,border-color,transform] duration-150 hover:border-signal hover:text-signal active:scale-[0.96]"
+          className="rounded-full border border-dashed border-line-strong px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.08em] whitespace-nowrap text-muted transition-[color,border-color,transform] duration-150 hover:border-signal hover:text-signal active:scale-[0.96]"
         >
           {expanded ? "Less" : `+${options.length - COLLAPSE_AT} more`}
         </button>

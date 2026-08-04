@@ -61,11 +61,12 @@ These are non-negotiable. Depth lives in the indexed documents; this is the chec
 - **Motion runs behind `LazyMotion` strict** (`domAnimation` features): always import and
   use `m.` from framer-motion, never `motion.` (a `motion.` component throws at runtime).
   The host loads no layout or drag features. See [docs/THEMING.md](docs/THEMING.md).
-- **Colors come from the tokens** in `src/app/styles/tokens.css` (`--color-card`,
-  `--color-signal`, and so on), reached either as a token utility or as the variable;
-  never hardcode a color and never reach for a raw palette class. The design language is
-  "the dossier": data is square, actions are round, one working accent. See
-  [docs/THEMING.md](docs/THEMING.md).
+- **Colors come only from the token utilities** defined in `src/app/styles/tokens.css`
+  (`bg-surface`, `text-ink`, `border-line`, `text-signal`, and so on). Never hardcode a
+  color, never reach for a raw palette class, and never spell a token the long way as
+  `bg-[var(--surface)]`; a composite value such as a `color-mix()` is the only place the
+  variable itself appears. The design language is "the dossier": data is square, actions
+  are round, one working accent. See [docs/THEMING.md](docs/THEMING.md).
 - **No personal strings in source code.** Owner data lives only under `src/content/`
   (`profile.md`, `site.json`, `palette.json`, markdown). Site identity and palette both
   follow the file-seed model in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).

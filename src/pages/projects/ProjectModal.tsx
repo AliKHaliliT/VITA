@@ -18,10 +18,10 @@ export const ProjectModal = ({
   return (
     <Modal isOpen={isOpen} onClose={onClose} label={project.title}>
       {/* The close control gets its own strip so it never sits on the image. */}
-      <div className="flex items-center justify-end border-b border-[var(--color-border)] px-3 py-2">
+      <div className="flex items-center justify-end border-b border-line px-3 py-2">
         <button
           onClick={onClose}
-          className="flex h-9 w-9 items-center justify-center rounded-full text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-background)] hover:text-[var(--color-text-primary)]"
+          className="flex h-9 w-9 items-center justify-center rounded-full text-muted transition-colors hover:bg-surface hover:text-ink"
           title="Close"
           aria-label="Close"
         >
@@ -32,12 +32,12 @@ export const ProjectModal = ({
       {/* Hero Image: only when the entry has one; broken hot-links fall back
           to a quiet glyph instead of a browser broken-image icon. */}
       {project.image && (
-        <div className="h-64 sm:h-80 w-full flex-shrink-0 bg-[var(--color-background)]">
+        <div className="h-64 sm:h-80 w-full flex-shrink-0 bg-surface">
           <SafeImage
             src={project.image}
             alt={project.title}
             fallback={
-              <div className="flex h-full w-full items-center justify-center text-[var(--color-text-secondary)]">
+              <div className="flex h-full w-full items-center justify-center text-muted">
                 <FolderOpen size={40} strokeWidth={1.25} />
               </div>
             }
@@ -49,16 +49,16 @@ export const ProjectModal = ({
       <div className="p-6 sm:p-8">
         <div className="flex justify-between items-start mb-4 gap-4">
           <div className="min-w-0">
-            <h2 className="text-2xl font-serif font-semibold text-[var(--color-text-primary)] mb-1">
+            <h2 className="text-2xl font-serif font-semibold text-ink mb-1">
               {project.title}
             </h2>
-            <p className="text-[var(--color-text-secondary)] font-medium">
+            <p className="text-muted font-medium">
               {project.role}
             </p>
           </div>
 
           <div className="flex shrink-0 items-center gap-4 text-sm">
-            <span className="font-mono text-[11px] text-[var(--color-text-secondary)]">
+            <span className="font-mono text-[11px] text-muted">
               {project.year}
             </span>
             {project.link && (
@@ -66,7 +66,7 @@ export const ProjectModal = ({
                 href={project.link}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-1.5 text-[var(--color-text-secondary)] hover:text-signal transition-colors duration-150"
+                className="flex items-center gap-1.5 text-muted hover:text-signal transition-colors duration-150"
               >
                 <ExternalLink size={15} />
                 Visit
@@ -79,13 +79,13 @@ export const ProjectModal = ({
 
         {/* Stats readout */}
         {project.stats && (
-          <p className="mb-6 rounded-ctl border border-[var(--color-border)] px-4 py-3 font-mono text-[11px] uppercase tracking-[0.06em] text-[var(--color-text-secondary)]">
+          <p className="mb-6 rounded-ctl border border-line px-4 py-3 font-mono text-[11px] uppercase tracking-[0.06em] text-muted">
             {project.stats}
           </p>
         )}
 
         {/* Markdown Description */}
-        <div className="prose prose-sm dark:prose-invert max-w-none text-[var(--color-text-secondary)] leading-relaxed prose-headings:font-serif prose-headings:font-semibold prose-h1:text-lg prose-h2:text-base prose-h3:text-base">
+        <div className="prose prose-sm dark:prose-invert max-w-none text-muted leading-relaxed prose-headings:font-serif prose-headings:font-semibold prose-h1:text-lg prose-h2:text-base prose-h3:text-base">
           <Markdown>
             {project.body || project.fullDesc || ""}
           </Markdown>

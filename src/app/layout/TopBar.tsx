@@ -18,7 +18,7 @@ const PixelMark = () => (
         key={i}
         className={cn(
           "h-1 w-1",
-          i === 1 ? "bg-field" : i === 5 ? "bg-pulse" : "bg-[var(--color-text-primary)]"
+          i === 1 ? "bg-field" : i === 5 ? "bg-pulse" : "bg-ink"
         )}
       />
     ))}
@@ -102,11 +102,11 @@ export const TopBar = () => {
     {/* The index panel must stay OUTSIDE this header: backdrop-filter turns
         the header into the containing block for fixed descendants, which
         would trap a fixed inset-0 panel inside the 56px bar. */}
-    <header className="sticky top-0 z-40 border-b border-dashed border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-background)_88%,transparent)] backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-dashed border-line bg-[color-mix(in_srgb,var(--surface)_88%,transparent)] backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-[1180px] items-center gap-5 px-5">
         <Link
           to="/"
-          className="flex items-center gap-2.5 font-mono text-xs font-medium uppercase tracking-[0.12em] text-[var(--color-text-primary)]"
+          className="flex items-center gap-2.5 font-mono text-xs font-medium uppercase tracking-[0.12em] text-ink"
         >
           <PixelMark />
           <span className="whitespace-nowrap">{site.name}</span>
@@ -138,7 +138,7 @@ export const TopBar = () => {
                   onClick={() => setOpenGroup(isOpen ? null : group.label)}
                   className={cn(
                     "flex items-center gap-1 px-3 py-2 font-mono text-[11px] uppercase tracking-[0.12em] transition-colors",
-                    isOpen ? "text-signal" : "text-[var(--color-text-secondary)] hover:text-signal"
+                    isOpen ? "text-signal" : "text-muted hover:text-signal"
                   )}
                   aria-haspopup="menu"
                   aria-expanded={isOpen}
@@ -158,7 +158,7 @@ export const TopBar = () => {
                       exit={{ opacity: 0, y: 3, scale: 0.99 }}
                       transition={{ duration: 0.16, ease: [0.2, 0.7, 0.2, 1] }}
                       style={{ transformOrigin: "top right" }}
-                      className="absolute right-0 top-full min-w-52 rounded-card border border-[var(--color-border-strong)] bg-[var(--color-card)] p-1.5 shadow-overlay"
+                      className="absolute right-0 top-full min-w-52 rounded-card border border-line-strong bg-card p-1.5 shadow-overlay"
                     >
                       {group.items.map((item) => (
                         <Link
@@ -168,11 +168,11 @@ export const TopBar = () => {
                           className={cn(
                             "flex items-center gap-2.5 rounded-ctl px-3 py-2 text-sm transition-[color,background-color,transform] duration-150 hover:translate-x-0.5",
                             pathname === item.path
-                              ? "bg-[var(--color-background)] text-signal"
-                              : "text-[var(--color-text-primary)] hover:bg-[var(--color-background)] hover:text-signal"
+                              ? "bg-surface text-signal"
+                              : "text-ink hover:bg-surface hover:text-signal"
                           )}
                         >
-                          <item.icon size={14} className="text-[var(--color-text-secondary)]" />
+                          <item.icon size={14} className="text-muted" />
                           {item.label}
                         </Link>
                       ))}
@@ -186,7 +186,7 @@ export const TopBar = () => {
 
         <button
           onClick={openSearch}
-          className="ml-auto flex items-center gap-2 rounded-ctl border border-[var(--color-border-strong)] px-2.5 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.08em] text-[var(--color-text-secondary)] transition-[color,border-color,transform] duration-150 hover:border-signal hover:text-signal active:scale-95 lg:ml-1"
+          className="ml-auto flex items-center gap-2 rounded-ctl border border-line-strong px-2.5 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.08em] text-muted transition-[color,border-color,transform] duration-150 hover:border-signal hover:text-signal active:scale-95 lg:ml-1"
           aria-label="Open search"
         >
           <Search size={12} />
@@ -195,7 +195,7 @@ export const TopBar = () => {
 
         <button
           onClick={toggleTheme}
-          className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border border-[var(--color-border-strong)] text-[var(--color-text-secondary)] transition-[color,border-color,transform] duration-150 hover:border-signal hover:text-signal active:scale-90"
+          className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border border-line-strong text-muted transition-[color,border-color,transform] duration-150 hover:border-signal hover:text-signal active:scale-90"
           aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
         >
           <AnimatePresence mode="wait" initial={false}>
@@ -214,7 +214,7 @@ export const TopBar = () => {
 
         <button
           onClick={() => setMenuOpen(true)}
-          className="flex h-8 w-8 items-center justify-center rounded-ctl border border-[var(--color-border-strong)] text-[var(--color-text-primary)] transition-transform duration-150 active:scale-90 lg:hidden"
+          className="flex h-8 w-8 items-center justify-center rounded-ctl border border-line-strong text-ink transition-transform duration-150 active:scale-90 lg:hidden"
           aria-label="Open site index"
         >
           <Menu size={15} />
@@ -230,16 +230,16 @@ export const TopBar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
-            className="fixed inset-0 z-50 overflow-y-auto bg-[var(--color-background)] lg:hidden"
+            className="fixed inset-0 z-50 overflow-y-auto bg-surface lg:hidden"
           >
             <div className="mx-auto max-w-[1180px] px-5">
-              <div className="flex h-14 items-center justify-between border-b border-dashed border-[var(--color-border)]">
+              <div className="flex h-14 items-center justify-between border-b border-dashed border-line">
                 <span className="flex items-center gap-2.5 font-mono text-xs font-medium uppercase tracking-[0.12em]">
                   <PixelMark /> Index
                 </span>
                 <button
                   onClick={() => setMenuOpen(false)}
-                  className="flex h-8 w-8 items-center justify-center rounded-ctl border border-[var(--color-border-strong)]"
+                  className="flex h-8 w-8 items-center justify-center rounded-ctl border border-line-strong"
                   aria-label="Close site index"
                 >
                   <X size={15} />
@@ -255,7 +255,7 @@ export const TopBar = () => {
                 <m.div variants={INDEX_ITEM}>
                   <Link
                     to="/"
-                    className="font-serif text-2xl font-semibold tracking-[-0.02em] text-[var(--color-text-primary)]"
+                    className="font-serif text-2xl font-semibold tracking-[-0.02em] text-ink"
                   >
                     Home
                   </Link>
@@ -270,7 +270,7 @@ export const TopBar = () => {
                         <Link
                           key={item.path}
                           to={item.path}
-                          className="py-1 font-serif text-xl tracking-[-0.01em] text-[var(--color-text-primary)] transition-colors hover:text-signal"
+                          className="py-1 font-serif text-xl tracking-[-0.01em] text-ink transition-colors hover:text-signal"
                         >
                           {item.label}
                         </Link>

@@ -18,7 +18,7 @@ export const StoryLink = ({
 }) => {
   const external = /^https?:\/\//.test(to);
   const cls = cn(
-    "inline-flex items-center gap-1 font-mono text-[10.5px] font-medium uppercase tracking-[0.12em] text-signal transition-colors hover:text-[var(--color-text-primary)]",
+    "inline-flex items-center gap-1 font-mono text-[10.5px] font-medium uppercase tracking-[0.12em] text-signal transition-colors hover:text-ink",
     className,
   );
   const label = children ?? "Read the story";

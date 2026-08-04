@@ -14,10 +14,10 @@ export const BookModal = ({ book, isOpen, onClose }: BookModalProps) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} label={book.title}>
       {/* The close control gets its own strip so it never sits on content. */}
-      <div className="flex items-center justify-end border-b border-[var(--color-border)] px-3 py-2">
+      <div className="flex items-center justify-end border-b border-line px-3 py-2">
         <button
           onClick={onClose}
-          className="flex h-9 w-9 items-center justify-center rounded-full text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-background)] hover:text-[var(--color-text-primary)]"
+          className="flex h-9 w-9 items-center justify-center rounded-full text-muted transition-colors hover:bg-surface hover:text-ink"
           title="Close"
           aria-label="Close"
         >
@@ -28,7 +28,7 @@ export const BookModal = ({ book, isOpen, onClose }: BookModalProps) => {
 
         {/* Book Cover */}
         <div className="w-full md:w-1/3 flex-shrink-0">
-          <div className="aspect-[2/3] rounded-ctl overflow-hidden border border-[var(--color-border)] bg-[var(--color-background)]">
+          <div className="aspect-[2/3] rounded-ctl overflow-hidden border border-line bg-surface">
             {book.cover ? (
               <img
                 src={book.cover}
@@ -36,7 +36,7 @@ export const BookModal = ({ book, isOpen, onClose }: BookModalProps) => {
                 className="w-full h-full object-cover"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center text-[var(--color-text-secondary)]">
+              <div className="w-full h-full flex items-center justify-center text-muted">
                 <BookOpen size={40} />
               </div>
             )}
@@ -52,10 +52,10 @@ export const BookModal = ({ book, isOpen, onClose }: BookModalProps) => {
             {book.status === "Reading" ? "Currently reading" : book.status}
           </Badge>
 
-          <h2 className="text-2xl font-serif font-semibold text-[var(--color-text-primary)] mb-1">
+          <h2 className="text-2xl font-serif font-semibold text-ink mb-1">
             {book.title}
           </h2>
-          <p className="text-[var(--color-text-secondary)] mb-4 text-lg">
+          <p className="text-muted mb-4 text-lg">
             {book.author}
           </p>
 
@@ -67,10 +67,10 @@ export const BookModal = ({ book, isOpen, onClose }: BookModalProps) => {
           )}
 
           <div>
-            <p className="font-mono text-eyebrow uppercase text-[var(--color-text-secondary)] mb-2">
+            <p className="font-mono text-eyebrow uppercase text-muted mb-2">
               My notes
             </p>
-            <div className="prose prose-sm dark:prose-invert max-w-none text-[var(--color-text-secondary)] leading-relaxed prose-headings:font-serif prose-headings:font-semibold prose-h1:text-lg prose-h2:text-base prose-h3:text-base">
+            <div className="prose prose-sm dark:prose-invert max-w-none text-muted leading-relaxed prose-headings:font-serif prose-headings:font-semibold prose-h1:text-lg prose-h2:text-base prose-h3:text-base">
               <Markdown>
                 {book.body || book.notes || "No notes yet."}
               </Markdown>

@@ -22,20 +22,20 @@ export const PageHeader = ({
 }) => (
   <header className={cn("mb-10", className)}>
     <div className="flex items-baseline justify-between gap-4">
-      <p className="font-mono text-eyebrow uppercase text-[var(--color-text-secondary)]">
+      <p className="font-mono text-eyebrow uppercase text-muted">
         {eyebrow}
       </p>
       {meta && (
-        <p className="hidden font-mono text-eyebrow uppercase text-[var(--color-text-secondary)] sm:block">
+        <p className="hidden font-mono text-eyebrow uppercase text-muted sm:block">
           {meta}
         </p>
       )}
     </div>
-    <h1 className="mt-2 font-serif text-display font-semibold text-[var(--color-text-primary)]">
+    <h1 className="mt-2 font-serif text-display font-semibold text-ink">
       {title}
     </h1>
     {description && (
-      <p className="mt-3 max-w-xl font-serif text-base italic leading-relaxed text-[var(--color-text-secondary)]">
+      <p className="mt-3 max-w-xl font-serif text-base italic leading-relaxed text-muted">
         {description}
       </p>
     )}

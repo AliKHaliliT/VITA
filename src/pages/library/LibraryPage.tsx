@@ -50,12 +50,12 @@ export const LibraryPage = () => {
           ].map((stat) => (
             <div
               key={stat.label}
-              className="rounded-card border border-[var(--color-border)] bg-[var(--color-card)] p-5"
+              className="rounded-card border border-line bg-card p-5"
             >
-              <p className="font-mono text-eyebrow uppercase text-[var(--color-text-secondary)]">
+              <p className="font-mono text-eyebrow uppercase text-muted">
                 {stat.label}
               </p>
-              <p className="mt-2 text-2xl font-serif font-semibold text-[var(--color-text-primary)]">
+              <p className="mt-2 text-2xl font-serif font-semibold text-ink">
                 {stat.value}
               </p>
             </div>
@@ -99,7 +99,7 @@ export const LibraryPage = () => {
                 onClick={() => setSelectedBook(book)}
                 className="group cursor-pointer flex flex-col gap-3"
               >
-                <div className="aspect-[2/3] rounded-ctl overflow-hidden border border-[var(--color-border)] bg-[var(--color-background)]">
+                <div className="aspect-[2/3] rounded-ctl overflow-hidden border border-line bg-surface">
                   {book.cover ? (
                     <img
                       src={book.cover}
@@ -107,7 +107,7 @@ export const LibraryPage = () => {
                       className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-200"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-[var(--color-text-secondary)]">
+                    <div className="w-full h-full flex items-center justify-center text-muted">
                       <BookOpen size={32} strokeWidth={1.5} />
                     </div>
                   )}
@@ -117,10 +117,10 @@ export const LibraryPage = () => {
                   <Badge tone={book.status === "Reading" ? "canopy" : "neutral"}>
                     {book.status}
                   </Badge>
-                  <h3 className="mt-2 font-semibold text-[var(--color-text-primary)] line-clamp-1 group-hover:text-signal transition-colors duration-150">
+                  <h3 className="mt-2 font-semibold text-ink line-clamp-1 group-hover:text-signal transition-colors duration-150">
                     {book.title}
                   </h3>
-                  <p className="text-sm text-[var(--color-text-secondary)]">
+                  <p className="text-sm text-muted">
                     {book.author}
                   </p>
 
@@ -133,7 +133,7 @@ export const LibraryPage = () => {
                           fill={i < (book.rating || 0) ? "currentColor" : "none"}
                           className={
                             i >= (book.rating || 0)
-                              ? "text-[var(--color-border-strong)]"
+                              ? "text-line-strong"
                               : ""
                           }
                         />

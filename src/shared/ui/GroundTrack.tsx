@@ -15,17 +15,17 @@ export const GroundTrack = ({ className }: { className?: string }) => {
 
   return (
     <div className={cn("relative h-2", className)} aria-hidden="true">
-      <div className="absolute inset-x-0 top-1/2 border-t border-dashed border-[var(--color-border)]" />
+      <div className="absolute inset-x-0 top-1/2 border-t border-dashed border-line" />
       {TRACK_TICKS.map((tick) => (
         <div
           key={tick}
           style={{ left: `${tick * 100}%` }}
-          className="absolute top-1/2 h-[7px] w-px -translate-y-1/2 bg-[var(--color-border-strong)]"
+          className="absolute top-1/2 h-[7px] w-px -translate-y-1/2 bg-line-strong"
         />
       ))}
       <div
         style={{ left: `${position * 100}%` }}
-        className="gt-breathe absolute top-1/2 h-[7px] w-[7px] -translate-x-1/2 -translate-y-1/2 rounded-[1.5px] bg-field shadow-[0_0_0_3px_color-mix(in_srgb,var(--color-field)_30%,transparent)] transition-[left] duration-200 ease-out"
+        className="gt-breathe absolute top-1/2 h-[7px] w-[7px] -translate-x-1/2 -translate-y-1/2 rounded-[1.5px] bg-field shadow-[0_0_0_3px_color-mix(in_srgb,var(--field)_30%,transparent)] transition-[left] duration-200 ease-out"
       />
     </div>
   );

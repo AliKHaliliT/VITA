@@ -8,13 +8,13 @@ import { ObfuscatedEmail, PixelBand } from "@/shared/ui";
 const openSearch = () => document.dispatchEvent(new Event("open-search"));
 
 const chipClass =
-  "rounded-ctl border border-[color-mix(in_srgb,var(--color-footer-ink)_35%,transparent)] px-2 py-[3px] font-mono text-[10.5px] font-medium uppercase tracking-[0.09em] text-[var(--color-footer-ink)] transition-[color,border-color,transform] duration-150 hover:-translate-y-px hover:border-field hover:text-field active:scale-95";
+  "rounded-ctl border border-[color-mix(in_srgb,var(--footer-ink)_35%,transparent)] px-2 py-[3px] font-mono text-[10.5px] font-medium uppercase tracking-[0.09em] text-footer-ink transition-[color,border-color,transform] duration-150 hover:-translate-y-px hover:border-field hover:text-field active:scale-95";
 
 const colHead =
-  "mb-3.5 font-mono text-[10.5px] font-medium uppercase tracking-[0.14em] text-[color-mix(in_srgb,var(--color-footer-ink)_55%,transparent)]";
+  "mb-3.5 font-mono text-[10.5px] font-medium uppercase tracking-[0.14em] text-[color-mix(in_srgb,var(--footer-ink)_55%,transparent)]";
 
 const colLink =
-  "block py-[5px] text-sm text-[color-mix(in_srgb,var(--color-footer-ink)_82%,transparent)] transition-[color,transform] duration-150 hover:translate-x-0.5 hover:text-field";
+  "block py-[5px] text-sm text-[color-mix(in_srgb,var(--footer-ink)_82%,transparent)] transition-[color,transform] duration-150 hover:translate-x-0.5 hover:text-field";
 
 /**
  * The dossier back cover: sign-off, socials, and the complete site map -
@@ -57,7 +57,7 @@ export const Footer = () => {
   return (
     <footer id="site-footer" className="relative mt-20">
       <PixelBand offset={7} />
-      <div className="bg-[var(--color-footer)] text-[var(--color-footer-ink)]">
+      <div className="bg-footer text-footer-ink">
         <div className="mx-auto max-w-[1180px] px-5 pb-10 pt-16">
           <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
             <div>
@@ -155,7 +155,7 @@ export const Footer = () => {
             </nav>
           </div>
 
-          <div className="mt-12 flex flex-wrap items-center justify-between gap-3 border-t border-dashed border-[color-mix(in_srgb,var(--color-footer-ink)_25%,transparent)] pt-5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-[color-mix(in_srgb,var(--color-footer-ink)_55%,transparent)]">
+          <div className="mt-12 flex flex-wrap items-center justify-between gap-3 border-t border-dashed border-[color-mix(in_srgb,var(--footer-ink)_25%,transparent)] pt-5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-[color-mix(in_srgb,var(--footer-ink)_55%,transparent)]">
             <span>
               {colophon} · {year}
             </span>

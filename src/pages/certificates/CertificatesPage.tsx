@@ -57,7 +57,7 @@ export const CertificatesPage = () => {
             }
           />
         ) : (
-          <div className="rounded-card border border-[var(--color-border)] bg-[var(--color-card)] divide-y divide-[var(--color-border)]">
+          <div className="rounded-card border border-line bg-card divide-y divide-line">
             {visible.map((cert, i) => {
               const year = cert.date?.slice(0, 4);
               return (
@@ -66,20 +66,20 @@ export const CertificatesPage = () => {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2, delay: Math.min(i * 0.03, 0.3) }}
-                  className="flex gap-5 px-5 py-4 transition-colors duration-150 hover:bg-[var(--color-background)]/60"
+                  className="flex gap-5 px-5 py-4 transition-colors duration-150 hover:bg-surface/60"
                 >
                   {/* Year rail */}
                   <div className="hidden sm:block w-12 shrink-0 pt-0.5">
-                    <span className="font-mono text-[11px] text-[var(--color-text-secondary)]">
+                    <span className="font-mono text-[11px] text-muted">
                       {year ?? "-"}
                     </span>
                   </div>
 
                   <div className="flex-1 min-w-0">
-                    <h2 className="text-[15px] font-serif font-semibold text-[var(--color-text-primary)] leading-snug">
+                    <h2 className="text-[15px] font-serif font-semibold text-ink leading-snug">
                       {cert.title}
                     </h2>
-                    <p className="text-sm text-[var(--color-text-secondary)] mt-1">
+                    <p className="text-sm text-muted mt-1">
                       {cert.issuer}
                       {year && (
                         <span className="sm:hidden font-mono text-[11px]">
@@ -88,7 +88,7 @@ export const CertificatesPage = () => {
                       )}
                     </p>
                     {cert.credentialId && (
-                      <p className="font-mono text-[11px] text-[var(--color-text-secondary)] mt-1.5">
+                      <p className="font-mono text-[11px] text-muted mt-1.5">
                         ID {cert.credentialId}
                       </p>
                     )}
@@ -101,7 +101,7 @@ export const CertificatesPage = () => {
                         href={cert.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-1.5 rounded-ctl text-[var(--color-text-secondary)] hover:text-signal transition-colors duration-150"
+                        className="p-1.5 rounded-ctl text-muted hover:text-signal transition-colors duration-150"
                         title="View credential"
                       >
                         <ExternalLink size={15} />

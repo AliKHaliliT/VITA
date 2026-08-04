@@ -12,8 +12,8 @@ const pillClass = (variant: Variant) =>
     "transition-[transform,background-color,color,border-color] duration-200",
     "hover:-translate-y-px active:translate-y-0 active:scale-[0.97]",
     variant === "solid"
-      ? "border-[var(--color-text-primary)] bg-[var(--color-text-primary)] text-[var(--color-background)] hover:border-signal hover:bg-signal hover:text-white"
-      : "border-[var(--color-text-primary)] bg-transparent text-[var(--color-text-primary)] hover:border-signal hover:text-signal"
+      ? "border-ink bg-ink text-surface hover:border-signal hover:bg-signal hover:text-white"
+      : "border-ink bg-transparent text-ink hover:border-signal hover:text-signal"
   );
 
 const Arrow = () => (

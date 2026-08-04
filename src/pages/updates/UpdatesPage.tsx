@@ -58,10 +58,10 @@ export const UpdatesPage = () => {
           <div className="mx-auto max-w-2xl space-y-10">
             {Object.entries(grouped).map(([month, monthUpdates]) => (
               <section key={month}>
-                <h2 className="font-mono text-eyebrow uppercase text-[var(--color-text-secondary)] mb-3 pl-1">
+                <h2 className="font-mono text-eyebrow uppercase text-muted mb-3 pl-1">
                   {month}
                 </h2>
-                <div className="rounded-card border border-[var(--color-border)] bg-[var(--color-card)] divide-y divide-[var(--color-border)]">
+                <div className="rounded-card border border-line bg-card divide-y divide-line">
                   {monthUpdates.map((update, idx) => {
                     const updateType = update.updateType || "note";
                     const Icon = UPDATE_ICONS[updateType];
@@ -77,7 +77,7 @@ export const UpdatesPage = () => {
                       >
                         {/* Date rail */}
                         <div className="w-14 shrink-0 pt-0.5">
-                          <span className="font-mono text-[11px] text-[var(--color-text-secondary)]">
+                          <span className="font-mono text-[11px] text-muted">
                             {formatMonthDay(update.date)}
                           </span>
                         </div>
@@ -90,7 +90,7 @@ export const UpdatesPage = () => {
                                 "shrink-0",
                                 milestone
                                   ? "text-signal"
-                                  : "text-[var(--color-text-secondary)]"
+                                  : "text-muted"
                               )}
                             />
                             <Badge tone={milestone ? "signal" : "neutral"}>
@@ -104,7 +104,7 @@ export const UpdatesPage = () => {
                               href={update.link}
                               target="_blank"
                               rel="noreferrer"
-                              className="group flex items-center gap-2 mb-2 px-3 py-2 rounded-ctl border border-[var(--color-border)] text-sm font-medium text-[var(--color-text-primary)] hover:border-[var(--color-border-strong)] hover:text-signal transition-colors duration-150"
+                              className="group flex items-center gap-2 mb-2 px-3 py-2 rounded-ctl border border-line text-sm font-medium text-ink hover:border-line-strong hover:text-signal transition-colors duration-150"
                             >
                               <Link2 size={13} className="flex-shrink-0" />
                               <span className="truncate">
@@ -121,8 +121,8 @@ export const UpdatesPage = () => {
                             className={cn(
                               "prose prose-sm dark:prose-invert max-w-none text-sm leading-relaxed [&_p]:my-0",
                               milestone
-                                ? "font-medium text-[var(--color-text-primary)]"
-                                : "text-[var(--color-text-secondary)]"
+                                ? "font-medium text-ink"
+                                : "text-muted"
                             )}
                           >
                             <Markdown>{update.body || ""}</Markdown>

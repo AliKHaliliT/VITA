@@ -20,13 +20,13 @@ export const TagList = ({
       {shown.map((tag) => (
         <span
           key={tag}
-          className="rounded-ctl border border-[var(--color-border)] px-1.5 py-0.5 font-mono text-[10.5px] leading-tight text-[var(--color-text-secondary)]"
+          className="rounded-ctl border border-line px-1.5 py-0.5 font-mono text-[10.5px] leading-tight text-muted"
         >
           {tag}
         </span>
       ))}
       {tags.length > shown.length && (
-        <span className="rounded-ctl border border-dashed border-[var(--color-border)] px-1.5 py-0.5 font-mono text-[10.5px] leading-tight text-[var(--color-text-secondary)]">
+        <span className="rounded-ctl border border-dashed border-line px-1.5 py-0.5 font-mono text-[10.5px] leading-tight text-muted">
           +{tags.length - shown.length}
         </span>
       )}

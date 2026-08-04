@@ -16,9 +16,9 @@ import { m } from "framer-motion";
  * app-wide MotionConfig reducedMotion="user".
  */
 
-const INK = "var(--color-text-secondary)";
-const SIGNAL = "var(--color-signal)";
-const PULSE = "var(--color-pulse)";
+const INK = "var(--muted)";
+const SIGNAL = "var(--signal)";
+const PULSE = "var(--pulse)";
 
 /** The six-cell brand mosaic, cell size c, origin (x, y). Cell fills echo the
     pixel-mark: one signal cell up top, one pulse cell closing the row below. */
@@ -135,7 +135,7 @@ export const DraftingPlot = ({ title, year }: { title: string; year?: string }) 
     </m.div>
 
     {/* plot chip and readout, HTML so the tokens style them like real chips */}
-    <span className="absolute left-[7%] top-[13%] flex items-center gap-1.5 rounded-ctl border border-[var(--color-border-strong)] bg-[var(--color-background)] px-2 py-1 font-mono text-[10px] uppercase tracking-[0.08em]">
+    <span className="absolute left-[7%] top-[13%] flex items-center gap-1.5 rounded-ctl border border-line-strong bg-surface px-2 py-1 font-mono text-[10px] uppercase tracking-[0.08em]">
       {chipWord(title)}
       <m.span
         className="inline-block h-3 w-[5px] bg-signal"
@@ -143,14 +143,14 @@ export const DraftingPlot = ({ title, year }: { title: string; year?: string }) 
         transition={{ duration: 1.1, times: [0, 0.5, 0.5, 1], repeat: Infinity }}
       />
     </span>
-    <span className="absolute bottom-[8%] left-[7%] font-mono text-[9.5px] uppercase tracking-[0.14em] text-[var(--color-text-secondary)]">
+    <span className="absolute bottom-[8%] left-[7%] font-mono text-[9.5px] uppercase tracking-[0.14em] text-muted">
       Plot 004{year ? ` · ${year}` : ""} · no figure filed
     </span>
   </>
 );
 
 export const SpecimenPlate = ({ title, year }: { title: string; year?: string }) => (
-  <div aria-hidden className="absolute inset-0 overflow-hidden bg-[color-mix(in_srgb,var(--color-field)_8%,var(--color-background))]">
+  <div aria-hidden className="absolute inset-0 overflow-hidden bg-[color-mix(in_srgb,var(--field)_8%,var(--surface))]">
     {/* registration corners */}
     <svg className="absolute inset-0 h-full w-full" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" fill="none">
       <g stroke={INK} strokeWidth="1.5" opacity="0.6">
@@ -172,25 +172,25 @@ export const SpecimenPlate = ({ title, year }: { title: string; year?: string })
     </svg>
 
     {/* ghost figure number */}
-    <span className="absolute -left-2 bottom-0 select-none font-serif text-[7rem] font-semibold italic leading-none tracking-[-0.05em] text-[var(--color-text-primary)] opacity-[0.07]">
+    <span className="absolute -left-2 bottom-0 select-none font-serif text-[7rem] font-semibold italic leading-none tracking-[-0.05em] text-ink opacity-[0.07]">
       Fig.
     </span>
 
     {/* ledger lines with dotted leaders */}
-    <div className="absolute left-[8%] top-[16%] w-[46%] space-y-3 font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--color-text-secondary)]">
+    <div className="absolute left-[8%] top-[16%] w-[46%] space-y-3 font-mono text-[10px] uppercase tracking-[0.12em] text-muted">
       <p className="m-0 flex items-baseline gap-2">
         <span>Specimen</span>
-        <span className="min-w-4 flex-1 border-b border-dotted border-[var(--color-border-strong)]" />
-        <span className="max-w-[55%] truncate normal-case tracking-normal text-[var(--color-text-primary)]">{title}</span>
+        <span className="min-w-4 flex-1 border-b border-dotted border-line-strong" />
+        <span className="max-w-[55%] truncate normal-case tracking-normal text-ink">{title}</span>
       </p>
       <p className="m-0 flex items-baseline gap-2">
         <span>Filed</span>
-        <span className="min-w-4 flex-1 border-b border-dotted border-[var(--color-border-strong)]" />
-        <span className="text-[var(--color-text-primary)]">{year || "undated"}</span>
+        <span className="min-w-4 flex-1 border-b border-dotted border-line-strong" />
+        <span className="text-ink">{year || "undated"}</span>
       </p>
       <p className="m-0 flex items-baseline gap-2">
         <span>Figure</span>
-        <span className="min-w-4 flex-1 border-b border-dotted border-[var(--color-border-strong)]" />
+        <span className="min-w-4 flex-1 border-b border-dotted border-line-strong" />
         <span>none</span>
       </p>
     </div>

@@ -17,7 +17,7 @@ import { useSiteIdentity } from "@/entities/site";
 const BackLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
   <Link
     to={to}
-    className="group flex w-fit items-center gap-2 text-sm text-[var(--color-text-secondary)] transition-colors duration-150 hover:text-signal"
+    className="group flex w-fit items-center gap-2 text-sm text-muted transition-colors duration-150 hover:text-signal"
   >
     <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
     {children}
@@ -76,11 +76,11 @@ export const TravelCountryPage = () => {
         <div>
           <div className="flex items-center gap-3 mb-4">
             <div>
-              <h1 className="text-display font-serif font-semibold text-[var(--color-text-primary)]">
+              <h1 className="text-display font-serif font-semibold text-ink">
                 {country.name}
               </h1>
               {country.years && (
-                <p className="font-mono text-[11px] text-[var(--color-text-secondary)] mt-1">
+                <p className="font-mono text-[11px] text-muted mt-1">
                   Visited {country.years}
                 </p>
               )}
@@ -93,7 +93,7 @@ export const TravelCountryPage = () => {
 
         {cities.length > 0 && (
           <div>
-            <h2 className="font-mono text-eyebrow uppercase text-[var(--color-text-secondary)] mb-4 flex items-center gap-2">
+            <h2 className="font-mono text-eyebrow uppercase text-muted mb-4 flex items-center gap-2">
               <MapPin size={13} />
               Cities in {country.name}
             </h2>
@@ -152,7 +152,7 @@ export const TravelCityPage = () => {
           </div>
         ) : (
           <div>
-            <h1 className="text-display font-serif font-semibold text-[var(--color-text-primary)] mb-2">
+            <h1 className="text-display font-serif font-semibold text-ink mb-2">
               {city.city}
             </h1>
             <CityMeta city={city.country} date={city.date} tone="muted" />
@@ -160,7 +160,7 @@ export const TravelCityPage = () => {
         )}
 
         {city.coordinates && (
-          <p className="font-mono text-[11px] text-[var(--color-text-secondary)] flex items-center gap-2">
+          <p className="font-mono text-[11px] text-muted flex items-center gap-2">
             <Navigation size={13} />
             {city.coordinates}
           </p>
@@ -179,7 +179,7 @@ function CityMeta({ city, date, tone }: { city?: string; date?: string; tone: "l
   return (
     <div
       className={`flex items-center gap-4 text-sm ${
-        tone === "light" ? "text-white/80" : "text-[var(--color-text-secondary)]"
+        tone === "light" ? "text-white/80" : "text-muted"
       }`}
     >
       {city && (

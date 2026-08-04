@@ -21,14 +21,14 @@ export const Badge = ({
       "inline-flex w-fit items-center gap-1.5 rounded-ctl border px-2 py-[3px]",
       "font-mono text-[10.5px] font-medium uppercase tracking-[0.09em] leading-none whitespace-nowrap",
       tone === "neutral"
-        ? "border-[var(--color-border-strong)] text-[var(--color-text-secondary)]"
+        ? "border-line-strong text-muted"
         : "border-signal/50 text-signal",
       className
     )}
   >
     {tone !== "neutral" && (
       <span
-        className="h-1.5 w-1.5 shrink-0 rounded-full bg-field shadow-[0_0_0_3px_color-mix(in_srgb,var(--color-field)_25%,transparent)]"
+        className="h-1.5 w-1.5 shrink-0 rounded-full bg-field shadow-[0_0_0_3px_color-mix(in_srgb,var(--field)_25%,transparent)]"
         aria-hidden="true"
       />
     )}

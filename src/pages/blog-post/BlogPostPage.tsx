@@ -36,7 +36,7 @@ export const BlogPostPage = () => {
         <div className="flex justify-center">
           <Link
             to="/blog"
-            className="flex items-center gap-2 text-sm font-medium text-[var(--color-text-secondary)] hover:text-signal transition-colors duration-150"
+            className="flex items-center gap-2 text-sm font-medium text-muted hover:text-signal transition-colors duration-150"
           >
             <ArrowLeft size={16} />
             Back to blog
@@ -57,7 +57,7 @@ export const BlogPostPage = () => {
       >
         <Link
           to="/blog"
-          className="flex items-center gap-2 text-sm text-[var(--color-text-secondary)] hover:text-signal transition-colors duration-150 mb-8 group w-fit"
+          className="flex items-center gap-2 text-sm text-muted hover:text-signal transition-colors duration-150 mb-8 group w-fit"
         >
           <ArrowLeft
             size={16}
@@ -67,7 +67,7 @@ export const BlogPostPage = () => {
         </Link>
 
         {post.cover && (
-          <div className="aspect-[2/1] rounded-card overflow-hidden mb-8 border border-[var(--color-border)]">
+          <div className="aspect-[2/1] rounded-card overflow-hidden mb-8 border border-line">
             <img
               src={post.cover}
               alt={post.title}
@@ -78,21 +78,21 @@ export const BlogPostPage = () => {
 
         <header className="mb-8">
           {post.series && <Badge className="mb-4">{post.series}</Badge>}
-          <h1 className="text-3xl md:text-[2.5rem] md:leading-[1.15] font-serif font-semibold text-[var(--color-text-primary)] mb-4 leading-tight tracking-[-0.015em]">
+          <h1 className="text-3xl md:text-[2.5rem] md:leading-[1.15] font-serif font-semibold text-ink mb-4 leading-tight tracking-[-0.015em]">
             {post.title}
           </h1>
           {post.excerpt && (
-            <p className="font-serif italic text-lg text-[var(--color-text-secondary)] mb-6 leading-relaxed">
+            <p className="font-serif italic text-lg text-muted mb-6 leading-relaxed">
               {post.excerpt}
             </p>
           )}
-          <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-[var(--color-text-secondary)]">
+          <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-muted">
             {formatDate(post.date)}
             {post.readingTime && <> · {post.readingTime} min read</>}
           </p>
         </header>
 
-        <div className="h-px bg-[var(--color-border)] w-full mb-10" />
+        <div className="h-px bg-line w-full mb-10" />
 
         {post.externalUrl ? (
           // The piece's canonical home is elsewhere: show the summary if one
@@ -107,10 +107,10 @@ export const BlogPostPage = () => {
               href={post.externalUrl}
               target="_blank"
               rel="noreferrer"
-              className="group/out flex items-center justify-between gap-4 rounded-card border border-dashed border-[var(--color-border-strong)] p-5 transition-colors hover:border-signal"
+              className="group/out flex items-center justify-between gap-4 rounded-card border border-dashed border-line-strong p-5 transition-colors hover:border-signal"
             >
               <span>
-                <span className="mb-1 block font-mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--color-text-secondary)]">
+                <span className="mb-1 block font-mono text-[10.5px] uppercase tracking-[0.12em] text-muted">
                   Off-site
                 </span>
                 <span className="font-serif text-lg leading-snug transition-colors group-hover/out:text-signal">
@@ -119,7 +119,7 @@ export const BlogPostPage = () => {
               </span>
               <ArrowUpRight
                 size={20}
-                className="shrink-0 text-[var(--color-text-secondary)] transition-transform group-hover/out:-translate-y-0.5 group-hover/out:translate-x-0.5 group-hover/out:text-signal"
+                className="shrink-0 text-muted transition-transform group-hover/out:-translate-y-0.5 group-hover/out:translate-x-0.5 group-hover/out:text-signal"
               />
             </a>
           </div>
@@ -132,7 +132,7 @@ export const BlogPostPage = () => {
         )}
 
         {Array.isArray(post.tags) && post.tags.length > 0 && (
-          <footer className="mt-12 pt-6 border-t border-[var(--color-border)]">
+          <footer className="mt-12 pt-6 border-t border-line">
             <TagList tags={post.tags} />
           </footer>
         )}
@@ -140,14 +140,14 @@ export const BlogPostPage = () => {
         {(newer || older) && (
           <nav
             aria-label="More writing"
-            className="mt-10 grid gap-3 border-t border-dashed border-[var(--color-border)] pt-6 sm:grid-cols-2"
+            className="mt-10 grid gap-3 border-t border-dashed border-line pt-6 sm:grid-cols-2"
           >
             {newer && (
               <Link
                 to={`/blog/${newer.slug}`}
-                className="group rounded-card border border-[var(--color-border)] p-4 transition-colors hover:border-signal"
+                className="group rounded-card border border-line p-4 transition-colors hover:border-signal"
               >
-                <p className="mb-1.5 flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--color-text-secondary)]">
+                <p className="mb-1.5 flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.12em] text-muted">
                   <ArrowLeft size={11} className="transition-transform group-hover:-translate-x-0.5" />
                   Newer
                 </p>
@@ -159,9 +159,9 @@ export const BlogPostPage = () => {
             {older && (
               <Link
                 to={`/blog/${older.slug}`}
-                className="group rounded-card border border-[var(--color-border)] p-4 text-right transition-colors hover:border-signal sm:col-start-2"
+                className="group rounded-card border border-line p-4 text-right transition-colors hover:border-signal sm:col-start-2"
               >
-                <p className="mb-1.5 flex items-center justify-end gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--color-text-secondary)]">
+                <p className="mb-1.5 flex items-center justify-end gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.12em] text-muted">
                   Older
                   <ArrowRight size={11} className="transition-transform group-hover:translate-x-0.5" />
                 </p>

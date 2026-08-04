@@ -14,13 +14,13 @@ export const EmptyState = ({
   className?: string;
 }) => (
   <div className={cn("flex flex-col items-center py-16 text-center", className)}>
-    <div className="flex h-10 w-10 items-center justify-center rounded-ctl border border-[var(--color-border)] text-[var(--color-text-secondary)]">
+    <div className="flex h-10 w-10 items-center justify-center rounded-ctl border border-line text-muted">
       <Icon size={18} strokeWidth={1.75} />
     </div>
-    <p className="mt-4 text-sm font-medium text-[var(--color-text-primary)]">
+    <p className="mt-4 text-sm font-medium text-ink">
       {title}
     </p>
-    <p className="mt-1 max-w-xs text-sm text-[var(--color-text-secondary)]">
+    <p className="mt-1 max-w-xs text-sm text-muted">
       {hint}
     </p>
   </div>

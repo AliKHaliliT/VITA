@@ -26,15 +26,15 @@ function EducationCard({ item }: { item: Education }) {
       {/* Timeline node: signal while ongoing */}
       <div
         className={cn(
-          "absolute left-0 top-[26px] h-[9px] w-[9px] -translate-x-[4px] rounded-full border-2 border-[var(--color-background)]",
-          ongoing ? "bg-signal" : "bg-[var(--color-border-strong)]"
+          "absolute left-0 top-[26px] h-[9px] w-[9px] -translate-x-[4px] rounded-full border-2 border-surface",
+          ongoing ? "bg-signal" : "bg-line-strong"
         )}
       />
 
-      <div className="rounded-card border border-[var(--color-border)] bg-[var(--color-card)] p-5">
+      <div className="rounded-card border border-line bg-card p-5">
         <div className="flex-1 min-w-0">
           {(item.startDate || item.endDate || item.gpa) && (
-            <p className="font-mono text-[11px] text-[var(--color-text-secondary)] mb-1.5">
+            <p className="font-mono text-[11px] text-muted mb-1.5">
               {(item.startDate || item.endDate) && (
                 <>
                   {item.startDate ? formatMonthYear(item.startDate) : "?"}
@@ -52,14 +52,14 @@ function EducationCard({ item }: { item: Education }) {
           )}
 
           <div className="flex flex-wrap items-center gap-2 mb-1">
-            <h3 className="font-serif font-semibold text-[var(--color-text-primary)] text-base leading-snug">
+            <h3 className="font-serif font-semibold text-ink text-base leading-snug">
               {item.title}
             </h3>
             {item.degree && !says(item.title, item.degree) && <Badge>{item.degree}</Badge>}
           </div>
 
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-[var(--color-text-secondary)]">
-            <span className="font-medium text-[var(--color-text-primary)]">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
+            <span className="font-medium text-ink">
               {item.link ? (
                 <a
                   href={item.link}
@@ -89,8 +89,8 @@ function EducationCard({ item }: { item: Education }) {
         </div>
 
         {item.body && (
-          <div className="mt-4 pt-4 border-t border-[var(--color-border)]">
-            <div className="prose prose-sm dark:prose-invert max-w-none text-[var(--color-text-secondary)] prose-li:my-0.5 prose-ul:my-1">
+          <div className="mt-4 pt-4 border-t border-line">
+            <div className="prose prose-sm dark:prose-invert max-w-none text-muted prose-li:my-0.5 prose-ul:my-1">
               <Markdown>{item.body}</Markdown>
             </div>
           </div>
@@ -106,26 +106,26 @@ function CourseCard({ item }: { item: Course }) {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.25 }}
-      className="rounded-ctl border border-[var(--color-border)] bg-[var(--color-card)] p-4"
+      className="rounded-ctl border border-line bg-card p-4"
     >
       <div className="flex items-start justify-between gap-2">
         <div className="flex-1 min-w-0">
           {item.date && (
-            <p className="font-mono text-[11px] text-[var(--color-text-secondary)] mb-1">
+            <p className="font-mono text-[11px] text-muted mb-1">
               {item.date}
             </p>
           )}
-          <h3 className="font-semibold text-sm text-[var(--color-text-primary)] leading-snug">
+          <h3 className="font-semibold text-sm text-ink leading-snug">
             {item.title}
           </h3>
-          <p className="text-xs text-[var(--color-text-secondary)] mt-0.5">{item.provider}</p>
+          <p className="text-xs text-muted mt-0.5">{item.provider}</p>
         </div>
         {item.link && (
           <a
             href={item.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-shrink-0 text-[var(--color-text-secondary)] hover:text-signal transition-colors duration-150"
+            className="flex-shrink-0 text-muted hover:text-signal transition-colors duration-150"
           >
             <ExternalLink size={13} />
           </a>
@@ -177,12 +177,12 @@ export const EducationPage = () => {
           {/* Degrees */}
           {education.length > 0 && (
             <section className="space-y-5">
-              <h2 className="font-mono text-eyebrow uppercase text-[var(--color-text-secondary)]">
+              <h2 className="font-mono text-eyebrow uppercase text-muted">
                 {certCount > 0 ? "Degrees & Certificates" : "Degrees"}
               </h2>
               <div className="relative">
                 {/* Vertical timeline line */}
-                <div className="absolute left-0 top-6 bottom-6 w-px bg-[var(--color-border)]" />
+                <div className="absolute left-0 top-6 bottom-6 w-px bg-line" />
                 <div className="space-y-5">
                   {education.map((item) => (
                     <EducationCard key={item.id} item={item} />
@@ -195,7 +195,7 @@ export const EducationPage = () => {
           {/* Courses (certificates proper live at /certificates) */}
           {courses.length > 0 && (
             <section className="space-y-4">
-              <h2 className="font-mono text-eyebrow uppercase text-[var(--color-text-secondary)]">
+              <h2 className="font-mono text-eyebrow uppercase text-muted">
                 Courses & Continued Learning
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

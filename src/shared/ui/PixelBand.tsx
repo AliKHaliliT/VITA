@@ -27,7 +27,7 @@ export const PixelBand = ({
   <div
     aria-hidden="true"
     className={cn(
-      "grid h-[22px] grid-cols-[repeat(48,1fr)] border-y border-dashed border-[var(--color-border)]",
+      "grid h-[22px] grid-cols-[repeat(48,1fr)] border-y border-dashed border-line",
       className
     )}
   >

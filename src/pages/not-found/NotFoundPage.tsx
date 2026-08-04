@@ -10,12 +10,12 @@ export const NotFoundPage = () => {
       <p className="font-mono text-eyebrow uppercase text-signal">
         404 · No record
       </p>
-      <h1 className="mt-4 font-serif text-display font-semibold tracking-[-0.02em] text-[var(--color-text-primary)]">
+      <h1 className="mt-4 font-serif text-display font-semibold tracking-[-0.02em] text-ink">
         This page isn't in the file.
       </h1>
-      <p className="mt-4 max-w-[44ch] font-serif text-lg italic text-[var(--color-text-secondary)]">
+      <p className="mt-4 max-w-[44ch] font-serif text-lg italic text-muted">
         Nothing is logged at{" "}
-        <code className="rounded-ctl border border-[var(--color-border)] px-1.5 py-0.5 font-mono text-sm not-italic">
+        <code className="rounded-ctl border border-line px-1.5 py-0.5 font-mono text-sm not-italic">
           {pathname}
         </code>
         . It may have moved, or it never existed.
@@ -24,7 +24,7 @@ export const NotFoundPage = () => {
         <PillLink to="/">Back to the dossier</PillLink>
         <Link
           to="/blog"
-          className="font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--color-text-secondary)] underline decoration-[var(--color-border-strong)] underline-offset-4 transition-colors hover:text-signal"
+          className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted underline decoration-line-strong underline-offset-4 transition-colors hover:text-signal"
         >
           Or read the writing
         </Link>

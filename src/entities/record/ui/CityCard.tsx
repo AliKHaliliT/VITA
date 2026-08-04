@@ -7,7 +7,7 @@ export const CityCard = ({ city }: { city: Trip }) => {
   return (
     <Link
       to={`/travel/city/${city.slug}`}
-      className="group relative block aspect-[4/3] w-full cursor-pointer overflow-hidden rounded-ctl bg-[var(--color-background)] text-left"
+      className="group relative block aspect-[4/3] w-full cursor-pointer overflow-hidden rounded-ctl bg-surface text-left"
     >
       {city.image && (
         <img

@@ -14,14 +14,14 @@ export const SkillMatrix = ({
 }) => {
   if (skills.length === 0) return null;
   return (
-    <div className="grid gap-px overflow-hidden rounded-card border border-dashed border-[var(--color-border)] bg-[var(--color-border)] sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-px overflow-hidden rounded-card border border-dashed border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
       {skills.map(({ category, items }) => {
         const Icon = skillIcon(category);
         const shown = maxItems ? items.slice(0, maxItems) : items;
         return (
-          <div key={category} className="bg-[var(--color-card)] p-4">
-            <p className="mb-2.5 flex items-center gap-2 font-mono text-[10.5px] font-medium uppercase tracking-[0.12em] text-[var(--color-text-secondary)]">
-              <span className="flex h-6 w-6 items-center justify-center rounded-ctl border border-[var(--color-border)] text-signal">
+          <div key={category} className="bg-card p-4">
+            <p className="mb-2.5 flex items-center gap-2 font-mono text-[10.5px] font-medium uppercase tracking-[0.12em] text-muted">
+              <span className="flex h-6 w-6 items-center justify-center rounded-ctl border border-line text-signal">
                 <Icon size={12} strokeWidth={1.75} />
               </span>
               {category}
@@ -30,13 +30,13 @@ export const SkillMatrix = ({
               {shown.map((item) => (
                 <span
                   key={item}
-                  className="rounded-ctl border border-[var(--color-border)] px-1.5 py-0.5 font-mono text-[11px] tracking-[0.02em] text-[var(--color-text-primary)]"
+                  className="rounded-ctl border border-line px-1.5 py-0.5 font-mono text-[11px] tracking-[0.02em] text-ink"
                 >
                   {item}
                 </span>
               ))}
               {items.length > shown.length && (
-                <span className="rounded-ctl border border-dashed border-[var(--color-border)] px-1.5 py-0.5 font-mono text-[11px] tracking-[0.02em] text-[var(--color-text-secondary)]">
+                <span className="rounded-ctl border border-dashed border-line px-1.5 py-0.5 font-mono text-[11px] tracking-[0.02em] text-muted">
                   +{items.length - shown.length}
                 </span>
               )}

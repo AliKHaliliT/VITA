@@ -105,21 +105,21 @@ export const TravelPage = () => {
 
         {/* Stats */}
         <div className="grid grid-cols-2 gap-4 mb-8">
-          <div className="rounded-card border border-[var(--color-border)] bg-[var(--color-card)] p-5">
-            <p className="flex items-center gap-1.5 font-mono text-eyebrow uppercase text-[var(--color-text-secondary)] mb-2">
+          <div className="rounded-card border border-line bg-card p-5">
+            <p className="flex items-center gap-1.5 font-mono text-eyebrow uppercase text-muted mb-2">
               <Globe size={12} className="shrink-0" />
               Countries
             </p>
-            <p className="text-2xl font-serif font-semibold text-[var(--color-text-primary)]">
+            <p className="text-2xl font-serif font-semibold text-ink">
               {stats.countries}
             </p>
           </div>
-          <div className="rounded-card border border-[var(--color-border)] bg-[var(--color-card)] p-5">
-            <p className="flex items-center gap-1.5 font-mono text-eyebrow uppercase text-[var(--color-text-secondary)] mb-2">
+          <div className="rounded-card border border-line bg-card p-5">
+            <p className="flex items-center gap-1.5 font-mono text-eyebrow uppercase text-muted mb-2">
               <MapPin size={12} className="shrink-0" />
               Cities
             </p>
-            <p className="text-2xl font-serif font-semibold text-[var(--color-text-primary)]">
+            <p className="text-2xl font-serif font-semibold text-ink">
               {stats.cities}
             </p>
           </div>
@@ -129,7 +129,7 @@ export const TravelPage = () => {
         <div className="space-y-8">
           {groupedCountries.map(([year, group]) => (
             <section key={year}>
-              <h2 className="mb-2 flex items-baseline gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--color-text-secondary)]">
+              <h2 className="mb-2 flex items-baseline gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
                 {year}
                 <span className="text-[10px] normal-case tracking-normal opacity-70">
                   {group.length} {group.length === 1 ? "country" : "countries"}
@@ -144,17 +144,17 @@ export const TravelPage = () => {
               <m.div
                 key={country.id}
                 layout
-                className="bg-[var(--color-card)] border border-[var(--color-border)] rounded-card overflow-hidden"
+                className="bg-card border border-line rounded-card overflow-hidden"
               >
                 {/* Country header */}
                 <div
-                  className="flex items-center gap-4 p-5 cursor-pointer hover:bg-[var(--color-background)]/60 transition-colors duration-150"
+                  className="flex items-center gap-4 p-5 cursor-pointer hover:bg-surface/60 transition-colors duration-150"
                   onClick={() =>
                     setExpandedCountry(isExpanded ? null : country.name)
                   }
                 >
                   {country.image && (
-                    <div className="w-20 h-14 rounded-ctl overflow-hidden flex-shrink-0 bg-[var(--color-background)]">
+                    <div className="w-20 h-14 rounded-ctl overflow-hidden flex-shrink-0 bg-surface">
                       <img
                         src={country.image}
                         alt={country.name}
@@ -164,16 +164,16 @@ export const TravelPage = () => {
                   )}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                      <h2 className="text-lg font-serif font-semibold text-[var(--color-text-primary)]">
+                      <h2 className="text-lg font-serif font-semibold text-ink">
                         {country.name}
                       </h2>
                       {country.years && (
-                        <span className="font-mono text-[11px] text-[var(--color-text-secondary)]">
+                        <span className="font-mono text-[11px] text-muted">
                           {country.years}
                         </span>
                       )}
                     </div>
-                    <div className="flex items-center gap-3 text-sm text-[var(--color-text-secondary)]">
+                    <div className="flex items-center gap-3 text-sm text-muted">
                       <span className="flex items-center gap-1">
                         <MapPin size={12} />
                         {cities.length} {cities.length === 1 ? "city" : "cities"}
@@ -186,15 +186,15 @@ export const TravelPage = () => {
                       <Link
                         to={`/travel/country/${country.slug}`}
                         onClick={(e) => e.stopPropagation()}
-                        className="text-xs font-medium text-[var(--color-text-secondary)] hover:text-signal px-2 py-1 rounded-ctl transition-colors duration-150"
+                        className="text-xs font-medium text-muted hover:text-signal px-2 py-1 rounded-ctl transition-colors duration-150"
                       >
                         Notes
                       </Link>
                     )}
                     {isExpanded ? (
-                      <ChevronUp size={18} className="text-[var(--color-text-secondary)]" />
+                      <ChevronUp size={18} className="text-muted" />
                     ) : (
-                      <ChevronDown size={18} className="text-[var(--color-text-secondary)]" />
+                      <ChevronDown size={18} className="text-muted" />
                     )}
                   </div>
                 </div>
@@ -207,7 +207,7 @@ export const TravelPage = () => {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.2 }}
-                      className="overflow-hidden border-t border-[var(--color-border)]"
+                      className="overflow-hidden border-t border-line"
                     >
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-5">
                         {cities.map((city) => (
@@ -231,27 +231,27 @@ export const TravelPage = () => {
               <m.div
                 key={name}
                 layout
-                className="bg-[var(--color-card)] border border-[var(--color-border)] rounded-card overflow-hidden"
+                className="bg-card border border-line rounded-card overflow-hidden"
               >
                 <div
-                  className="flex items-center gap-4 p-5 cursor-pointer hover:bg-[var(--color-background)]/60 transition-colors duration-150"
+                  className="flex items-center gap-4 p-5 cursor-pointer hover:bg-surface/60 transition-colors duration-150"
                   onClick={() => setExpandedCountry(isExpanded ? null : name)}
                 >
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                      <h2 className="text-lg font-serif font-semibold text-[var(--color-text-primary)]">
+                      <h2 className="text-lg font-serif font-semibold text-ink">
                         {name}
                       </h2>
                     </div>
-                    <p className="text-sm text-[var(--color-text-secondary)] flex items-center gap-1">
+                    <p className="text-sm text-muted flex items-center gap-1">
                       <MapPin size={12} />
                       {cities.length} {cities.length === 1 ? "city" : "cities"}
                     </p>
                   </div>
                   {isExpanded ? (
-                    <ChevronUp size={18} className="text-[var(--color-text-secondary)]" />
+                    <ChevronUp size={18} className="text-muted" />
                   ) : (
-                    <ChevronDown size={18} className="text-[var(--color-text-secondary)]" />
+                    <ChevronDown size={18} className="text-muted" />
                   )}
                 </div>
 
@@ -262,7 +262,7 @@ export const TravelPage = () => {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.2 }}
-                      className="overflow-hidden border-t border-[var(--color-border)]"
+                      className="overflow-hidden border-t border-line"
                     >
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-5">
                         {cities.map((city) => (

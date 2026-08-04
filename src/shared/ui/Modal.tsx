@@ -63,7 +63,7 @@ export const Modal = ({
             transition={{ duration: 0.2, ease: "easeOut" }}
             className={cn(
               "custom-scrollbar relative max-h-[90vh] w-full max-w-2xl overflow-y-auto",
-              "rounded-card border border-[var(--color-border)] bg-[var(--color-card)] shadow-overlay",
+              "rounded-card border border-line bg-card shadow-overlay",
               // The panel takes programmatic focus on open; the global
               // :focus-visible ring is for tabbable controls, not the shell.
               "outline-none focus:outline-none focus-visible:outline-none",

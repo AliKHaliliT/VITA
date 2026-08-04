@@ -30,31 +30,31 @@ export const ReferencesPage = () => {
             hint="Available upon request."
           />
         ) : (
-          <div className="rounded-card border border-[var(--color-border)] bg-[var(--color-card)] divide-y divide-[var(--color-border)]">
+          <div className="rounded-card border border-line bg-card divide-y divide-line">
             {references.map((ref, i) => (
               <m.article
                 key={ref.id}
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2, delay: Math.min(i * 0.03, 0.3) }}
-                className="flex gap-5 px-5 py-4 transition-colors duration-150 hover:bg-[var(--color-background)]/60"
+                className="flex gap-5 px-5 py-4 transition-colors duration-150 hover:bg-surface/60"
               >
                 <div className="flex-1 min-w-0">
-                  <h2 className="text-[15px] font-serif font-semibold text-[var(--color-text-primary)] leading-snug">
+                  <h2 className="text-[15px] font-serif font-semibold text-ink leading-snug">
                     {ref.name}
                   </h2>
                   {ref.title && (
-                    <p className="text-sm text-[var(--color-text-secondary)] mt-1">
+                    <p className="text-sm text-muted mt-1">
                       {ref.title}
                     </p>
                   )}
                   {(ref.relationship || ref.organization) && (
-                    <p className="text-sm text-[var(--color-text-secondary)] mt-0.5">
+                    <p className="text-sm text-muted mt-0.5">
                       {[ref.relationship, ref.organization].filter(Boolean).join(" · ")}
                     </p>
                   )}
                   {ref.body && (
-                    <p className="text-sm text-[var(--color-text-secondary)] italic leading-relaxed mt-2">
+                    <p className="text-sm text-muted italic leading-relaxed mt-2">
                       {ref.body}
                     </p>
                   )}
@@ -65,7 +65,7 @@ export const ReferencesPage = () => {
                     {ref.email && (
                       <ObfuscatedEmail
                         email={ref.email}
-                        className="p-1.5 rounded-ctl text-[var(--color-text-secondary)] hover:text-signal transition-colors duration-150"
+                        className="p-1.5 rounded-ctl text-muted hover:text-signal transition-colors duration-150"
                       >
                         <Mail size={15} />
                       </ObfuscatedEmail>
@@ -73,7 +73,7 @@ export const ReferencesPage = () => {
                     {ref.phone && (
                       <a
                         href={`tel:${ref.phone}`}
-                        className="p-1.5 rounded-ctl text-[var(--color-text-secondary)] hover:text-signal transition-colors duration-150"
+                        className="p-1.5 rounded-ctl text-muted hover:text-signal transition-colors duration-150"
                         title={ref.phone}
                         aria-label={`Call ${ref.name}`}
                       >
@@ -85,7 +85,7 @@ export const ReferencesPage = () => {
                         href={ref.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-1.5 rounded-ctl text-[var(--color-text-secondary)] hover:text-signal transition-colors duration-150"
+                        className="p-1.5 rounded-ctl text-muted hover:text-signal transition-colors duration-150"
                         title="Profile"
                         aria-label={`View ${ref.name}'s profile`}
                       >

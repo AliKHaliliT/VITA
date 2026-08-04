@@ -275,15 +275,15 @@ export const SearchModal = () => {
         initial={{ opacity: 0, scale: 0.97, y: -8 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.15, ease: "easeOut" }}
-        className="relative w-full max-w-2xl overflow-hidden rounded-[14px] border border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-card)_88%,transparent)] shadow-overlay backdrop-blur-xl"
+        className="relative w-full max-w-2xl overflow-hidden rounded-[14px] border border-line bg-[color-mix(in_srgb,var(--card)_88%,transparent)] shadow-overlay backdrop-blur-xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Input: the row itself carries focus feedback (a quiet signal
             shift on its hairline) instead of the global outline ring. */}
-        <div className="group flex items-center gap-3 border-b border-[var(--color-border)] px-4 py-3.5 transition-colors focus-within:border-[color-mix(in_srgb,var(--color-signal)_45%,var(--color-border))]">
+        <div className="group flex items-center gap-3 border-b border-line px-4 py-3.5 transition-colors focus-within:border-[color-mix(in_srgb,var(--signal)_45%,var(--line))]">
           <Search
             size={16}
-            className="flex-shrink-0 text-[var(--color-text-secondary)] transition-colors group-focus-within:text-signal"
+            className="flex-shrink-0 text-muted transition-colors group-focus-within:text-signal"
           />
           <input
             ref={inputRef}
@@ -293,11 +293,11 @@ export const SearchModal = () => {
             placeholder="Search everything…"
             aria-label="Search everything"
             data-quiet-focus
-            className="flex-1 bg-transparent font-mono text-[13px] tracking-[0.02em] text-[var(--color-text-primary)] outline-none placeholder:text-[var(--color-text-secondary)]"
+            className="flex-1 bg-transparent font-mono text-[13px] tracking-[0.02em] text-ink outline-none placeholder:text-muted"
           />
           <button
             onClick={() => setIsOpen(false)}
-            className="p-1 rounded-ctl text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+            className="p-1 rounded-ctl text-muted hover:text-ink transition-colors"
             title="Close search"
           >
             <X size={16} />
@@ -307,22 +307,22 @@ export const SearchModal = () => {
         {/* Results */}
         <div className="max-h-96 overflow-y-auto custom-scrollbar">
           {!query.trim() && (
-            <div className="px-4 py-8 text-center text-sm text-[var(--color-text-secondary)]">
+            <div className="px-4 py-8 text-center text-sm text-muted">
               Type to search the whole site
             </div>
           )}
 
           {query.trim() && results.length === 0 && (
-            <div className="px-4 py-8 text-center text-sm text-[var(--color-text-secondary)]">
+            <div className="px-4 py-8 text-center text-sm text-muted">
               No results for “{query}”
             </div>
           )}
 
           {grouped.map((group) => (
             <div key={group.type}>
-              <p className="m-0 flex items-center gap-2 px-4 pb-1 pt-3 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-[var(--color-text-secondary)]">
+              <p className="m-0 flex items-center gap-2 px-4 pb-1 pt-3 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-muted">
                 {group.type}
-                <span className="h-px flex-1 bg-[var(--color-border)]" aria-hidden="true" />
+                <span className="h-px flex-1 bg-line" aria-hidden="true" />
               </p>
               {group.items.map((result) => {
                 const Icon = TYPE_ICON[result.type] ?? Search;
@@ -336,22 +336,22 @@ export const SearchModal = () => {
                     onClick={() => handleSelect(result.href)}
                     className={cn(
                       "w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors duration-150",
-                      isSelected ? "bg-field/10" : "hover:bg-[var(--color-background)]"
+                      isSelected ? "bg-field/10" : "hover:bg-surface"
                     )}
                   >
                     <Icon
                       size={15}
                       className={cn(
                         "flex-shrink-0",
-                        isSelected ? "text-signal" : "text-[var(--color-text-secondary)]"
+                        isSelected ? "text-signal" : "text-muted"
                       )}
                     />
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-[var(--color-text-primary)] truncate">
+                      <p className="text-sm font-medium text-ink truncate">
                         {result.title}
                       </p>
                       {result.subtitle && (
-                        <p className="text-xs text-[var(--color-text-secondary)] truncate">
+                        <p className="text-xs text-muted truncate">
                           {result.subtitle}
                         </p>
                       )}
@@ -360,7 +360,7 @@ export const SearchModal = () => {
                       size={14}
                       className={cn(
                         "flex-shrink-0",
-                        isSelected ? "text-signal" : "text-[var(--color-text-secondary)]"
+                        isSelected ? "text-signal" : "text-muted"
                       )}
                     />
                   </button>
@@ -371,15 +371,15 @@ export const SearchModal = () => {
         </div>
 
         {/* Keyboard hints */}
-        <div className="px-4 py-2 border-t border-[var(--color-border)] flex items-center gap-4 font-mono text-[10px] text-[var(--color-text-secondary)]">
+        <div className="px-4 py-2 border-t border-line flex items-center gap-4 font-mono text-[10px] text-muted">
           <span className="flex items-center gap-1">
-            <kbd className="px-1 py-0.5 border border-[var(--color-border)] rounded-ctl">↑↓</kbd> navigate
+            <kbd className="px-1 py-0.5 border border-line rounded-ctl">↑↓</kbd> navigate
           </span>
           <span className="flex items-center gap-1">
-            <kbd className="px-1 py-0.5 border border-[var(--color-border)] rounded-ctl">↵</kbd> open
+            <kbd className="px-1 py-0.5 border border-line rounded-ctl">↵</kbd> open
           </span>
           <span className="flex items-center gap-1">
-            <kbd className="px-1 py-0.5 border border-[var(--color-border)] rounded-ctl">esc</kbd> close
+            <kbd className="px-1 py-0.5 border border-line rounded-ctl">esc</kbd> close
           </span>
         </div>
       </m.div>
