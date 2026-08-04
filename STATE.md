@@ -30,6 +30,7 @@ Current project status. Read this before starting work. Format and rules: see
 
 ## Next
 
+- Nothing queued.
 
 ## Deferred
 
