@@ -19,7 +19,7 @@ the indexed document that covers whatever you are about to touch.
 | `npm run preview` | Serve the production build locally |
 | `npm test` | Vitest characterization suites |
 | `npm run lint` | ESLint |
-| `npx tsc -b` | Type-check all projects (the root tsconfig is solution-style; a plain `tsc --noEmit` checks nothing) |
+| `npm run typecheck` | Type-check all projects (the root tsconfig is solution-style; a plain `tsc --noEmit` checks nothing) |
 | `npm run icon -- <size>` | Render the pixel-mark to PNG (`--theme dark`, `--bg "#hex"`, `--out dir`) |
 
 Run `npm test` after touching the record's `seed`, `store`, or `schema`, or the
@@ -58,6 +58,13 @@ These are non-negotiable. Depth lives in the indexed documents; this is the chec
   with the key named. See [decision 0009](docs/decisions/0009-guard-the-record-with-hand-written-validators.md).
 - **The environment is read only through `shared/config`.** No other module touches
   `import.meta.env`.
+- **Suites mirror the source tree and substitute only at a seam.** One suite per unit under
+  test, at the matching path beneath `tests/`. A collaborator is replaced at an architectural
+  seam, by a hand-written fake satisfying the contract it stands in for, and never by mocking a
+  module's internals, because a test bound to an implementation voids the substitutability the
+  layers exist to provide while still passing green. No coverage threshold is imposed, so
+  breadth stays a judgment call while placement and substitution do not. See
+  [decision 0013](docs/decisions/0013-adopt-the-styles-test-contract.md).
 - **Follow the doc-comment convention** in the [README's Conventions section](README.md#conventions)
   and the documentation rules in [docs/CONVENTIONS.md](docs/CONVENTIONS.md); the latter is
   frozen and must not be edited.
