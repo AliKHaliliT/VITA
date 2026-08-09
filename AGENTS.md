@@ -32,7 +32,8 @@ These are non-negotiable. Depth lives in the indexed documents; this is the chec
 
 - **Prose carries no em dashes.** Not in docs, comments, or UI copy. Use a semicolon to
   join two clauses or parentheses for an aside. This applies to every character you write,
-  source and Markdown alike.
+  source and Markdown alike. CI greps every tracked byte
+  for the character; commit messages stay with review.
 - **All prose must read as if a person wrote it.** Never write the clause-colon splice, a
   sentence shaped as claim, colon, elaboration; in prose a colon may only introduce a
   list, a quote, or a label. The softer language-model tells (balanced semicolon
