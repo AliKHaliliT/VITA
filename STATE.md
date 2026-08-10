@@ -5,6 +5,15 @@ Current project status. Read this before starting work. Format and rules: see
 
 ## Now
 
+- Aligned with the style's 2026-08-10 rulings: the rulebook refreshed and its hash now
+  pinned in CI, the docs audit and its Docs step adopted, the version pinned at 0.0.1,
+  the quotes rule checked by ESLint, doc-comment presence checked by the jsdoc plugin,
+  every workflow on latest stable action majors, and the vendor libraries split into
+  their own cached chunk (2026-08-10). The reasoning lives in the style's decision
+  records, 0013 through 0016 in Helm.
+- A changed seed now wins over a stale browser override, and the site's dead write half is
+  purged, leaving the record door read-only; the admin's live preview survives untouched
+  (2026-08-10). Decision 0014 carries the reasoning and retires the merge-UI deferral.
 - CI greps every tracked byte for an em dash before anything installs, so the prose ban
   is checked rather than remembered (2026-08-08).
 - The style's test contract is adopted, and the suites already satisfied it. Suites mirror
@@ -38,13 +47,11 @@ Current project status. Read this before starting work. Format and rules: see
 
 ## Next
 
-- Nothing queued.
+- Fission `docs/ARCHITECTURE.md`: it stands at 294 lines against the roughly-150 budget,
+  so the tripwire set when it was last split has now tripped (2026-08-10).
 
 ## Deferred
 
-- Add a merge or choose UI for seed-versus-localStorage shadowing; a redeploy that changes
-  shadowed markdown currently only logs a console warning naming the key to clear (2026-07-18).
-- Split `docs/ARCHITECTURE.md` again by fission if it drifts back over the size budget (2026-07-18).
 
 ## Blocked
 

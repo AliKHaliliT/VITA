@@ -19,6 +19,7 @@ the indexed document that covers whatever you are about to touch.
 | `npm run preview` | Serve the production build locally |
 | `npm test` | Vitest characterization suites |
 | `npm run lint` | ESLint |
+| `npm run docs` | The living documents against the tree and the calendar |
 | `npm run typecheck` | Type-check all projects (the root tsconfig is solution-style; a plain `tsc --noEmit` checks nothing) |
 | `npm run icon -- <size>` | Render the pixel-mark to PNG (`--theme dark`, `--bg "#hex"`, `--out dir`) |
 
@@ -34,6 +35,10 @@ These are non-negotiable. Depth lives in the indexed documents; this is the chec
   join two clauses or parentheses for an aside. This applies to every character you write,
   source and Markdown alike. CI greps every tracked byte
   for the character; commit messages stay with review.
+- **A STATE entry is a claim, not a fact.** Its date is a last-verified stamp with a
+  90-day expiry the docs audit enforces in CI. Verify an entry before relying on it, and
+  end every change by sweeping STATE.md for entries the change completed or invalidated,
+  agent and human alike.
 - **All prose must read as if a person wrote it.** Never write the clause-colon splice, a
   sentence shaped as claim, colon, elaboration; in prose a colon may only introduce a
   list, a quote, or a label. The softer language-model tells (balanced semicolon
