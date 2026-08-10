@@ -5,6 +5,12 @@ Current project status. Read this before starting work. Format and rules: see
 
 ## Now
 
+- Aligned with the style's document budgets and rule census: the rulebook re-copied and
+  re-pinned, the audit now holding budgets, the index contract, the STATE schema, names,
+  and the raw-palette ban, and ESLint enforcing the env and HTTP homes (2026-08-10).
+- The content model fissioned at the new budget's demand: a 502-line reference became a
+  door and five subject files, each registered in the index and each under budget; the
+  door's stale no-validation claim fell in the same cut (2026-08-10).
 - Aligned with the style's 2026-08-10 rulings: the rulebook refreshed and its hash now
   pinned in CI, the docs audit and its Docs step adopted, the version pinned at 0.0.1,
   the quotes rule checked by ESLint, doc-comment presence checked by the jsdoc plugin,
