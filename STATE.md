@@ -53,8 +53,7 @@ Current project status. Read this before starting work. Format and rules: see
 
 ## Next
 
-- Fission `docs/ARCHITECTURE.md`: it stands at 294 lines against the roughly-150 budget,
-  so the tripwire set when it was last split has now tripped (2026-08-10).
+- Nothing queued.
 
 ## Deferred
 
