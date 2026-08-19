@@ -18,7 +18,7 @@ It is built with React and Vite and deploys to GitHub Pages with no server and n
 
 ## The Philosophy: Why Does This Exist?
 
-A personal record decays in a predictable way. It starts on a platform that owns the data, spreads into a CV that immediately disagrees with the site, and ends as three stale copies of the same facts in places nobody can diff. The rot is not laziness, it is structural: when the record has no single home and no format you can read without the tool that wrote it, drift is the only possible outcome.
+A personal record decays in a predictable way. It starts on a platform that owns the data, spreads into a CV that immediately disagrees with the site, and ends as three stale copies of the same facts in places nobody can diff. The rot is not laziness, it is structural. When the record has no single home and no format you can read without the tool that wrote it, drift is the only possible outcome.
 
 VITA exists to make the record a set of files you own. Every entry is Markdown with frontmatter, the identity and palette are small seeds beside it, and the published site is a build artifact rather than a source of truth. That inversion is the whole idea. You can read the record in a text editor, diff it in a pull request, back it up with `git clone`, and hand the same files to a CV builder without an export step, because the files were the record all along.
 
