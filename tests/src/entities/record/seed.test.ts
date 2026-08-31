@@ -3,7 +3,7 @@
 // starts failing after an intentional behavior change, update it deliberately.
 
 import { describe, expect, it } from "vitest";
-import { loadInitialData, loadSettings } from "@/entities/record/seed";
+import { loadInitialData, loadSettings, orderingFor } from "@/entities/record/seed";
 import { ContentType } from "@/entities/record/model";
 
 const ALL_TYPES: ContentType[] = [
@@ -123,12 +123,23 @@ describe("loadInitialData: sorting", () => {
   );
 
   // The universal rule since 2026-07-24: anything undated reads alphabetically.
-  it("undated types come back in alphabetical order", () => {
+  // Pins lead their collection, so the alphabet governs the unpinned tail.
+  it("undated types come back alphabetically behind any pins", () => {
     for (const type of ["books", "interests", "countries", "references"] as ContentType[]) {
       const items = loadInitialData(type) as unknown as Loose[];
-      const labels = items.map((i) => String(i.title ?? i.name ?? ""));
+      const firstUnpinned = items.findIndex((i) => i.pin === undefined);
+      expect(items.slice(firstUnpinned).every((i) => i.pin === undefined), type).toBe(true);
+      const labels = items
+        .slice(firstUnpinned)
+        .map((i) => String(i.title ?? i.name ?? ""));
       expect(labels).toEqual([...labels].sort((a, b) => a.localeCompare(b)));
     }
+  });
+
+  it("a seeded ordering policy is read; unknown keys mean the default", () => {
+    expect(orderingFor("media/game")).toBe("alphabetical");
+    expect(orderingFor("books")).toBeUndefined();
+    expect(orderingFor("no-such-section")).toBeUndefined();
   });
 });
 

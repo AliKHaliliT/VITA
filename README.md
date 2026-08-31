@@ -223,6 +223,7 @@ is listed here too because most of the engineering lives there.
 - Twenty content types, each mapping one-to-one to a folder, a TypeScript interface, and a route
 - Open type fields that never gate what a record can hold; a degree can be "Journeyman" and a publication a "charter", and the site renders any label you invent
 - Story links that cross-reference the record, so an interest, a book, or a city can point at the garden note or blog post that tells its story
+- Pinning and per-section ordering: `pin: 1` on any entry leads its section, and one optional seed chooses alphabetical or chronological per section, degrading gracefully when entries lack the sorted field
 - Off-site writing as first-class entries; a post whose home is Medium or dev.to lists, searches, and links out like everything else
 - Free-form profile links with an icon registry, so any platform joins the hero and footer without a schema change
 
