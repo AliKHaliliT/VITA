@@ -35,8 +35,9 @@ Notes / review in Markdown.
 Folder: `src/content/media/`
 
 Sorted by `date` descending. `medium` is an open string: film, series, anime,
-and game get their own shelf glyphs, and any other value still earns a shelf
-with the library's fallback mark. `status` is open too; pick labels whose
+and game get their own shelf glyphs and plural shelf headings ("Films",
+"Games"), and any other value still earns a shelf, headed by its own Title
+Case under the library's fallback mark. `status` is open too; pick labels whose
 English shape matches the stage you mean (see the heuristic above).
 
 ```yaml

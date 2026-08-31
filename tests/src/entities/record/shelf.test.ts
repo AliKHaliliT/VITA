@@ -64,7 +64,13 @@ describe("buildShelves", () => {
       ]
     );
     expect(shelves.map((s) => s.slug)).toEqual(["books", "film", "game"]);
+    expect(shelves.map((s) => s.label)).toEqual(["Books", "Films", "Games"]);
     expect(shelves[2].items).toHaveLength(2);
+  });
+
+  it("labels an owner-invented medium as its own Title Case", () => {
+    const [shelf] = buildShelves([], [media({ medium: "board game" })]);
+    expect(shelf.label).toBe("Board Game");
   });
 
   it("omits empty collections instead of shelving nothing", () => {

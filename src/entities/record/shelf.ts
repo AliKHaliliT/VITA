@@ -56,6 +56,16 @@ export const stageOf = (status?: string): ShelfStage => {
 export const shelfSlug = (medium?: string): string =>
   ((medium || "").trim() || "other").toLowerCase().replace(/\s+/g, "-");
 
+/** Shelf headings for the common mediums, pluralized to read like "Books";
+    an owner-invented medium renders as its own Title Case, since no machine
+    pluralizes an open string safely. */
+const SHELF_LABELS: Record<string, string> = {
+  film: "Films",
+  series: "Series",
+  anime: "Anime",
+  game: "Games",
+};
+
 const bookToItem = (b: Book): ShelfItem => ({
   slug: b.slug,
   title: b.title,
@@ -108,7 +118,7 @@ export function buildShelves(books: Book[], media: MediaItem[]): Shelf[] {
   }
   const mediaShelves = [...byMedium.entries()].map(([slug, items]) => ({
     slug,
-    label: typeLabel({}, items[0].medium || "other"),
+    label: SHELF_LABELS[slug] ?? typeLabel({}, items[0].medium || "other"),
     items: items.map(mediaToItem),
   }));
   mediaShelves.sort((a, b) => a.label.localeCompare(b.label));
