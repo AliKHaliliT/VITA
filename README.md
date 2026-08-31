@@ -162,7 +162,7 @@ A line or two about what it is and why it exists.
 
 Every type's schema is documented in [`docs/CONTENT-MODEL.md`](docs/CONTENT-MODEL.md). Content is bundled eagerly, so restart `npm run dev` after adding files locally.
 
-The comfortable way is the admin panel. [TABULARIUM](https://github.com/AliKHaliliT/TABULARIUM) gives every ledger a real editor with rich text, live identity and palette previews, and all nineteen content types, and it produces exactly the files this repo publishes. You can download them one by one, download the whole record as a zip laid out in this repo's structure, or connect the panel straight to your repository with a fine-grained token and push edits as commits, resolving any conflicts file by file. The [hosted panel](https://alikhalilit.github.io/TABULARIUM/) works out of the box, and everything you edit stays in your browser until you publish it.
+The comfortable way is the admin panel. [TABULARIUM](https://github.com/AliKHaliliT/TABULARIUM) gives every ledger a real editor with rich text, live identity and palette previews, and all twenty content types, and it produces exactly the files this repo publishes. You can download them one by one, download the whole record as a zip laid out in this repo's structure, or connect the panel straight to your repository with a fine-grained token and push edits as commits, resolving any conflicts file by file. The [hosted panel](https://alikhalilit.github.io/TABULARIUM/) works out of the box, and everything you edit stays in your browser until you publish it.
 
 When you want the record as documents instead of a site, [EPITOMA](https://github.com/AliKHaliliT/EPITOMA) turns it into print-ready resumes and CVs. Point it at your public site repository and it pulls the content by itself, with no token needed.
 
@@ -214,13 +214,13 @@ is listed here too because most of the engineering lives there.
 
 ### Personal
 
-- Book library with reading status
+- A library of shelves: books plus films, series, anime, games, and any medium you invent, each with statuses, ratings, and notes
 - Travel log from countries down to cities
 - Interests ledger with story links into the garden
 
 ### The record's machinery
 
-- Nineteen content types, each mapping one-to-one to a folder, a TypeScript interface, and a route
+- Twenty content types, each mapping one-to-one to a folder, a TypeScript interface, and a route
 - Open type fields that never gate what a record can hold; a degree can be "Journeyman" and a publication a "charter", and the site renders any label you invent
 - Story links that cross-reference the record, so an interest, a book, or a city can point at the garden note or blog post that tells its story
 - Off-site writing as first-class entries; a post whose home is Medium or dev.to lists, searches, and links out like everything else

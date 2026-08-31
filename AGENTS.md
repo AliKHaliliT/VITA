@@ -212,6 +212,7 @@ document, register it here in the same change; when you remove one, delist it he
 | [docs/CONTENT-CAREER.md](docs/CONTENT-CAREER.md) | Field schemas of the career ledgers. |
 | [docs/CONTENT-COMMUNITY.md](docs/CONTENT-COMMUNITY.md) | Field schemas of the community and credential ledgers. |
 | [docs/CONTENT-GARDEN.md](docs/CONTENT-GARDEN.md) | Field schemas of the garden and writing ledgers. |
+| [docs/CONTENT-LIBRARY.md](docs/CONTENT-LIBRARY.md) | Field schemas of the library's shelves (books and media), plus the status-stage heuristic. |
 | [docs/CONTENT-TRAVEL.md](docs/CONTENT-TRAVEL.md) | Field schemas of the travel ledgers. |
 | [docs/ROADMAP.md](docs/ROADMAP.md) | The feature landscape and standing technical debt. |
 | [docs/SETUP.md](docs/SETUP.md) | First-time environment setup and the GitHub Pages deploy. |
