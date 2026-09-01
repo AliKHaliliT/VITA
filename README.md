@@ -236,7 +236,7 @@ is listed here too because most of the engineering lives there.
 - Runtime color palettes, site identity, and page copy, all seeded from files; renaming or rebranding the site is a JSON edit
 - An instrument-grade motion system behind a lazy-loaded engine, honoring the visitor's reduced-motion preference throughout
 - A generative ambient canvas drifting behind the masthead, palette-aware and paused when offscreen
-- A featured project without an image gets designed schematic art drawn from the palette, not a broken-image glyph
+- Anything without an image gets designed art drawn from the palette instead of a broken-image glyph: schematic plates for a featured project, a titled spine for every library entry
 - Self-hosted fonts and zero third-party requests; the published site phones nobody
 - Social and SEO metas baked at build from the identity seed, per-page titles, and deep links that survive hard refreshes on GitHub Pages
 - Obfuscated email chips instead of scrapeable mailto links
