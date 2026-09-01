@@ -65,7 +65,10 @@ data: chronological sorts whatever carries the type's date field newest first
 and lets undated entries close the list alphabetically, an unusable `pin`
 value is treated as no pin, and an absent or broken ordering file means the
 defaults. The loader applies all of this once, so every page, capped preview,
-and export sees the same order.
+and export sees the same order. Two boundaries: a grouped page (projects by
+year, garden by kind) groups over the ordered list, so pins and policies act
+within groups rather than across them, and the travel atlas orders itself
+hierarchically, so `trips` and `countries` ignore the seed.
 
 ### Open type fields
 
