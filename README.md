@@ -12,7 +12,7 @@
 
 VITA is a personal operating system that gathers your portfolio, digital garden, and life records into one static site. *Vita* is Latin for "life", the same root as *curriculum vitae*, and the site is best thought of as a CV on steroids that covers career, writing, reading, travel, and everything in between, published from Markdown.
 
-It is built with React and Vite and deploys to GitHub Pages with no server and no database. The repository's documentation and engineering conventions follow [My-Styles](https://github.com/AliKHaliliT/My-Styles), aligned to its commit `4238623`.
+It is built with React and Vite and deploys to GitHub Pages with no server and no database. The repository's documentation and engineering conventions follow [My-Styles](https://github.com/AliKHaliliT/My-Styles), aligned to its commit `2e7a95a`.
 
 ---
 
