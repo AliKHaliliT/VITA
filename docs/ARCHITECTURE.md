@@ -54,6 +54,14 @@ vita/
 ├── AGENTS.md                   # Agent entry point and the documentation index
 ├── index.html                  # The single page; mounts src/app/main.tsx
 ├── vite.config.ts              # Build, the @ -> src alias, and the seed plugins
+├── eslint.config.js            # Flat ESLint configuration; carries the layer and token rules
+├── tsconfig.json               # Solution file referencing the app and node configs
+├── tsconfig.app.json           # Compiler options for the browser bundle under src/
+├── tsconfig.node.json          # Compiler options for the build tooling (vite.config.ts)
+│
+├── scripts/                    # Tracked repository tooling
+│   ├── audit-docs.mjs          # The docs audit; the gate's Docs command
+│   └── make-icon.mjs           # Renders the pixel-mark to PNG
 │
 ├── docs/                       # Technical documentation (indexed in AGENTS.md)
 │
@@ -293,3 +301,15 @@ The 9 suites here are characterization tests over the record's schema, seed and 
 mocking at all, which is what made adopting the rule a description of existing practice rather
 than a migration. The reasoning is recorded in
 [decision 0013](decisions/0013-adopt-the-styles-test-contract.md), and the rule itself is owned by the style.
+
+## Exemplars
+
+The map says where things live; these files say how they read. An artifact of a kind listed
+here is cut from its exemplar and rewritten, never written fresh from the rule, because the
+rule names what must exist and only these bytes carry the dialect.
+
+- A content type end to end, model through both doors: `src/entities/record/model.ts`, `seed.ts`, and `store.ts`.
+- A page slice with a capped preview and a full list: `src/pages/library/`.
+- Drawn art built from palette tokens alone: `src/shared/ui/SpineArt.tsx`.
+- A characterization suite: `tests/src/entities/record/seed.test.ts`, and a unit suite: `tests/src/entities/record/order.test.ts`.
+- A decision record: `docs/decisions/0018-pin-entries-and-seed-the-section-order.md`.
