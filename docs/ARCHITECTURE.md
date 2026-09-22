@@ -71,7 +71,7 @@ vita/
 │   │   ├── App.tsx             # Providers wrapped around the router
 │   │   ├── providers.tsx       # Motion runtime and the record provider
 │   │   ├── router.tsx          # The route table and the route transitions
-│   │   ├── layout/             # AppLayout, TopBar, Footer, theme, nav visibility
+│   │   ├── layout/             # AppLayout, TopBar, Footer, saved-copy notice, theme, nav visibility
 │   │   └── styles/             # index.css (base) and tokens.css (the tokens)
 │   ├── pages/                  # One slice per route
 │   ├── features/               # search, portfolio-export
@@ -100,16 +100,16 @@ src/content/**/*.md
 **Persistence model:**
 
 - Markdown files are seed data only. They are read at build time via `import.meta.glob`.
-- Runtime edits (written by a same-origin editing surface) are stored in
-  `localStorage` under `os_content_<type>` and `os_settings` and shadow the seed.
+- Runtime edits are written by a same-origin editing surface, the companion admin, into
+  `localStorage` under `os_content_<type>` and `os_settings`, where they shadow the seed.
+  This site reads them and writes nothing.
 - Clearing browser storage resets everything to the Markdown seed. This is intentional.
-- Saves also record a fingerprint of the bundled seed (`os_content_seed_<type>`); if a
-  redeploy changes the markdown under a shadowed type, `getAll` logs a console warning
-  naming the key to clear.
-- All localStorage writes go through `safeSetItem` (`src/shared/lib/storage.ts`): quota or
-  unavailability surfaces as a console error and a one-time alert instead of an unhandled throw.
-- `ContentService.downloadMarkdown(item)` exports any item as a `.md` file so it can be
-  committed back to the repo as seed data.
+- The admin records a fingerprint of the bundled seed beside each edit
+  (`os_content_seed_<type>`). When a redeploy changes the markdown under an edit, the
+  deployment wins and the stale copy is dropped, under
+  [decision 0014, Let a changed seed win over a stale override](decisions/0014-let-a-changed-seed-win-over-a-stale-override.md).
+- A saved copy that fails its check never reaches a page. The store sets it aside, and the
+  shell shows a notice naming the key to clear, which only a browser holding such a copy sees.
 
 ---
 
@@ -175,7 +175,9 @@ a sticky **TopBar**: grouped dropdowns from `NAV_GROUPS`, the command-palette
 trigger, the theme toggle, and a full-screen mobile index. The **Footer** is the
 dossier back cover: a complete sitemap, socials from settings, and the pixel band.
 Content sits in a centered 1180px rail with dashed hairline edges. There is no
-sidebar.
+sidebar. A browser holding a saved copy the record refused also gets a small notice
+at the foot of the viewport naming each key to clear and why; every other browser
+renders nothing there.
 
 ---
 
