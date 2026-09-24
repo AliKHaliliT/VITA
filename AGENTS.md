@@ -30,24 +30,25 @@ record contract, and the export contract.
 
 The checks report at two levels. A failure is a verdict, it stops the command, and it
 means a rule the tool fully decides has been broken. A warning is advice, it leaves the
-exit status clean, and it comes from a check that cannot decide its own question and so
-is not allowed to gate. Advice is not noise and not optional reading. Every warning is
-looked at and then either fixed or dismissed in writing in the commit message of the
-change that produced it, so the judgment outlives the run that asked for it, and a warning
-is never silenced with a suppression comment to make a run look clean. A finding printed on
-every run by design, like a review row of the invariants ledger, was answered by the record
-that made it so and needs no repetition. The advisory checks here are the credential and regular-expression heuristics in the lint
-configuration, which guess from the shape of a string or a pattern and are wrong often
-enough that they cannot be a gate, the docs audit's vocabulary advisory, which reads an
-honest domain term the same as a tell and so advises for review, its spelling advisory,
-which runs where codespell is installed and names itself as not run elsewhere, and its
-form advisory, which counts the references a prose paragraph names and cannot tell an
-enumeration from an argument, so it advises a list or a table and gates nothing. Its splice
-advisory names a colon that opens a lowercase clause in a record main does not hold yet,
-because a list colon and a spliced one look alike to a machine, and it falls silent once the
-record has landed, since a defect found in a merged record stays. A check the tree gave
-nothing to run is named as not run, with what it needs, so a clean verdict
-never hides a check that never looked.
+exit status clean, and it comes from a check that cannot decide its own question and so is
+not allowed to gate. Advice is not noise and not optional reading. Every warning is looked
+at and then either fixed or dismissed in writing in the commit message of the change that
+produced it, so the judgment outlives the run that asked for it, and a warning is never
+silenced with a suppression comment to make a run look clean. A finding printed on every
+run by design, like a review row of the invariants ledger, was answered by the record that
+made it so and needs no repetition. The advisory checks here are the credential and
+regular-expression heuristics in the lint configuration, which guess from the shape of a
+string or a pattern and are wrong often enough that they cannot be a gate, the docs
+audit's vocabulary advisory, which reads an honest domain term the same as a tell and so
+advises for review, its spelling advisory, which runs where codespell is installed, reads
+the project's own terms from `.codespellignore`, and names itself as not run elsewhere,
+and its form advisory, which counts the references a prose paragraph names and cannot tell
+an enumeration from an argument, so it advises a list or a table and gates nothing. Its
+splice advisory names a colon that opens a lowercase clause in a record main does not hold
+yet, because a list colon and a spliced one look alike to a machine, and it falls silent
+once the record has landed, since a defect found in a merged record stays. A check the
+tree gave nothing to run is named as not run, with what it needs, so a clean verdict never
+hides a check that never looked.
 
 ## Hard rules
 
