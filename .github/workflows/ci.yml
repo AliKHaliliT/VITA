@@ -69,12 +69,12 @@ jobs:
         # pinned beside the rulebook and checked before they run, because a checker the checked
         # project can edit is no checker at all.
         run: |
-          echo "4c4abba28af927544a8219321a284bffb39711740dda0cd8a7f861ce5216d381  docs/CONVENTIONS.md" | sha256sum -c -
-          echo "049b24904fc43e5d0de82ae8b8b41a54cb04fc1cf6b230f5898c8ea855d43e49  docs/LIVING.md" | sha256sum -c -
-          echo "c21fb471857ae06254354e13672c9b2b8e28193429a655d3782e9e05039fe6d1  docs/RECORDS.md" | sha256sum -c -
-          echo "457cdaad8da94808aa17c08f84a185ce1f3dc05f99f53c66b534483ad1094fa0  docs/PROSE.md" | sha256sum -c -
-          echo "d8f5792afdfb43350cc5d705f37aded4cf59ff3029a78d84a992fa7ffe38a99c  scripts/audit-docs.mjs" | sha256sum -c -
-          echo "260402797acf98c8ff95d2973f9a02b240900f80203389d0fca443e65783b9fc  scripts/audit-docs-selftest.mjs" | sha256sum -c -
+          echo "e61f960f9f601f44c1ff204827aeab3642f17a9f49918ccb2263ca29a0d095f6  docs/CONVENTIONS.md" | sha256sum -c -
+          echo "78821ed4b7dee3b0f3fb57be168a3464491b0ae5a7a7ea4563e2aa29f7e92c93  docs/LIVING.md" | sha256sum -c -
+          echo "c584e14aa409e363598529b2124c8eb3316b3d41ac44c8b2f30822bfef1fb0d3  docs/RECORDS.md" | sha256sum -c -
+          echo "5ac73538a91eb3c5659392ff3d9ee4dbdd23c078a49045196516c07363af15bc  docs/PROSE.md" | sha256sum -c -
+          echo "bcaffa8a8b53f178598f4a7f66c90b4dfed2e5e389b26acc19c0c717a357ce8f  scripts/audit-docs.mjs" | sha256sum -c -
+          echo "15faa090d15740d0747ab2071649461a3180a6a748e0bb408a2417709d43d157  scripts/audit-docs-selftest.mjs" | sha256sum -c -
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
           node-version: "24"
