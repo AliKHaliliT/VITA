@@ -62,6 +62,7 @@ vita/
 ├── scripts/                    # Tracked repository tooling
 │   ├── audit-docs.mjs          # The docs audit; the gate's Docs command
 │   ├── audit-docs-selftest.mjs # Proves every rule of the audit against a planted defect
+│   ├── cut-edition.mjs         # The edition tool; cuts the tree a public repository receives
 │   └── make-icon.mjs           # Renders the pixel-mark to PNG
 │
 ├── docs/                       # Technical documentation (indexed in AGENTS.md)
